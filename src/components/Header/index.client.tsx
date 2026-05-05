@@ -31,7 +31,7 @@ export function HeaderClient({ header }: Props) {
               alt="TERKIS Logo"
               width={360}
               height={120}
-              className="h-12 w-auto"
+              className="h-9 w-auto"
             />
         </div>
 
@@ -43,7 +43,7 @@ export function HeaderClient({ header }: Props) {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-lg font-bold uppercase tracking-wide transition-colors duration-200 pb-1 ${
+                className={`text-md font-bold uppercase tracking-wide transition-colors duration-200 pb-1 ${
                   isActive
                     ? "border-b-2 border-red-900 text-red-900"
                     : "border-b-2 border-transparent text-neutral-500 hover:border-red-700 hover:text-red-700"
