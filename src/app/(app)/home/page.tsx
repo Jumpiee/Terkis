@@ -52,34 +52,7 @@ const categories = [
 export default function Page() {
   return (
     <div className="bg-neutral-50 text-neutral-900">
-      <header className="sticky top-0 z-50 w-full border-b border-neutral-200 bg-white">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-            <Image
-              src= '/api/media/file/TERKIS.png'
-              alt= "TERKIS"
-              width={360}
-              height={120}
-              className="h-12 w-auto"
-              />
-          <nav className="hidden items-center gap-8 md:flex">
-            <a href="#solutions" className="border-b-2 border-red-900 pb-1 font-bold uppercase text-red-900">
-              Solutions
-            </a>
-            <a href="#excellence" className="font-bold uppercase text-neutral-500 hover:text-red-700">
-              Technical Excellence
-            </a>
-            <a href="#sourcing" className="font-bold uppercase text-neutral-500 hover:text-red-700">
-              Global Sourcing
-            </a>
-            <a href="#heritage" className="font-bold uppercase text-neutral-500 hover:text-red-700">
-              Heritage
-            </a>
-          </nav>
-          <button type="button" className="bg-red-900 px-5 py-2 text-sm font-semibold uppercase text-white hover:bg-red-800">
-            Technical Inquiry
-          </button>
-        </div>
-      </header>
+    
 
       <main>
         <section id="solutions" className="relative overflow-hidden border-b border-neutral-900">
