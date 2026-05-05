@@ -1,10 +1,10 @@
 "use client"
 
-import Link from "next/link"
+import { PhoneOutgoing } from 'lucide-react'
 import Image from "next/image"
+import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
-import { PhoneOutgoing }  from 'lucide-react'
 
 interface Props {
   header: any; 
@@ -22,7 +22,7 @@ export function HeaderClient({ header }: Props) {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-neutral-200 bg-white/90 backdrop-blur-md">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+      <div className="mx-auto flex max-w-7xl items-center justify-between py-4">
 
         {/* Logo */}
         <div className="flex flex-1 items-center justify-start">
