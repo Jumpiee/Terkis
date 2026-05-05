@@ -123,6 +123,8 @@
   --success: oklch(78% 0.08 200deg);
   --warning: oklch(89% 0.1 75deg);
   --error: oklch(75% 0.15 25deg);
+  --terkis-red: oklch(45% 0.18 26);
+  --terkis-yellow: oklch(89.2% 0.17 93.6);
 }
 
 [data-theme='dark'] {
@@ -203,6 +205,8 @@
   --color-success: var(--success);
   --color-warning: var(--warning);
   --color-error: var(--error);
+  --color-terkis-red: var(--terkis-red);
+  --color-terkis-yellow: var(--terkis-yellow);
 }
 
 @layer base {
