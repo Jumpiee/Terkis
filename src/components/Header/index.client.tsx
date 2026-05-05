@@ -15,7 +15,7 @@ const navLinks = [
   { label: "About Us", href: "/aboutus" },
   { label: "Products", href: "/products" },
 ]
-
+//
 export function HeaderClient({ header }: Props) {
   const pathname = usePathname()
   const [menuOpen, setMenuOpen] = useState(false)
