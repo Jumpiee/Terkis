@@ -1,11 +1,6 @@
 import Image from "next/image"
+import PartnersGrid from "@/components/PartnerGrid/page"
 
-const partners = [
-  { name: "FLUIMAC",    logo: "/api/media/file/FLUIMAC.jpg"},
-  { name: "HOMA",       logo: "/api/media/file/HOMA.png"},
-  { name: "SEKO",       logo: "/api/media/file/SEKO.png"},
-  { name: "VICTORPUMP", logo: "/api/media/file/VICTOR.png"},
-]
 const pillars = [
   {
     title: "Technical Excellence",
@@ -157,24 +152,7 @@ export default function Page() {
             <h2 className="text-3xl font-bold uppercase tracking-wide">Our Partner</h2>
           </div>
 
-          <div className="grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-5">
-            {partners.map((partner) => (
-              <div
-                key={partner.name}
-                className="group relative flex h-24 items-center justify-center rounded-xl bg-white px-6 py-4 
-                          shadow-sm transition-all duration-300 ease-in-out
-                          hover:scale-110 hover:shadow-2xl hover:z-10"
-              >
-                <Image
-                  src={partner.logo}
-                  alt={partner.name}
-                  width={360}
-                  height={120}
-                  className="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
-            ))}
-          </div>
+          <PartnersGrid></PartnersGrid>
         </div>
       </section>
       </main>
