@@ -4,7 +4,7 @@ const partners = [
   { name: "FLUIMAC",    logo: "/api/media/file/FLUIMAC.jpg"},
   { name: "HOMA",       logo: "/api/media/file/HOMA.png"},
   { name: "SEKO",       logo: "/api/media/file/SEKO.png"},
-  { name: "VICTORPUMP", logo: "/api/media/file/VICTORPUMP.png"},
+  { name: "VICTORPUMP", logo: "/api/media/file/VICTOR.png"},
 ]
 const pillars = [
   {
