@@ -37,30 +37,37 @@ export function HeaderClient({ header }: Props) {
 
         {/* Desktop Nav */}
         <nav className="hidden flex-1 items-center justify-center gap-8 md:flex">
-          {navLinks.map((link) => {
-            const isActive = pathname === link.href
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`text-md font-bold uppercase tracking-wide transition-colors duration-200 pb-1 ${
+        {navLinks.map((link) => {
+          const isActive = pathname === link.href
+          return (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`relative text-md font-bold uppercase tracking-wide transition-colors duration-200 pb-1 group ${
+                isActive ? "text-red-900" : "text-neutral-500 hover:text-red-700"
+              }`}
+            >
+              {link.label}
+
+              {/* Underline: always full-width when active, center-expands on hover when inactive */}
+              <span
+                className={`absolute bottom-0 left-1/2 h-[2px] bg-red-900 -translate-x-1/2 transition-all duration-300 ease-out ${
                   isActive
-                    ? "border-b-2 border-red-900 text-red-900"
-                    : "border-b-2 border-transparent text-neutral-500 hover:border-red-700 hover:text-red-700"
+                    ? "w-full"
+                    : "w-0 group-hover:w-full"
                 }`}
-              >
-                {link.label}
-              </Link>
-            )
-          })}
-        </nav>
+              />
+            </Link>
+          )
+        })}
+      </nav>
 
         <div className="flex flex-1 items-center justify-end gap-4">
           <Link
             href="/contact"
-            className="group hidden items-center justify-center gap-2 rounded-md bg-red-900 px-6 py-2.5 text-sm font-bold uppercase tracking-wide text-white transition-all hover:bg-red-800 hover:px-4 md:inline-flex"
+            className="group hidden items-center justify-center gap-2 rounded-full bg-red-900 px-6 py-2.5 text-sm font-bold uppercase tracking-wide text-white transition-all hover:bg-red-800 hover:px-4 md:inline-flex"
           >
-            <PhoneOutgoing className="w-0 overflow-hidden transition-all duration-300 group-hover:w-4"></PhoneOutgoing>
+            <PhoneOutgoing className="w-0 overflow-hidden duration-300 group-hover:w-4"></PhoneOutgoing>
             <span>Contact</span>
           </Link>
 

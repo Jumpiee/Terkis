@@ -50,7 +50,7 @@ export default function Page() {
     
 
       <main>
-        <section id="solutions" className="relative overflow-hidden border-b border-neutral-900">
+        <section id="solutions" className="relative overflow-hidden border-b border-neutral-900 ">
           <div className="absolute inset-0">
             <img
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2AtGfT9ErBSi2r-BW9xyaoPmerBMO9YU99zvWZmf6nAxQoTC0QKWcjG5NkFMGj-nxRWnAzxiK9RIfnONT_lR9Zs30BHBgHklT3GO8HgjgwP4PI-aJFJRDB8LSW2Txc0xpB4G8YW-_1KQXSJTYKUkf_o9TABPnFGRXOXIsbQuGk9kgyUOi1yslnLidrIfeIhcbt22SybhakBmUNagzwOZrcK_oKXq-E8TXUk80bt_4zovCMy95joixgNzMwqPBLbc3grWatl2gXwk"
@@ -60,7 +60,7 @@ export default function Page() {
             <div className="absolute inset-0 bg-gradient-to-r from-neutral-50 via-neutral-50/90 to-transparent" />
           </div>
 
-          <div className="relative z-10 mx-auto grid min-h-[42rem] max-w-7xl grid-cols-12 gap-8 px-6 py-16">
+          <div className="relative z-10 mx-auto grid min-h-220 max-w-7xl grid-cols-12 gap-8 px-6 py-16">
             <div className="col-span-12 lg:col-span-8">
               <div className="mb-6 flex items-center gap-4">
                 <span className="h-0.5 w-12 bg-red-900" />
@@ -73,10 +73,10 @@ export default function Page() {
                 Specializing in zero-failure fluid control systems for petrochemical, energy, and heavy industrial sectors.
               </p>
               <div className="flex flex-wrap gap-4">
-                <button type="button" className="bg-red-900 px-8 py-4 text-xs font-bold uppercase tracking-[0.12em] text-white hover:bg-red-800 rounded-md cursor-pointer">
+                <button type="button" className="bg-red-900 px-8 py-4 text-xs font-bold uppercase tracking-[0.12em] text-white hover:bg-red-800 rounded-full cursor-pointer">
                   Explore Technical Specs
                 </button>
-                <button type="button" className="border border-neutral-900 px-8 py-4 text-xs font-bold uppercase tracking-[0.12em] hover:bg-neutral-200 rounded-md cursor-pointer">
+                <button type="button" className="border border-neutral-900 px-8 py-4 text-xs font-bold uppercase tracking-[0.12em] hover:bg-neutral-200 rounded-full cursor-pointer">
                   Download Capability Profile
                 </button>
               </div>
@@ -101,6 +101,15 @@ export default function Page() {
           </div>
         </section>
 
+      <section id="heritage" className="border-y border-neutral-200 bg-neutral-100 py-16">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mb-10 text-center"> 
+            <h2 className="text-3xl font-bold uppercase tracking-wide">Our Partner</h2>
+          </div>
+
+          <PartnersGrid></PartnersGrid>
+        </div>
+      </section>
         <section id="excellence" className="border-b border-neutral-200 bg-white">
           <div className="mx-auto grid max-w-7xl grid-cols-1 md:grid-cols-3">
             {pillars.map((pillar, i) => (
@@ -145,16 +154,6 @@ export default function Page() {
             </div>
           </div>
         </section>
-
-        <section id="heritage" className="border-y border-neutral-200 bg-neutral-100 py-16">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-10 text-center"> 
-            <h2 className="text-3xl font-bold uppercase tracking-wide">Our Partner</h2>
-          </div>
-
-          <PartnersGrid></PartnersGrid>
-        </div>
-      </section>
       </main>
     </div>
   )
