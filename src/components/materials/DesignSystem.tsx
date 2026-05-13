@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { cn } from '@/utilities/cn'
 
 export function AppButton({ className, ...props }: ButtonProps) {
-  return <Button className={cn('rounded-full px-5 font-semibold', className)} {...props} />
+  return <Button className={cn('px-5 font-semibold', className)} {...props} />
 }
 
 type AppCardProps = React.ComponentProps<'div'> & {

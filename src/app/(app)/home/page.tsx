@@ -1,5 +1,5 @@
-import Image from "next/image"
 import PartnersGrid from "@/components/PartnerGrid/page"
+import { Button } from "@/components/ui/button"
 
 const pillars = [
   {
@@ -47,10 +47,8 @@ const categories = [
 export default function Page() {
   return (
     <div className="bg-neutral-50 text-neutral-900">
-    
 
-      <main>
-        <section id="solutions" className="relative overflow-hidden border-b border-neutral-900 ">
+        <section id="solutions" className="relative overflow-hidden border-b border-neutral-900">
           <div className="absolute inset-0">
             <img
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2AtGfT9ErBSi2r-BW9xyaoPmerBMO9YU99zvWZmf6nAxQoTC0QKWcjG5NkFMGj-nxRWnAzxiK9RIfnONT_lR9Zs30BHBgHklT3GO8HgjgwP4PI-aJFJRDB8LSW2Txc0xpB4G8YW-_1KQXSJTYKUkf_o9TABPnFGRXOXIsbQuGk9kgyUOi1yslnLidrIfeIhcbt22SybhakBmUNagzwOZrcK_oKXq-E8TXUk80bt_4zovCMy95joixgNzMwqPBLbc3grWatl2gXwk"
@@ -60,32 +58,32 @@ export default function Page() {
             <div className="absolute inset-0 bg-gradient-to-r from-neutral-50 via-neutral-50/90 to-transparent" />
           </div>
 
-          <div className="relative z-10 mx-auto grid min-h-220 max-w-7xl grid-cols-12 gap-8 px-6 py-16">
-            <div className="col-span-12 lg:col-span-8">
+          <div className="relative z-10 mx-auto grid min-h-[calc(100vh-64px)] max-w-7xl grid-cols-12 gap-8 px-6 py-16">
+            <div className="col-span-12 lg:col-span-8 flex flex-col justify-center">
               <div className="mb-6 flex items-center gap-4">
                 <span className="h-0.5 w-12 bg-red-900" />
-                <span className="text-xs font-bold uppercase tracking-[0.12em] text-red-900">System Integrity: 99.9%</span>
+                {/* <span className="text-xs font-bold uppercase tracking-[0.12em] text-red-900">System Integrity: 99.9%</span> */}
               </div>
               <h1 className="mb-8 max-w-4xl text-4xl font-extrabold uppercase leading-tight md:text-5xl">
-                Precision Engineering for <span className="text-red-900">Critical Flow</span> Infrastructure
+                Precision Engineering for <span className="text-red-900">Infrastructure</span> 
               </h1>
               <p className="mb-10 max-w-2xl text-lg text-neutral-700">
-                Specializing in zero-failure fluid control systems for petrochemical, energy, and heavy industrial sectors.
+                Terkis is Thailand's authorized distributor of premium industrial equipment from Germany, the UK, Italy, and the USA sourced specifically for <span className="text-red-900">petrochemical, refinery, and process plant applications.</span>
               </p>
               <div className="flex flex-wrap gap-4">
-                <button type="button" className="bg-red-900 px-8 py-4 text-xs font-bold uppercase tracking-[0.12em] text-white hover:bg-red-800 rounded-full cursor-pointer">
-                  Explore Technical Specs
-                </button>
-                <button type="button" className="border border-neutral-900 px-8 py-4 text-xs font-bold uppercase tracking-[0.12em] hover:bg-neutral-200 rounded-full cursor-pointer">
-                  Download Capability Profile
-                </button>
+                <Button className="bg-red-900 text-white hover:bg-red-800">
+                  Explore Product Catalog
+                </Button>
+                <Button  >
+                  Contact Sales Team
+                </Button>
               </div>
             </div>
 
             <div className="col-span-12 hidden border-l border-neutral-300 pl-8 lg:col-span-4 lg:flex lg:flex-col lg:justify-center">
               <div className="space-y-10">
                 <div>
-                  <p className="text-2xl font-semibold text-red-900">30+ YEARS</p>
+                  <p className="text-2xl font-semibold text-red-900">20+ YEARS</p>
                   <p className="text-xs font-semibold uppercase tracking-[0.1em] text-neutral-600">Engineering Heritage</p>
                 </div>
                 <div>
@@ -93,8 +91,8 @@ export default function Page() {
                   <p className="text-xs font-semibold uppercase tracking-[0.1em] text-neutral-600">Reported System Failures</p>
                 </div>
                 <div>
-                  <p className="text-2xl font-semibold text-red-900">GLOBAL</p>
-                  <p className="text-xs font-semibold uppercase tracking-[0.1em] text-neutral-600">Sourcing Network</p>
+                  <p className="text-2xl font-semibold text-red-900">EXPERTISE</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.1em] text-neutral-600">Cross Sector</p>
                 </div>
               </div>
             </div>
@@ -154,7 +152,6 @@ export default function Page() {
             </div>
           </div>
         </section>
-      </main>
     </div>
   )
 }
