@@ -65,7 +65,7 @@ export function HeaderClient({ header }: Props) {
         <div className="flex flex-1 items-center justify-end gap-4">
           <Link
             href="/contact"
-            className="group hidden items-center justify-center gap-2 rounded-full bg-red-900 px-6 py-2.5 text-sm font-bold uppercase tracking-wide text-white transition-all hover:bg-red-800 hover:px-4 md:inline-flex"
+            className="group hidden items-center justify-center gap-2 bg-red-900 px-6 py-2.5 text-sm font-bold uppercase tracking-wide text-white transition-all hover:bg-red-800 hover:px-4 md:inline-flex"
           >
             <PhoneOutgoing className="w-0 overflow-hidden duration-300 group-hover:w-4"></PhoneOutgoing>
             <span>Contact</span>

@@ -2,8 +2,9 @@
 
 import { useState } from "react"
 import { Search } from '@/components/Search'
+import { ProductModal } from "@/components/ProductModal/page"
 // ─── DATA ────────────────────────────────────────────────────────────────────
-
+import { MobileCategoryDropdown } from "@/components/MobileCategoryDropdown/page"
 const categories = [
   { id: "all", label: "All Products" },
   { id: "pumps", label: "Pumping Systems" },
@@ -12,6 +13,38 @@ const categories = [
   { id: "valves", label: "Flow Control" },
 ]
 
+const categoryMeta: Record<string, { title: string; subtitle: string; description: string }> = {
+  all: {
+    title: "All",
+    subtitle: "Product",
+    description:
+      "Every unit supplied with full traceability documentation, OEM certification, and compliance to ASME, API, and ISO standards.",
+  },
+  pumps: {
+    title: "Pumping",
+    subtitle: "Systems",
+    description:
+      "Centrifugal, positive displacement, and cryogenic pump solutions engineered for high-viscosity, volatile, and sub-zero process environments.",
+  },
+  pressure: {
+    title: "Pressure",
+    subtitle: "Management",
+    description:
+      "Spring-loaded relief valves and graphite bursting discs providing last-resort overpressure protection to API 520/526 and ISO 6718 standards.",
+  },
+  sealing: {
+    title: "Industrial",
+    subtitle: "Sealing",
+    description:
+      "Dual mechanical seals and spiral-wound gaskets rated for aggressive chemical, hydrocarbon, and high-temperature flange applications.",
+  },
+  valves: {
+    title: "Flow",
+    subtitle: "Control",
+    description:
+      "Full-bore gate valves and trunnion-mounted ball valves for on/off isolation and high-pressure pipeline control to API 600 and API 6D.",
+  },
+}
 const products = [
   // PUMPS
   {
@@ -193,48 +226,25 @@ export default function ProductsPage() {
       : products.filter((p) => p.category === activeCategory)
 
   return (
-    <div className="bg-neutral-50 text-neutral-900">
+    <div className="bg-white text-neutral-900">
 
-      {/* ── PAGE HEADER ── */}
-      <section className="border-b border-neutral-900 bg-neutral-900 px-6 py-16">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-6 flex items-center gap-4">
-            <span className="h-0.5 w-12 bg-red-700" />
-            <span className="text-xs font-bold uppercase tracking-[0.12em] text-red-500">
-              Product Catalogue — REV. 2025.04
-            </span>
-          </div>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            <div>
-              <h1 className="mb-4 text-4xl font-extrabold uppercase leading-tight text-white md:text-5xl">
-                Component <span className="text-red-600">Index</span>
-              </h1>
-              <p className="max-w-lg text-neutral-400">
-                Every unit supplied with full traceability documentation, OEM certification,
-                and compliance to ASME, API, and ISO standards.
-              </p>
-            </div>
-            <div className="flex items-end justify-start gap-10 md:justify-end">
-              <div>
-                <p className="text-3xl font-bold text-red-600">9</p>
-                <p className="text-xs font-semibold uppercase tracking-widest text-neutral-500">Products Listed</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-red-600">4</p>
-                <p className="text-xs font-semibold uppercase tracking-widest text-neutral-500">Categories</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-red-600">100%</p>
-                <p className="text-xs font-semibold uppercase tracking-widest text-neutral-500">OEM Certified</p>
-              </div>
-            </div>
-          </div>
-        </div>
+      {/* SEARCH BAR */}
+      <section className="py-12">
+        <Search className="mb-0" />
       </section>
+
       {/* ── FILTER TABS ── */}
-      <section className="sticky top-0 z-20 border-b border-neutral-200 bg-white shadow-sm">
+        <section className="sticky top-0 z-20 border-b border-neutral-200 bg-white shadow-sm">
         <div className="mx-auto max-w-7xl">
-          <div className="flex overflow-x-auto">
+
+          {/* Mobile: dropdown */}
+          <MobileCategoryDropdown
+            activeCategory={activeCategory}
+            setActiveCategory={setActiveCategory}
+          />
+
+          {/* Desktop: tab bar */}
+          <div className="hidden md:flex overflow-x-auto items-center justify-center">
             {categories.map((cat) => (
               <button
                 key={cat.id}
@@ -248,19 +258,41 @@ export default function ProductsPage() {
                 {cat.label}
               </button>
             ))}
-            <div className="ml-auto hidden items-center px-6 text-xs font-mono text-neutral-400 md:flex">
-              {filtered.length} UNIT{filtered.length !== 1 ? "S" : ""} DISPLAYED
-            </div>
           </div>
+
         </div>
       </section>
 
-      {/* SEARCH BAR */}
-      <section className="py-12">
-        <Search className="mb-8" />
-      </section>
+      {/* ── PAGE HEADER ── */}
+      {(() => {
+  const meta = categoryMeta[activeCategory]
+  return (
+    <section className="border-b border-neutral-900 bg-neutral-900 px-6 py-16">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+          <div>
+            <h1
+              key={activeCategory}
+              className="mb-4 text-4xl font-extrabold uppercase leading-tight text-white md:text-5xl animate-fade-in"
+            >
+              {meta.title} <span className="text-red-600">{meta.subtitle}</span>
+            </h1>
+            <p
+              key={activeCategory + "-desc"}
+              className="max-w-lg text-neutral-400 animate-fade-in"
+            >
+              {meta.description}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+})()}
+      
+
       {/* ── PRODUCT GRID ── */}
-      <section className="py-0">
+      <section className="py-12">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid grid-cols-1 gap-px bg-neutral-300 md:grid-cols-2 xl:grid-cols-3">
             {filtered.map((product) => (
@@ -405,46 +437,10 @@ export default function ProductsPage() {
             </div>
 
             {/* Modal body */}
-            <div className="p-6">
-              <p className="mb-6 text-neutral-700">{selectedProduct.shortDesc}</p>
-
-              <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.12em] text-red-900">
-                Full Technical Specifications
-              </h3>
-              <div className="mb-6 border border-neutral-200">
-                {Object.entries(selectedProduct.specs).map(([k, v], i) => (
-                  <div
-                    key={k}
-                    className={`flex justify-between px-4 py-3 text-sm ${
-                      i % 2 === 0 ? "bg-neutral-50" : "bg-white"
-                    }`}
-                  >
-                    <span className="font-semibold uppercase tracking-wide text-neutral-500 text-xs">{k}</span>
-                    <span className="font-bold text-neutral-900">{v}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mb-6 flex flex-wrap gap-2">
-                {selectedProduct.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="border border-red-900 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-red-900"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex gap-3">
-                <button className="flex-1 bg-red-900 py-3.5 text-xs font-bold uppercase tracking-[0.12em] text-white hover:bg-red-800">
-                  Request a Quote
-                </button>
-                <button className="flex-1 border border-neutral-900 py-3.5 text-xs font-bold uppercase tracking-[0.12em] hover:bg-neutral-100">
-                  Download Datasheet
-                </button>
-              </div>
-            </div>
+            <ProductModal
+              product={selectedProduct}
+              onClose={() => setSelectedProduct(null)}
+            />
           </div>
         </div>
       )}
