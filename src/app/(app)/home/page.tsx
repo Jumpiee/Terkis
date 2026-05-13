@@ -1,9 +1,10 @@
 import PartnersGrid from "@/components/PartnerGrid/page"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 const pillars = [
   {
-    title: "Technical Excellence",
+    title: "20+ Years",
     description:
       "Our engineering team provides deep-domain expertise in thermodynamic simulation and flow dynamics to ensure optimal hardware selection.",
   },
@@ -14,6 +15,11 @@ const pillars = [
   },
   {
     title: "Compliance First",
+    description:
+      "Strict adherence to ASME, API, and ISO standards. Every component is supplied with full traceability and performance certification.",
+  },
+  {
+    title: "Compliance second",
     description:
       "Strict adherence to ASME, API, and ISO standards. Every component is supplied with full traceability and performance certification.",
   },
@@ -50,19 +56,26 @@ export default function Page() {
 
         <section id="solutions" className="relative overflow-hidden border-b border-neutral-900">
           <div className="absolute inset-0">
-            <img
+            {/* <img
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2AtGfT9ErBSi2r-BW9xyaoPmerBMO9YU99zvWZmf6nAxQoTC0QKWcjG5NkFMGj-nxRWnAzxiK9RIfnONT_lR9Zs30BHBgHklT3GO8HgjgwP4PI-aJFJRDB8LSW2Txc0xpB4G8YW-_1KQXSJTYKUkf_o9TABPnFGRXOXIsbQuGk9kgyUOi1yslnLidrIfeIhcbt22SybhakBmUNagzwOZrcK_oKXq-E8TXUk80bt_4zovCMy95joixgNzMwqPBLbc3grWatl2gXwk"
               alt="Industrial piping infrastructure with valves and conduits"
               className="h-full w-full object-cover grayscale opacity-30"
+            /> */}
+            <Image
+              src="/image/industrial-plant.webp"
+              alt="Industrial plant"
+              loading="lazy"
+              fill
+              className="object-cover grayscale opacity-60"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-neutral-50 via-neutral-50/90 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-neutral-50 via-neutral-50/80 to-transparent" />
           </div>
 
           <div className="relative z-10 mx-auto grid min-h-[calc(100vh-64px)] max-w-7xl grid-cols-12 gap-8 px-6 py-16">
             <div className="col-span-12 lg:col-span-8 flex flex-col justify-center">
               <div className="mb-6 flex items-center gap-4">
                 <span className="h-0.5 w-12 bg-red-900" />
-                {/* <span className="text-xs font-bold uppercase tracking-[0.12em] text-red-900">System Integrity: 99.9%</span> */}
+                <span className="text-xs font-bold uppercase tracking-[0.12em] text-red-900">Authorized Distributor</span>
               </div>
               <h1 className="mb-8 max-w-4xl text-4xl font-extrabold uppercase leading-tight md:text-5xl">
                 Precision Engineering for <span className="text-red-900">Infrastructure</span> 
@@ -72,28 +85,11 @@ export default function Page() {
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button className="bg-red-900 text-white hover:bg-red-800">
-                  Explore Product Catalog
+                  Explore our Products
                 </Button>
-                <Button  >
-                  Contact Sales Team
+                <Button variant="secondary">
+                  Contact Sales
                 </Button>
-              </div>
-            </div>
-
-            <div className="col-span-12 hidden border-l border-neutral-300 pl-8 lg:col-span-4 lg:flex lg:flex-col lg:justify-center">
-              <div className="space-y-10">
-                <div>
-                  <p className="text-2xl font-semibold text-red-900">20+ YEARS</p>
-                  <p className="text-xs font-semibold uppercase tracking-[0.1em] text-neutral-600">Engineering Heritage</p>
-                </div>
-                <div>
-                  <p className="text-2xl font-semibold text-red-900">ZERO</p>
-                  <p className="text-xs font-semibold uppercase tracking-[0.1em] text-neutral-600">Reported System Failures</p>
-                </div>
-                <div>
-                  <p className="text-2xl font-semibold text-red-900">EXPERTISE</p>
-                  <p className="text-xs font-semibold uppercase tracking-[0.1em] text-neutral-600">Cross Sector</p>
-                </div>
               </div>
             </div>
           </div>
@@ -109,7 +105,7 @@ export default function Page() {
         </div>
       </section>
         <section id="excellence" className="border-b border-neutral-200 bg-white">
-          <div className="mx-auto grid max-w-7xl grid-cols-1 md:grid-cols-3">
+          <div className="mx-auto grid max-w-7xl grid-cols-1 md:grid-cols-4">
             {pillars.map((pillar, i) => (
               <article
                 key={pillar.title}

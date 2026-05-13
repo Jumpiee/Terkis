@@ -1,17 +1,17 @@
 "use client"
 
-import Link from "next/link"
 import Image from "next/image"
+import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
-import { PhoneOutgoing }  from 'lucide-react'
+import { Button } from '../ui/button'
 
 interface Props {
-  header: any; 
+  header: any;
 }
 
 const navLinks = [
-  { label: "Home",     href: "/home" },
+  { label: "Home", href: "/home" },
   { label: "About Us", href: "/aboutus" },
   { label: "Products", href: "/products" },
 ]
@@ -27,48 +27,44 @@ export function HeaderClient({ header }: Props) {
         {/* Logo */}
         <div className="flex flex-1 items-center justify-start">
           <Image
-              src="/api/media/file/LOGO.png"
-              alt="TERKIS Logo"
-              width={360}
-              height={120}
-              className="h-9 w-auto"
-            />
+            src="/api/media/file/LOGO.png"
+            alt="TERKIS Logo"
+            width={340}
+            height={100}
+            className="h-8 w-auto"
+          />
         </div>
 
         {/* Desktop Nav */}
         <nav className="hidden flex-1 items-center justify-center gap-8 md:flex">
-        {navLinks.map((link) => {
-          const isActive = pathname === link.href
-          return (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`relative text-md font-bold uppercase tracking-wide transition-colors duration-200 pb-1 group ${
-                isActive ? "text-red-900" : "text-neutral-500 hover:text-red-700"
-              }`}
-            >
-              {link.label}
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`relative text-sm font-bold uppercase tracking-wide transition-colors duration-200 pb-1 group ${isActive ? "text-red-900" : "text-neutral-500 hover:text-red-700"
+                  }`}
+              >
+                {link.label}
 
-              {/* Underline: always full-width when active, center-expands on hover when inactive */}
-              <span
-                className={`absolute bottom-0 left-1/2 h-[2px] bg-red-900 -translate-x-1/2 transition-all duration-300 ease-out ${
-                  isActive
+                {/* Underline: always full-width when active, center-expands on hover when inactive */}
+                <span
+                  className={`absolute bottom-0 left-1/2 h-[2px] bg-red-900 -translate-x-1/2 transition-all duration-300 ease-out ${isActive
                     ? "w-full"
                     : "w-0 group-hover:w-full"
-                }`}
-              />
-            </Link>
-          )
-        })}
-      </nav>
+                    }`}
+                />
+              </Link>
+            )
+          })}
+        </nav>
 
         <div className="flex flex-1 items-center justify-end gap-4">
-          <Link
-            href="/contact"
-            className="group hidden items-center justify-center gap-2 bg-red-900 px-6 py-2.5 text-sm font-bold uppercase tracking-wide text-white transition-all hover:bg-red-800 hover:px-4 md:inline-flex"
-          >
-            <PhoneOutgoing className="w-0 overflow-hidden duration-300 group-hover:w-4"></PhoneOutgoing>
-            <span>Contact</span>
+          <Link href="/contact">
+            <Button className="bg-red-900 text-white hover:bg-red-800">
+              Contact
+            </Button>
           </Link>
 
           {/* Mobile hamburger */}
@@ -87,7 +83,7 @@ export function HeaderClient({ header }: Props) {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`overflow-hidden transition-all duration-300 md:hidden ${menuOpen ? "max-h-64 border-t border-neutral-100" : "max-h-0"}`}>
+      <div className={`overflow-hidden transition-all duration-500 md:hidden ${menuOpen ? "max-h-64 border-t border-neutral-100" : "max-h-0"}`}>
         <nav className="flex flex-col gap-4 bg-white px-6 py-4">
           {navLinks.map((link) => {
             const isActive = pathname === link.href
@@ -96,15 +92,14 @@ export function HeaderClient({ header }: Props) {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className={`border-b border-neutral-100 py-2 text-sm font-bold uppercase tracking-wide transition-colors ${
-                  isActive ? "text-red-900" : "text-neutral-500 hover:text-red-700"
-                }`}
+                className={`border-b border-neutral-100 py-2 text-sm font-bold uppercase tracking-wide transition-colors ${isActive ? "text-red-900" : "text-neutral-500 hover:text-red-700"
+                  }`}
               >
                 {link.label}
               </Link>
             )
           })}
-          
+
         </nav>
       </div>
     </header>
