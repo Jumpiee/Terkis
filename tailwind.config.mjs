@@ -84,6 +84,8 @@ export default {
         success: 'hsl(var(--success))',
         error: 'hsl(var(--error))',
         warning: 'hsl(var(--warning))',
+        terkisRed: 'hsl(var(--terkis-red))',
+        terkisYellow: 'hsl(var(--terkis-yellow))',
       },
       typography: {
         DEFAULT: {

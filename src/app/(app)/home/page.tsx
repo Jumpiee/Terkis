@@ -64,7 +64,7 @@ export default function Page() {
             <Image
               src="/image/industrial-plant.webp"
               alt="Industrial plant"
-              loading="lazy"
+              loading="eager" 
               fill
               className="object-cover grayscale opacity-60"
             />
@@ -87,9 +87,9 @@ export default function Page() {
                 <Button className="bg-red-900 text-white hover:bg-red-800">
                   Explore our Products
                 </Button>
-                <Button variant="secondary">
+                <Button>
                   Contact Sales
-                </Button>
+                </Button> 
               </div>
             </div>
           </div>

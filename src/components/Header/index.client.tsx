@@ -1,9 +1,9 @@
 "use client"
 
-import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
+import { LogoIcon } from "../icons/logo"
 import { Button } from '../ui/button'
 
 interface Props {
@@ -21,18 +21,12 @@ export function HeaderClient({ header }: Props) {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-neutral-200 bg-white/90 backdrop-blur-md">
+    <header className="sticky top-0 z-50 w-full border-b border-neutral-200 bg-white">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
 
         {/* Logo */}
         <div className="flex flex-1 items-center justify-start">
-          <Image
-            src="/api/media/file/LOGO.png"
-            alt="TERKIS Logo"
-            width={340}
-            height={100}
-            className="h-8 w-auto"
-          />
+          <LogoIcon></LogoIcon>
         </div>
 
         {/* Desktop Nav */}
