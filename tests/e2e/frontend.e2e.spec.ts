@@ -306,7 +306,7 @@ test.describe('Frontend', () => {
     const publishChangesButton = page.getByRole('button', { name: 'Publish changes' })
     await publishChangesButton.click()
 
-    await page.goto(`${baseURL}/shop`)
+    await page.goto(`${baseURL}/product`)
     const newProductCard = page.locator(`a[href="/products/new-product-with-variants"]`).first()
     await newProductCard.waitFor({ state: 'visible' })
     await expect(newProductCard).toBeVisible()
@@ -551,8 +551,8 @@ test.describe('Frontend', () => {
       variant?: string
     },
   ) {
-    await page.goto(`${baseURL}/shop`)
-    await expect(page).toHaveURL(/\/shop/)
+    await page.goto(`${baseURL}/product`)
+    await expect(page).toHaveURL(/\/product/)
 
     const productCard = page.locator(`a[href="/products/${productSlug}"]`).first()
     await productCard.waitFor({ state: 'visible' })
