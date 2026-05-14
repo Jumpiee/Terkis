@@ -98,14 +98,18 @@ export async function Footer() {
           </span>
           <div className="flex gap-4">
             <div className="flex items-center gap-2">
-              <span className="text-xs text-zinc-500 hover:text-terkis-red transition-colors">
-                Terms & Conditions
-              </span>
+              <Link href="/terms-conditions" className="flex items-center gap-2">
+                <span className="text-xs text-zinc-500 hover:text-terkis-red transition-colors">
+                  Terms & Conditions
+                </span>
+              </Link>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-xs text-zinc-500 hover:text-terkis-red transition-colors">
-                Privacy Policy
-              </span>
+              <Link href="/privacy" className="flex items-center gap-2">
+                <span className="text-xs text-zinc-500 hover:text-terkis-red transition-colors">
+                  Privacy Policy
+                </span>
+              </Link>
             </div>
             <ThemeSelector></ThemeSelector>
           </div>
