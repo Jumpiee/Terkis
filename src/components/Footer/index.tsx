@@ -96,8 +96,19 @@ export async function Footer() {
           <span className="text-[9px] uppercase tracking-widest text-zinc-400">
             &copy; {currentYear} {copyrightName} INDUSTRIAL INTELLIGENCE. ALL SYSTEMS OPERATIONAL.
           </span>
-          
-          <ThemeSelector></ThemeSelector>
+          <div className="flex gap-4">
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-zinc-500 hover:text-terkis-red transition-colors">
+                Terms & Conditions
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-zinc-500 hover:text-terkis-red transition-colors">
+                Privacy Policy
+              </span>
+            </div>
+            <ThemeSelector></ThemeSelector>
+          </div>
         </div>
       </div>
     </footer>

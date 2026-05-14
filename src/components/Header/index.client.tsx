@@ -11,9 +11,9 @@ interface Props {
 }
 
 const navLinks = [
-  { label: "Home", href: "/home" },
   { label: "About Us", href: "/aboutus" },
   { label: "Products", href: "/products" },
+  { label: "News", href: "/news" },
 ]
 //
 export function HeaderClient({ header }: Props) {
