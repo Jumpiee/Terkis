@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function NotFound() {
   return (
-    <div className="relative bg-neutral-50 text-neutral-900 min-h-[calc(100vh-64px)] flex items-center overflow-hidden">
+    <div className="relative bg-neutral-50 text-neutral-900 min-h-[calc(100vh-64px)] overflow-hidden">
       {/* Grid background */}
       <div
         className="absolute inset-0"
