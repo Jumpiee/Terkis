@@ -126,7 +126,7 @@ export default function Page() {
           <div className="col-span-12 lg:col-span-8 flex flex-col justify-center">
             <div className="mb-6 flex items-center gap-4">
               <span className="h-px w-10 bg-red-900" />
-              <span className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-red-900">
+              <span className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-red-900">
                 Authorized Distributor · Thailand
               </span>
             </div>
@@ -164,7 +164,7 @@ export default function Page() {
 
         {/* Corner label */}
         <div className="absolute bottom-6 right-6 z-10 hidden md:block">
-          <span className="font-mono text-[9px] uppercase tracking-widest text-neutral-400">
+          <span className="font-mono text-xs uppercase tracking-widest text-neutral-400">
             TKS_WEB_v3.0 · 2026
           </span>
         </div>
@@ -186,7 +186,7 @@ export default function Page() {
                     </span>
                   )}
                 </div>
-                <span className="font-mono text-[10px] uppercase tracking-widest text-neutral-500 leading-relaxed">
+                <span className="font-mono text-xs uppercase tracking-widest text-neutral-500 leading-relaxed">
                   {stat.label}
                 </span>
               </div>
@@ -200,7 +200,7 @@ export default function Page() {
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-12 flex items-end justify-between gap-8">
             <div>
-              <p className="mb-2 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-red-900">
+              <p className="mb-2 font-mono text-xs font-bold uppercase tracking-[0.18em] text-red-900">
                 Our Product Range
               </p>
               <h2 className="text-3xl font-extrabold uppercase tracking-tight">
@@ -235,13 +235,13 @@ export default function Page() {
                       {cat.specs.map((s) => (
                         <span
                           key={s}
-                          className="border border-neutral-300 px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest text-neutral-500"
+                          className="border border-neutral-300 px-2 py-0.5 font-mono text-xs uppercase tracking-widest text-neutral-500"
                         >
                           {s}
                         </span>
                       ))}
                     </div>
-                    <span className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-red-900 border-b border-red-900 pb-0.5">
+                    <span className="font-mono text-xs font-bold uppercase tracking-[0.14em] text-red-900 border-b border-red-900 pb-0.5">
                       {cat.cta}
                     </span>
                   </div>
@@ -256,7 +256,7 @@ export default function Page() {
       <section className="border-y border-neutral-200 bg-white">
         <div className="mx-auto max-w-7xl px-6 py-20">
           <div className="mb-14">
-            <p className="mb-2 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-red-900">
+            <p className="mb-2 font-mono text-xs font-bold uppercase tracking-[0.18em] text-red-900">
               Why Choose Us
             </p>
             <h2 className="text-3xl font-extrabold uppercase tracking-tight">
@@ -288,7 +288,7 @@ export default function Page() {
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-10 flex items-end justify-between">
             <div>
-              <p className="mb-2 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-red-900">
+              <p className="mb-2 font-mono text-xs font-bold uppercase tracking-[0.18em] text-red-900">
                 Our Partners
               </p>
               <h2 className="text-3xl font-extrabold uppercase tracking-tight">
@@ -300,7 +300,7 @@ export default function Page() {
             </div>
             <Link
               href="/brands"
-              className="hidden md:flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-widest text-red-900 border-b border-red-900 pb-0.5 hover:gap-3 transition-all"
+              className="hidden md:flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-red-900 border-b border-red-900 pb-0.5 hover:gap-3 transition-all"
             >
               View All Brands →
             </Link>
@@ -308,7 +308,7 @@ export default function Page() {
 
           <PartnersGrid />
 
-          <p className="mt-6 font-mono text-[9px] uppercase tracking-widest text-neutral-400">
+          <p className="mt-6 font-mono text-xs uppercase tracking-widest text-neutral-400">
             All products are supplied through authorized distribution channels. Datasheets and compliance certificates available on request.
           </p>
         </div>
@@ -318,7 +318,7 @@ export default function Page() {
       <section className="bg-neutral-900 py-20 text-white">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-14">
-            <p className="mb-2 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-red-400">
+            <p className="mb-2 font-mono text-xs font-bold uppercase tracking-[0.18em] text-red-400">
               Applications
             </p>
             <h2 className="text-3xl font-extrabold uppercase tracking-tight text-white">
@@ -335,7 +335,7 @@ export default function Page() {
                 }`}
               >
                 <div className="mb-5 flex items-center justify-between">
-                  <span className="font-mono text-[9px] uppercase tracking-widest text-neutral-500">
+                  <span className="font-mono text-xs uppercase tracking-widest text-neutral-500">
                     {ind.index}
                   </span>
                   <span className="h-px w-8 bg-neutral-700 group-hover:w-16 group-hover:bg-red-900 transition-all duration-300" />
@@ -345,7 +345,7 @@ export default function Page() {
                 </h3>
                 <p className="mb-5 text-sm text-neutral-400 leading-relaxed">{ind.body}</p>
                 <div className="border-l-2 border-red-900 pl-3">
-                  <span className="font-mono text-[9px] uppercase tracking-widest text-red-400">
+                  <span className="font-mono text-xs uppercase tracking-widest text-red-400">
                     {ind.standards}
                   </span>
                 </div>
@@ -361,7 +361,7 @@ export default function Page() {
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
             {/* Left: copy */}
             <div className="flex flex-col justify-center">
-              <p className="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-red-900">
+              <p className="mb-3 font-mono text-xs font-bold uppercase tracking-[0.18em] text-red-900">
                 Enquiries
               </p>
               <h2 className="mb-6 text-4xl font-extrabold uppercase leading-tight tracking-tight">
@@ -381,7 +381,7 @@ export default function Page() {
                     </svg>
                   </div>
                   <div>
-                    <span className="block font-mono text-[9px] uppercase tracking-widest text-neutral-400">Direct Line</span>
+                    <span className="block font-mono text-xs uppercase tracking-widest text-neutral-400">Direct Line</span>
                     <span className="text-sm font-semibold text-neutral-800 group-hover:text-red-900 transition-colors">
                       +66 (0)84 903 5656
                     </span>
@@ -395,7 +395,7 @@ export default function Page() {
                     </svg>
                   </div>
                   <div>
-                    <span className="block font-mono text-[9px] uppercase tracking-widest text-neutral-400">Email</span>
+                    <span className="block font-mono text-xs uppercase tracking-widest text-neutral-400">Email</span>
                     <span className="text-sm font-semibold text-neutral-800 group-hover:text-red-900 transition-colors">
                       sales@terkis.co.th
                     </span>
@@ -409,7 +409,7 @@ export default function Page() {
               <form className="space-y-5">
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="mb-1.5 block font-mono text-[9px] uppercase tracking-widest text-neutral-500">
+                    <label className="mb-1.5 block font-mono text-xs uppercase tracking-widest text-neutral-500">
                       Name *
                     </label>
                     <input
@@ -420,7 +420,7 @@ export default function Page() {
                     />
                   </div>
                   <div>
-                    <label className="mb-1.5 block font-mono text-[9px] uppercase tracking-widest text-neutral-500">
+                    <label className="mb-1.5 block font-mono text-xs uppercase tracking-widest text-neutral-500">
                       Company *
                     </label>
                     <input
@@ -433,7 +433,7 @@ export default function Page() {
                 </div>
 
                 <div>
-                  <label className="mb-1.5 block font-mono text-[9px] uppercase tracking-widest text-neutral-500">
+                  <label className="mb-1.5 block font-mono text-xs uppercase tracking-widest text-neutral-500">
                     Email *
                   </label>
                   <input
@@ -445,7 +445,7 @@ export default function Page() {
                 </div>
 
                 <div>
-                  <label className="mb-1.5 block font-mono text-[9px] uppercase tracking-widest text-neutral-500">
+                  <label className="mb-1.5 block font-mono text-xs uppercase tracking-widest text-neutral-500">
                     Phone (optional)
                   </label>
                   <input
@@ -456,7 +456,7 @@ export default function Page() {
                 </div>
 
                 <div>
-                  <label className="mb-1.5 block font-mono text-[9px] uppercase tracking-widest text-neutral-500">
+                  <label className="mb-1.5 block font-mono text-xs uppercase tracking-widest text-neutral-500">
                     Product Enquiry / Requirements *
                   </label>
                   <textarea
