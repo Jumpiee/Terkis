@@ -1,6 +1,7 @@
 import type { Footer } from '@/payload-types'
 
 import { FooterMenu } from '@/components/Footer/menu'
+import { ThemeSelector } from '@/providers/Theme/ThemeSelector'
 import { getCachedGlobal } from '@/utilities/getGlobals'
 import { Mail, Phone } from 'lucide-react'
 import Link from 'next/link'
@@ -95,6 +96,8 @@ export async function Footer() {
           <span className="text-[9px] uppercase tracking-widest text-zinc-400">
             &copy; {currentYear} {copyrightName} INDUSTRIAL INTELLIGENCE. ALL SYSTEMS OPERATIONAL.
           </span>
+          
+          <ThemeSelector></ThemeSelector>
         </div>
       </div>
     </footer>

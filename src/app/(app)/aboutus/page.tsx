@@ -1,4 +1,5 @@
-import Image from "next/image"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 // ── Data ─────────────────────────────────────────────────────────────
 const stats = [
@@ -252,18 +253,16 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="flex gap-4 flex-wrap">
-            <a
-              href="/products"
-              className="bg-white text-red-900 px-8 py-4 text-xs font-bold uppercase tracking-[0.12em] rounded-xl hover:bg-red-50 transition-colors"
-            >
-              View Products
-            </a>
-            <a
-              href="/contact"
-              className="border border-white/40 text-white px-8 py-4 text-xs font-bold uppercase tracking-[0.12em] rounded-xl hover:bg-white/10 transition-colors"
-            >
-              Contact Us
-            </a>
+            <Link href="/products">
+              <Button className=  "bg-white text-red-900 min-h-16 hover:bg-gray-200">
+                View Products
+              </Button>
+            </Link>
+            <Link href="/contact">
+              <Button variant="outline" className=  "text-red-900 min-h-16">
+                Contact Us
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
