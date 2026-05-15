@@ -3,15 +3,15 @@
 import { X } from "lucide-react"
 
 type Product = {
-  id: string
-  name: string
-  shortDesc: string
-  image: string
-  alt: string
-  specs: Record<string, string>
-  tags: string[]
-  badge: string | null
-  category: string
+  id: string;
+  name: string;
+  shortDesc: string;
+  image: string;
+  alt: string;
+  specs: Record<string, string | undefined>; 
+  tags: string[];
+  badge: string | null;
+  category: string;
 }
 
 interface Props {
