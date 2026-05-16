@@ -51,15 +51,13 @@ export default async function ProductPage({ params }: Args) {
 
   if (!product) return notFound();
 
-  // ── Image ──────────────────────────────────────────────────────────────────
-  const gallery =
-    product.gallery
-      ?.filter((item) => typeof item.image === "object")
-      .map((item) => ({ ...item, image: item.image as Media })) || [];
+  // ── Gallery ────────────────────────────────────────────────────────────────
+  const gallery = product.gallery ?? [];
 
-  const firstImage = gallery[0]?.image ?? null;
   const metaImage = typeof product.meta?.image === "object" ? (product.meta.image as Media) : null;
-  const displayImage = firstImage ?? metaImage;
+  const firstGalleryImage =
+    gallery.find((item) => typeof item.image === "object")?.image as Media | undefined;
+  const displayImage = firstGalleryImage ?? metaImage;
 
   // ── Stock status ───────────────────────────────────────────────────────────
   const hasStock = product.enableVariants
@@ -130,8 +128,7 @@ export default async function ProductPage({ params }: Args) {
         status={status}
         productId={String(product.id)}
         description={product.meta?.description || ""}
-        image={displayImage?.url || ""}
-        imageAlt={displayImage?.alt || product.title}
+        gallery={gallery}
         specs={[]}
         documents={[]}
         relatedProducts={relatedProducts}
