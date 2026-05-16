@@ -53,17 +53,17 @@ const categories = [
 
 const pillars = [
   {
-    index: "A",
+    index: "1",
     title: "Globally Sourced, Locally Supported",
     body: "We represent 14 trusted brands from Germany, the UK, Italy, Denmark, the USA, and Japan — selected for quality, compliance, and suitability for Southeast Asian operating conditions.",
   },
   {
-    index: "B",
+    index: "2",
     title: "Specification-Ready Products",
     body: "Every product we carry meets recognized international standards including API, ATEX, ISO, ANSI/ASME, and DIN. Our team can match the right product to your technical requirements.",
   },
   {
-    index: "C",
+    index: "3",
     title: "Technical Support, Not Just Sales",
     body: "We work with your engineering team from specification through to commissioning — helping you select the correct configuration, check compatibility, and coordinate with manufacturers.",
   },

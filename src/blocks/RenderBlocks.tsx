@@ -5,11 +5,33 @@ import { CarouselBlock } from '@/blocks/Carousel/Component'
 import { ContentBlock } from '@/blocks/Content/Component'
 import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
+import { StatsBlockComponent } from '@/blocks/StatsBlock/Component'
 import { ThreeItemGridBlock } from '@/blocks/ThreeItemGrid/Component'
 import { toKebabCase } from '@/utilities/toKebabCase'
 import React, { Fragment } from 'react'
 
-import type { Page } from '../payload-types'
+import type {
+  ArchiveBlock as ArchiveBlockType,
+  BannerBlock as BannerBlockType,
+  CallToActionBlock as CallToActionBlockType,
+  CarouselBlock as CarouselBlockType,
+  ContentBlock as ContentBlockType,
+  FormBlock as FormBlockType,
+  MediaBlock as MediaBlockType,
+  StatsBlock,
+  ThreeItemGridBlock as ThreeItemGridBlockType,
+} from '../payload-types'
+
+type LayoutBlock =
+  | ArchiveBlockType
+  | BannerBlockType
+  | CallToActionBlockType
+  | CarouselBlockType
+  | ContentBlockType
+  | FormBlockType
+  | MediaBlockType
+  | StatsBlock
+  | ThreeItemGridBlockType
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -19,11 +41,12 @@ const blockComponents = {
   cta: CallToActionBlock,
   formBlock: FormBlock,
   mediaBlock: MediaBlock,
+  statsBlock: StatsBlockComponent,
   threeItemGrid: ThreeItemGridBlock,
 }
 
 export const RenderBlocks: React.FC<{
-  blocks: Page['layout'][0][]
+  blocks: LayoutBlock[]
 }> = (props) => {
   const { blocks } = props
 
