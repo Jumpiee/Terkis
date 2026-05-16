@@ -1,272 +1,161 @@
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
+import Image from 'next/image'
 
 // ── Data ─────────────────────────────────────────────────────────────
+
 const stats = [
-  { value: "30+",    label: "Years in Operation" },
-  { value: "500+",   label: "Projects Delivered" },
-  { value: "ZERO",   label: "System Failures" },
-  { value: "12+",    label: "Countries Served" },
+  { value: '20+', label: "Years in Thailand's Industrial Sector" },
+  { value: '14', label: 'International Brands Represented' },
+  { value: '6', label: 'Origin Countries (DE·UK·IT·DK·USA·JP)' },
+  { value: 'API/ISO', label: 'Certified Product Standards' },
 ]
 
-const values = [
+const capabilities = [
   {
-    title: "Our Mission",
+    index: '01',
+    title: 'Authorized Distribution',
     description:
-      "To supply, engineer, and support the most reliable fluid control systems in Southeast Asia — delivering zero-failure solutions that protect both industrial assets and human lives in petrochemical, power, and process industries.",
+      "Thailand's authorized agent for 14 premium manufacturers across Europe, America, and Japan. We ensure direct factory channels and full material traceability.",
+    specs: ['Factory Direct', '14 Brands'],
   },
   {
-    title: "Technical Approach",
+    index: '02',
+    title: 'Process Engineering',
     description:
-      "Every project begins with a full thermodynamic and flow analysis. We don't sell parts — we engineer solutions. Our team holds certifications across API, ASME, and ISO standards, ensuring compliance from specification through commissioning.",
+      'Specialist equipment selection for petrochemical, refinery, and bulk liquid storage applications. Matching technical specs to API 610, 6D, and 2000 standards.',
+    specs: ['Oil & Gas', 'Petrochemical'],
   },
   {
-    title: "Global Sourcing",
+    index: '03',
+    title: 'Technical Consultation',
     description:
-      "Direct factory partnerships with Tier-1 European and American manufacturers eliminate gray-market risk. Every component arrives with full material traceability, test certificates, and factory documentation.",
-  },
-  {
-    title: "After-Sales Support",
-    description:
-      "Our relationship extends beyond delivery. TERKIS provides on-site commissioning support, preventive maintenance programs, and 24/7 emergency technical consultation for all supplied equipment.",
-  },
-]
-
-const timeline = [
-  {
-    year: "1994",
-    title: "Founded in Bangkok",
-    description:
-      "Established as a specialist industrial valve and pump distributor serving Thailand's growing petrochemical sector.",
-  },
-  {
-    year: "2001",
-    title: "API Certification Achieved",
-    description:
-      "Became one of Southeast Asia's first distributors to achieve API 610 and API 6D authorized distributor status.",
-  },
-  {
-    year: "2008",
-    title: "Regional Expansion",
-    description:
-      "Expanded operations to serve Malaysia, Singapore, and Vietnam — establishing a regional technical service network.",
-  },
-  {
-    year: "2015",
-    title: "ISO 9001:2015 Certification",
-    description:
-      "Full quality management system certification covering procurement, engineering review, and aftersales services.",
-  },
-  {
-    year: "2024",
-    title: "30 Years — Zero Failures",
-    description:
-      "Marking three decades of operation with no reported system failures attributable to TERKIS-supplied equipment.",
+      'We support engineering teams from initial specification through to commissioning, coordinating directly with manufacturer technical departments.',
+    specs: ['Spec-Ready', 'Commissioning'],
   },
 ]
 
-const certifications = ["API 610", "API 6D", "ASME BPVC", "ISO 9001:2015", "API 520", "API 526"]
+const partners = [
+  { name: 'FLUIMAC', logo: '/api/media/file/FLUIMAC.jpg' },
+  { name: 'HOMA', logo: '/api/media/file/HOMA.png' },
+  { name: 'SEKO', logo: '/api/media/file/SEKO.png' },
+  { name: 'VICTORPUMP', logo: '/api/media/file/VICTOR.png' },
+  { name: 'TOKYO', logo: '/api/media/file/TOKYO.png' },
+  { name: 'MAXSEAL', logo: '/api/media/file/MAXSEAL.png' },
+  { name: 'FLOTITE', logo: '/api/media/file/FLOTITE.png' },
+  { name: 'FAUDI', logo: '/api/media/file/FAUDI.png' },
+  { name: 'AFH', logo: '/api/media/file/AFH.png' },
+  { name: 'AIRCON', logo: '/api/media/file/AIRCON.png' },
+]
 
 // ── Page ─────────────────────────────────────────────────────────────
-export default function AboutPage() {
+
+export default function AboutUsPage() {
   return (
     <main className="min-h-screen bg-neutral-50 text-neutral-900">
-
-      {/* ── HERO ─────────────────────────────────────── */}
-      <section className="relative overflow-hidden border-b border-neutral-200 bg-neutral-50 pt-24 pb-16 px-6">
-        {/* Red glow accent */}
-        <div className="absolute top-0 right-0 w-[600px] h-[400px] bg-red-900/5 rounded-full blur-3xl pointer-events-none" />
-
-        <div className="mx-auto max-w-7xl relative z-10">
-          <div className="flex items-center gap-3 mb-6">
-            <span className="h-px w-10 bg-red-900" />
-            <span className="text-xs font-bold uppercase tracking-[0.16em] text-red-900">
-              Founded 1994 · Bangkok, Thailand
-            </span>
-          </div>
-
-          <h1 className="text-5xl md:text-7xl font-extrabold uppercase leading-[0.9] mb-6 max-w-3xl">
-            Engineering <br />
-            <span className="text-red-900">Without</span> <br />
-            Compromise
+      {/* ── SECTION: COMPANY DETAIL (HERO) ──────────────── */}
+      <section className="relative overflow-hidden border-b border-neutral-200 bg-white pt-24 pb-16">
+        <div className="mx-auto max-w-7xl px-6 relative z-10">
+          <p className="mb-4 font-mono text-xs font-bold uppercase tracking-[0.18em] text-red-900">
+            Authorized Distributor · Thailand
+          </p>
+          <h1 className="text-red-900 text-4xl md:text-5xl lg:text-7xl font-extrabold uppercase tracking-tight leading-[1.05] max-w-4xl">
+            Quality<br />
+            <span className="text-black">in your flow</span> <br />
           </h1>
-
-          <p className="text-lg text-neutral-600 max-w-xl leading-relaxed">
-            TERKIS Industrial Systems is a specialist distributor of mission-critical
-            flow control and pumping equipment for Southeast Asia's most demanding
-            industrial environments.
+          <p className="mt-8 max-w-xl text-base text-neutral-600 leading-relaxed">
+            Terkis is a specialist distributor of premium industrial equipment from Germany, the UK, Italy, Denmark, the USA, and Japan — sourced specifically for petrochemical, refinery, and process plant applications.
           </p>
         </div>
       </section>
 
-      {/* ── STATS ────────────────────────────────────── */}
+      {/* ── TRUST BAR ────────────────────────────────── */}
       <section className="border-b border-neutral-200 bg-white">
-        <div className="mx-auto max-w-7xl grid grid-cols-2 md:grid-cols-4">
-          {stats.map((s, i) => (
-            <div
-              key={s.label}
-              className={`px-10 py-10 ${i < stats.length - 1 ? "border-r border-neutral-200" : ""}`}
-            >
-              <p className="text-4xl font-black text-red-900 mb-1">{s.value}</p>
-              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-neutral-500">
-                {s.label}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── WHO WE ARE ───────────────────────────────── */}
-      <section className="py-16 border-b border-neutral-200">
-        <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Text */}
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.16em] text-red-900 mb-3">
-              Who We Are
-            </p>
-            <h2 className="text-3xl font-bold uppercase mb-6">
-              Three Decades of Industrial Expertise
-            </h2>
-            <p className="text-neutral-600 leading-relaxed mb-4">
-              Since 1994, TERKIS has been the trusted partner for Thailand's most critical
-              industrial operations. We specialize in the procurement, engineering review,
-              and technical support of pumps, valves, seals, and flow control systems.
-            </p>
-            <p className="text-neutral-600 leading-relaxed mb-8">
-              Our engineers don't just source equipment — they analyze system parameters,
-              simulate flow conditions, and validate every selection against international
-              standards before a single component leaves the factory.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              {certifications.map((c) => (
-                <span
-                  key={c}
-                  className="border border-neutral-300 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-neutral-600 rounded-lg"
-                >
-                  {c}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Image */}
-          <div className="relative h-80 lg:h-96 rounded-2xl overflow-hidden bg-neutral-200">
-            <img
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2AtGfT9ErBSi2r-BW9xyaoPmerBMO9YU99zvWZmf6nAxQoTC0QKWcjG5NkFMGj-nxRWnAzxiK9RIfnONT_lR9Zs30BHBgHklT3GO8HgjgwP4PI-aJFJRDB8LSW2Txc0xpB4G8YW-_1KQXSJTYKUkf_o9TABPnFGRXOXIsbQuGk9kgyUOi1yslnLidrIfeIhcbt22SybhakBmUNagzwOZrcK_oKXq-E8TXUk80bt_4zovCMy95joixgNzMwqPBLbc3grWatl2gXwk"
-              alt="Industrial pipeline infrastructure"
-              className="w-full h-full object-cover grayscale opacity-60"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/40 to-transparent" />
-            {/* Floating badge */}
-            <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm rounded-xl px-5 py-3">
-              <p className="text-xs font-bold uppercase tracking-wider text-red-900">
-                Est. 1994
-              </p>
-              <p className="text-sm font-semibold text-neutral-900">Bangkok, Thailand</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── VALUES ───────────────────────────────────── */}
-      <section className="py-16 bg-white border-b border-neutral-200">
-        <div className="mx-auto max-w-7xl px-6">
-          <p className="text-xs font-bold uppercase tracking-[0.16em] text-red-900 mb-3">
-            Our Principles
-          </p>
-          <h2 className="text-3xl font-bold uppercase mb-12">How We Operate</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {values.map((v, i) => (
-              <article
-                key={v.title}
-                className="group relative bg-neutral-50 hover:bg-neutral-100 rounded-2xl p-8 transition-colors overflow-hidden"
-              >
-                <span className="text-[80px] font-black text-neutral-100 absolute top-2 right-4 leading-none select-none group-hover:text-neutral-200 transition-colors">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="text-lg font-bold uppercase text-red-900 mb-3 relative z-10">
-                  {v.title}
-                </h3>
-                <p className="text-sm text-neutral-600 leading-relaxed relative z-10">
-                  {v.description}
-                </p>
-                <div className="mt-6 h-px w-10 bg-red-900 transition-all duration-300 group-hover:w-full" />
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── TIMELINE ─────────────────────────────────── */}
-      <section className="py-16 border-b border-neutral-200">
-        <div className="mx-auto max-w-7xl px-6">
-          <p className="text-xs font-bold uppercase tracking-[0.16em] text-red-900 mb-3">
-            Our Story
-          </p>
-          <h2 className="text-3xl font-bold uppercase mb-12">Engineering Heritage</h2>
-
-          <div className="flex flex-col">
-            {timeline.map((item, i) => (
-              <div
-                key={item.year}
-                className="group flex gap-8 py-8 border-t border-neutral-200 hover:bg-neutral-50 rounded-xl px-4 transition-colors"
-              >
-                {/* Year */}
-                <div className="min-w-[80px]">
-                  <span className="text-4xl font-black text-red-900"
-                    style={{ fontVariantNumeric: "tabular-nums" }}>
-                    {item.year}
+        <div className="mx-auto max-w-7xl">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-neutral-200">
+            {stats.map((stat) => (
+              <div key={stat.label} className="px-8 py-10 flex flex-col gap-1">
+                <div className="flex items-baseline gap-1.5">
+                  <span className="text-3xl font-extrabold leading-none text-neutral-900 tracking-tight">
+                    {stat.value}
                   </span>
                 </div>
-
-                {/* Dot connector */}
-                <div className="flex flex-col items-center gap-1 pt-2">
-                  <div className="w-3 h-3 rounded-full bg-red-900 group-hover:scale-125 transition-transform" />
-                  {i < timeline.length - 1 && (
-                    <div className="w-px flex-1 bg-neutral-200 mt-1" />
-                  )}
-                </div>
-
-                {/* Content */}
-                <div className="pb-8">
-                  <h4 className="font-bold text-neutral-900 mb-2">{item.title}</h4>
-                  <p className="text-sm text-neutral-600 leading-relaxed max-w-lg">
-                    {item.description}
-                  </p>
-                </div>
+                <span className="font-mono text-xs uppercase tracking-widest text-neutral-500">
+                  {stat.label}
+                </span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── CTA ──────────────────────────────────────── */}
-      <section className="py-16 bg-red-900">
-        <div className="mx-auto max-w-7xl px-6 flex flex-col md:flex-row items-center justify-between gap-8">
-          <div>
-            <h2 className="text-3xl font-bold uppercase text-white mb-2">
-              Ready to Work Together?
+      {/* ── SECTION: WHAT WE DO ──────────────────────── */}
+      <section className="py-20 bg-neutral-50">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mb-12">
+            <p className="mb-2 font-mono text-xs font-bold uppercase tracking-[0.18em] text-red-900">
+              Capabilities
+            </p>
+            <h2 className="text-3xl font-extrabold uppercase tracking-tight">
+              What We Do
             </h2>
-            <p className="text-red-200 text-sm">
-              Talk to a TERKIS engineer about your next project.
+            <p className="mt-3 max-w-xl text-sm text-neutral-600">
+              Comprehensive fluid control engineering from specification to commissioning.
             </p>
           </div>
-          <div className="flex gap-4 flex-wrap">
-            <Link href="/products">
-              <Button className=  "bg-white text-red-900 min-h-16 hover:bg-gray-200">
-                View Products
-              </Button>
-            </Link>
-            <Link href="/contact">
-              <Button variant="outline" className=  "text-red-900 min-h-16">
-                Contact Us
-              </Button>
-            </Link>
+
+          <div className="grid grid-cols-1 gap-px bg-neutral-200 md:grid-cols-3">
+            {capabilities.map((cap) => (
+              <article key={cap.title} className="group bg-white hover:bg-neutral-50 transition-colors duration-200 p-8 flex flex-col">
+                <div className="mb-6 flex items-start justify-between">
+                  <span className="font-mono text-xs text-neutral-400">{cap.index}</span>
+                  <span className="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-200 text-red-900 font-mono text-xs">→</span>
+                </div>
+
+                <h3 className="mb-3 text-lg font-extrabold uppercase leading-tight">{cap.title}</h3>
+                <p className="mb-6 text-sm text-neutral-600 leading-relaxed flex-1">{cap.description}</p>
+
+                <div className="flex flex-wrap gap-1.5">
+                  {cap.specs.map((spec) => (
+                    <span key={spec} className="border border-neutral-200 px-2 py-0.5 font-mono text-xs uppercase tracking-widest text-neutral-500">
+                      {spec}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
+      {/* ── SECTION: OUR PARTNER ─────────────────────── */}
+      <section className="py-20 bg-white">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mb-12 text-center md:text-left">
+            <p className="mb-2 font-mono text-xs font-bold uppercase tracking-[0.18em] text-red-900">
+              Strategic Network
+            </p>
+            <h2 className="text-3xl font-extrabold uppercase tracking-tight">
+              Our Partners
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-2 gap-px bg-neutral-200 md:grid-cols-4 lg:grid-cols-5 border border-neutral-200">
+            {partners.map((partner) => (
+              <div
+                key={partner.name}
+                className="flex h-32 items-center justify-center bg-white p-6 grayscale hover:grayscale-0 transition-all duration-300"
+              >
+                <Image
+                  src={partner.logo}
+                  alt={partner.name}
+                  width={200}
+                  height={80}
+                  className="max-h-12 w-auto object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
   )
 }

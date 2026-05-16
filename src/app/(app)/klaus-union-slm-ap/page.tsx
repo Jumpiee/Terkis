@@ -117,7 +117,7 @@ export default function KlausUnionFullPresentation() {
               </div>
             </div>
             <div className="hidden lg:block lg:flex-1">
-              <div className="relative border border-neutral-800 bg-neutral-900 p-4">
+              <div className="relative z-10 mx-auto grid min-h-[calc(100vh-64px)] max-w-7xl grid-cols-12 gap-8 px-6 py-16">
                 <div className="absolute -top-4 -left-4 border border-red-900/30 bg-neutral-900 p-2 font-mono text-[10px] text-red-400">
                   REF: {product.id}
                 </div>
