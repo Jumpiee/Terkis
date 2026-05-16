@@ -4,6 +4,7 @@ import { useState, Suspense } from "react";
 import Link from "next/link";
 import type { Media, Product } from "@/payload-types";
 import { Gallery } from "@/components/product/Gallery";
+import { RichText } from "@/components/RichText";
 
 // ─── TYPES ────────────────────────────────────────────────────────────────────
 
@@ -31,7 +32,7 @@ interface Props {
   category: string;
   status: string;
   productId: string;
-  description: string;
+  description: Product["description"];
   gallery: NonNullable<Product["gallery"]>;
   specs: SpecEntry[];
   documents: DocumentEntry[];
@@ -64,30 +65,6 @@ export function ProductDetailUI({
 
   return (
     <div className="bg-neutral-50 text-neutral-900">
-      {/* ── HERO HEADER ── */}
-      <section className="bg-neutral-900 py-20 text-white">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <div>
-              <p className="mb-2 font-mono text-xs font-bold uppercase tracking-[0.18em] text-red-400">
-                {brand && `${brand} · `}{category}
-              </p>
-              <h1 className="max-w-3xl text-4xl font-extrabold uppercase leading-[1.05] tracking-tight md:text-5xl lg:text-6xl">
-                {title}
-              </h1>
-              <div className="mt-6 flex items-center gap-4">
-                <span className="font-mono text-xs text-neutral-500">ID: {productId}</span>
-                <span className="h-px w-8 bg-neutral-700" />
-                <div className="border-l-2 border-red-900 pl-3">
-                  <span className={`font-mono text-xs font-bold uppercase tracking-widest ${statusColor}`}>
-                    {status}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ── MAIN PRODUCT INFO ── */}
       <section className="bg-white py-20">
@@ -112,15 +89,19 @@ export function ProductDetailUI({
             <div className="flex flex-col bg-white">
               {/* Technical Description */}
               <div className="p-8 md:p-10">
-                <p className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-red-900">
-                  Specification Overview
-                </p>
-                <h2 className="mt-2 text-3xl font-extrabold uppercase tracking-tight">
-                  Product Details
-                </h2>
-                <p className="mt-6 text-base leading-relaxed text-neutral-600">
-                  {description || "No description available."}
-                </p>
+              <p className="mb-2 font-mono text-xs font-bold uppercase tracking-[0.18em] text-red-400">
+                {brand && `${brand} · `}{category}
+              </p>
+              <h1 className="max-w-3xl text-4xl font-extrabold uppercase leading-[1.05] tracking-tight md:text-5xl lg:text-6xl">
+                {title}
+              </h1>
+                <div className="mt-6 text-base leading-relaxed text-neutral-600">
+                  {description ? (
+                    <RichText data={description} enableGutter={false} />
+                  ) : (
+                    "No description available."
+                  )}
+                </div>
               </div>
 
               {/* Tab Switcher */}

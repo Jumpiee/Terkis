@@ -52,14 +52,6 @@ const product: Product = {
       title: "Containment Shell",
       body: "Available in Hastelloy C, Titanium, or non-metallic materials to minimize eddy current losses and provide a secondary safety barrier.",
     },
-    {
-      title: "Internal Bearings",
-      body: "Double-supported journal bearings made of pure sintered Silicon Carbide (SSiC), lubricated by the process fluid for maintenance-free operation.",
-    },
-    {
-      title: "Thrust Load Management",
-      body: "Optimized hydraulic balance system that automatically compensates for axial thrust, extending the service life of internal components.",
-    },
   ],
   applications: [
     {
@@ -158,31 +150,46 @@ export default function KlausUnionFullPresentation() {
       {/* ── SECTION 03: THE SEALLESS ADVANTAGE (PILLARS) ── */}
       <section className="bg-white py-24">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-20 max-w-3xl">
-            <p className="mb-2 font-mono text-xs font-bold uppercase tracking-[0.18em] text-red-900">
-              Technical Pillars
-            </p>
-            <h2 className="text-4xl font-extrabold uppercase tracking-tight">
-              Anatomy of a Sealless Pump
-            </h2>
-            <p className="mt-6 text-base text-neutral-600 leading-relaxed">
-              {product.longDescription}
-            </p>
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <div>
+              <div className="mb-12">
+                <p className="mb-2 font-mono text-xs font-bold uppercase tracking-[0.18em] text-red-900">
+                  Technical Pillars
+                </p>
+                <h2 className="text-4xl font-extrabold uppercase tracking-tight">
+                  Anatomy of a Sealless Pump
+                </h2>
+                <p className="mt-6 text-base text-neutral-600 leading-relaxed">
+                  {product.longDescription}
+                </p>
+              </div>
 
-          <div className="grid grid-cols-1 gap-px bg-neutral-200 md:grid-cols-2">
-            {product.anatomy.map((item, idx) => (
-              <article key={idx} className="group bg-white p-12 transition-colors hover:bg-neutral-50">
-                <div className="mb-8 flex items-center gap-4">
-                  <span className="flex h-10 w-10 items-center justify-center border border-neutral-900 font-mono text-xs font-bold">
-                    {String.fromCharCode(65 + idx)}
-                  </span>
-                  <span className="h-px flex-1 bg-neutral-200 group-hover:bg-red-900 transition-colors duration-500" />
-                </div>
-                <h3 className="mb-4 text-xl font-extrabold uppercase leading-tight">{item.title}</h3>
-                <p className="text-sm text-neutral-600 leading-relaxed">{item.body}</p>
-              </article>
-            ))}
+              {/* Anatomy Grid (Smaller, moved under longDescription) */}
+              <div className="grid grid-cols-1 gap-px bg-neutral-200">
+                {product.anatomy.map((item, idx) => (
+                  <article key={idx} className="group bg-white p-8 transition-colors hover:bg-neutral-50">
+                    <div className="mb-6 flex items-center gap-4">
+                      <span className="flex h-8 w-8 items-center justify-center border border-neutral-900 font-mono text-xs font-bold">
+                        {String.fromCharCode(65 + idx)}
+                      </span>
+                      <span className="h-px flex-1 bg-neutral-200 group-hover:bg-red-900 transition-colors duration-500" />
+                    </div>
+                    <h3 className="mb-3 text-lg font-extrabold uppercase leading-tight">{item.title}</h3>
+                    <p className="text-sm text-neutral-600 leading-relaxed">{item.body}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+
+            {/* Image section on the right side */}
+            <div className="relative aspect-square lg:aspect-auto lg:h-[400px] bg-neutral-200 border border-neutral-200 overflow-hidden">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIEFalUGxusGZnWk1jBKqqBdnZdjU4PfbLjH4wlZXjcouYvfwCU6_mMSVFtrhlMyFQX9kKl_WshJJNaa5Y1ZwCP4ywsU_E2XnMTFbCxtHb6BjfJI9lwUMX2YeS_LwhDNxEzNXyvNuifeAnFfiLfGhWBdTpk5yswR1xGukRi2MpODBzAF5meKVemm0a2-IuGczzyo_DRLRpiLngEiGbP8cayjMQn0H6HqjsJWwnfnL1J8Jsj0y0JWh5r_y0-uuIcIQeMCYgNH5_gjs"
+                alt="Technical illustration of Klaus Union SLM AP"
+                className="w-full h-full object-cover grayscale"
+              />
+              <div className="absolute inset-0 bg-red-900/5 mix-blend-multiply" />
+            </div>
           </div>
         </div>
       </section>

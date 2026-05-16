@@ -27,7 +27,7 @@ const collections: CollectionSlug[] = [
   'orders',
 ]
 
-const categories = ['Accessories', 'T-Shirts', 'Hats']
+const categories = ['Mechanical', 'Electrical', 'Instrument']
 
 const sizeVariantOptions = [
   { label: 'Small', value: 'small' },

@@ -127,7 +127,7 @@ export default async function ProductPage({ params }: Args) {
         category={categoryLabel}
         status={status}
         productId={String(product.id)}
-        description={product.meta?.description || ""}
+        description={product.description}
         gallery={gallery}
         specs={[]}
         documents={[]}

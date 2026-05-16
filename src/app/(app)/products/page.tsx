@@ -10,7 +10,6 @@ const categories = [
   { id: "pumps", label: "Pumping Systems" },
   { id: "pressure", label: "Pressure Management" },
   { id: "sealing", label: "Industrial Sealing" },
-  { id: "valves", label: "Flow Control" },
 ]
 
 const categoryMeta: Record<string, { title: string; subtitle: string; description: string }> = {
