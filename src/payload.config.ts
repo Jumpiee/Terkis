@@ -36,6 +36,10 @@ export default buildConfig({
       // Feel free to delete this at any time. Simply remove the line below and the import `BeforeDashboard` statement on line 15.
       beforeDashboard: ['@/components/BeforeDashboard#BeforeDashboard'],
     },
+    livePreview: {
+      url: process.env.PAYLOAD_PUBLIC_SERVER_URL || 'http://localhost:3000',
+      collections: ['pages', 'products'],
+    },
     user: Users.slug,
   },
   collections: [Users, Pages, Posts, Categories, Media],
