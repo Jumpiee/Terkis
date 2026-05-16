@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import Link from "next/link";
-import type { Media } from "@/payload-types";
+import type { Media, Product } from "@/payload-types";
+import { Gallery } from "@/components/product/Gallery";
 
 // ─── TYPES ────────────────────────────────────────────────────────────────────
 
@@ -31,8 +32,7 @@ interface Props {
   status: string;
   productId: string;
   description: string;
-  image: string;
-  imageAlt: string;
+  gallery: NonNullable<Product["gallery"]>;
   specs: SpecEntry[];
   documents: DocumentEntry[];
   relatedProducts: RelatedProductCard[];
@@ -47,8 +47,7 @@ export function ProductDetailUI({
   status,
   productId,
   description,
-  image,
-  imageAlt,
+  gallery,
   specs,
   documents,
   relatedProducts,
@@ -94,23 +93,19 @@ export function ProductDetailUI({
       <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid grid-cols-1 gap-px bg-neutral-900 lg:grid-cols-2">
-            {/* LEFT — Image */}
+            {/* LEFT — Gallery */}
             <div className="bg-white p-8 lg:p-12">
-              <div className="relative aspect-square overflow-hidden bg-neutral-50">
-                {image ? (
-                  <img
-                    src={image}
-                    alt={imageAlt}
-                    className="h-full w-full object-cover transition-all duration-700"
-                  />
-                ) : (
-                  <div className="flex h-full w-full items-center justify-center">
-                    <span className="font-mono text-xs uppercase tracking-widest text-neutral-400">
-                      No Image
-                    </span>
-                  </div>
-                )}
-              </div>
+              {gallery.length > 0 ? (
+                <Suspense fallback={<div className="aspect-square w-full bg-neutral-100" />}>
+                  <Gallery gallery={gallery} />
+                </Suspense>
+              ) : (
+                <div className="flex aspect-square w-full items-center justify-center bg-neutral-100">
+                  <span className="font-mono text-xs uppercase tracking-widest text-neutral-400">
+                    No Image
+                  </span>
+                </div>
+              )}
             </div>
 
             {/* RIGHT — Details */}
