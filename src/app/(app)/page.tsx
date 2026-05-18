@@ -150,14 +150,7 @@ export default function Page() {
                   Explore Our Products
                 </Button>
               </Link>
-              <Link href="#contact">
-                <Button
-                  variant="outline"
-                  className="border-neutral-900 uppercase tracking-wider text-xs font-bold px-6 h-11 rounded-none hover:bg-neutral-900 hover:text-white transition-colors"
-                >
-                  Get a Quote →
-                </Button>
-              </Link>
+
             </div>
           </div>
         </div>

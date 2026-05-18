@@ -5,214 +5,353 @@ import { Search } from '@/components/Search'
 import { ProductModal } from "@/components/ProductModal/page"
 // ─── DATA ────────────────────────────────────────────────────────────────────
 import { MobileCategoryDropdown } from "@/components/MobileCategoryDropdown/page"
-const categories = [
+export const categories = [
   { id: "all", label: "All Products" },
-  { id: "pumps", label: "Pumping Systems" },
-  { id: "pressure", label: "Pressure Management" },
-  { id: "sealing", label: "Industrial Sealing" },
+  { id: "mechanical", label: "Mechanical" },
+  { id: "electrical", label: "Electrical" },
+  { id: "instrument", label: "Instrument" },
 ]
-
-const categoryMeta: Record<string, { title: string; subtitle: string; description: string }> = {
+ 
+export const categoryMeta: Record<string, { title: string; subtitle: string; description: string }> = {
   all: {
     title: "All",
-    subtitle: "Product",
+    subtitle: "Products",
     description:
-      "Every unit supplied with full traceability documentation, OEM certification, and compliance to ASME, API, and ISO standards.",
+      "Every unit supplied with full traceability documentation, OEM certification, and compliance to ASME, API, DIN EN ISO, and API standards.",
   },
-  pumps: {
-    title: "Pumping",
-    subtitle: "Systems",
+  mechanical: {
+    title: "Mechanical",
+    subtitle: "Equipment",
     description:
-      "Centrifugal, positive displacement, and cryogenic pump solutions engineered for high-viscosity, volatile, and sub-zero process environments.",
+      "Magnet-drive and mechanical-seal centrifugal pumps, twin-screw pumps, rotary vane pumps, flame arresters, conservation vents, and loading arms from Klaus Union, Protectoseal, Victor Pumpen, 3PPrinz, and Dixon.",
   },
-  pressure: {
-    title: "Pressure",
-    subtitle: "Management",
+  electrical: {
+    title: "Electrical",
+    subtitle: "Actuators",
     description:
-      "Spring-loaded relief valves and graphite bursting discs providing last-resort overpressure protection to API 520/526 and ISO 6718 standards.",
+      "Pneumatic and electric actuators for valve automation from Aircon and Hitork, engineered for reliable on/off and modulating control in process environments.",
   },
-  sealing: {
-    title: "Industrial",
-    subtitle: "Sealing",
+  instrument: {
+    title: "Instrument",
+    subtitle: "& Monitoring",
     description:
-      "Dual mechanical seals and spiral-wound gaskets rated for aggressive chemical, hydrocarbon, and high-temperature flange applications.",
-  },
-  valves: {
-    title: "Flow",
-    subtitle: "Control",
-    description:
-      "Full-bore gate valves and trunnion-mounted ball valves for on/off isolation and high-pressure pipeline control to API 600 and API 6D.",
+      "Precision flow measurement and overfill protection solutions from Faure Herman and Dixon, covering mechanical, ultrasonic, and safety-critical monitoring applications.",
   },
 }
-const products = [
-  // PUMPS
+ 
+// ─── PRODUCTS ─────────────────────────────────────────────────────────────────
+ 
+export const products = [
+  // ── MECHANICAL: Klaus Union ──────────────────────────────────────────────
   {
-    id: "P-001",
-    category: "pumps",
-    name: "HydroForce CF-900",
-    shortDesc: "Heavy-duty centrifugal pump for high-viscosity volatile fluids.",
+    id: "KU-001",
+    category: "mechanical",
+    brand: "Klaus Union",
+    name: "Centrifugal Pump – Magnet Drive (ISO 2858/15783)",
+    shortDesc: "Sealless centrifugal pump with magnet drive for hazardous and leakage-free fluid transfer.",
     specs: {
-      "Flow Rate": "900 m³/h",
-      "Max Pressure": "25 bar",
-      Temperature: "-40°C to +200°C",
-      Standard: "API 610",
-      Material: "Duplex SS",
+      Standard: "DIN EN ISO 2858 / 15783",
+      Drive: "Magnet Drive (Sealless)",
+      Type: "Centrifugal",
+      Application: "Hazardous / Toxic Fluids",
     },
-    tags: ["API 610", "Centrifugal", "ATEX"],
+    tags: ["Klaus Union", "Magnet Drive", "ISO 2858"],
     badge: null,
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCIEFalUGxusGZnWk1jBKqqBdnZdjU4PfbLjH4wlZXjcouYvfwCU6_mMSVFtrhlMyFQX9kKl_WshJJNaa5Y1ZwCP4ywsU_E2XnMTFbCxtHb6BjfJI9lwUMX2YeS_LwhDNxEzNXyvNuifeAnFfiLfGhWBdTpk5yswR1xGukRi2MpODBzAF5meKVemm0a2-IuGczzyo_DRLRpiLngEiGbP8cayjMQn0H6HqjsJWwnfnL1J8Jsj0y0JWh5r_y0-uuIcIQeMCYgNH5_gjs",
-    alt: "HydroForce CF-900 centrifugal pump",
+    image: "/media/KU-001.png",
+    alt: "Klaus Union centrifugal pump with magnet drive ISO 2858",
   },
   {
-    id: "P-002",
-    category: "pumps",
-    name: "VacuDrive PD-450",
-    shortDesc: "Positive displacement pump for precision metering applications.",
+    id: "KU-002",
+    category: "mechanical",
+    brand: "Klaus Union",
+    name: "Centrifugal Pump – Magnet Drive (API 685)",
+    shortDesc: "API 685-compliant sealless magnet-drive pump for refinery and petrochemical service.",
     specs: {
-      "Flow Rate": "450 L/min",
-      "Max Pressure": "40 bar",
-      Temperature: "-20°C to +150°C",
-      Standard: "ISO 2858",
-      Material: "316L SS",
+      Standard: "API 685",
+      Drive: "Magnet Drive (Sealless)",
+      Type: "Centrifugal",
+      Application: "Refinery / Petrochemical",
     },
-    tags: ["Metering", "ATEX", "Positive Displacement"],
+    tags: ["Klaus Union", "API 685", "Magnet Drive"],
     badge: null,
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCIEFalUGxusGZnWk1jBKqqBdnZdjU4PfbLjH4wlZXjcouYvfwCU6_mMSVFtrhlMyFQX9kKl_WshJJNaa5Y1ZwCP4ywsU_E2XnMTFbCxtHb6BjfJI9lwUMX2YeS_LwhDNxEzNXyvNuifeAnFfiLfGhWBdTpk5yswR1xGukRi2MpODBzAF5meKVemm0a2-IuGczzyo_DRLRpiLngEiGbP8cayjMQn0H6HqjsJWwnfnL1J8Jsj0y0JWh5r_y0-uuIcIQeMCYgNH5_gjs",
-    alt: "VacuDrive PD-450 positive displacement pump",
+    image: "/media/KU-002.png",
+    alt: "Klaus Union centrifugal pump magnet drive API 685",
   },
   {
-    id: "P-003",
-    category: "pumps",
-    name: "CryoPump LT-200",
-    shortDesc: "Vacuum & cryogenic pump for sub-zero process environments.",
+    id: "KU-003",
+    category: "mechanical",
+    brand: "Klaus Union",
+    name: "Multi-Stage Centrifugal Pump – Magnet Drive (ISO 15783/API 685)",
+    shortDesc: "Multi-stage sealless centrifugal pump for high-head applications in hazardous service.",
     specs: {
-      "Flow Rate": "200 m³/h",
-      "Max Pressure": "10 bar",
-      Temperature: "-196°C to +80°C",
-      Standard: "ASME B73.1",
-      Material: "Hastelloy C-276",
+      Standard: "DIN EN ISO 15783 / API 685",
+      Drive: "Magnet Drive (Sealless)",
+      Type: "Multi-Stage Centrifugal",
+      Application: "High-Head Hazardous Service",
     },
-    tags: ["Cryogenic", "Vacuum", "ASME"],
+    tags: ["Klaus Union", "Multi-Stage", "API 685"],
     badge: null,
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCIEFalUGxusGZnWk1jBKqqBdnZdjU4PfbLjH4wlZXjcouYvfwCU6_mMSVFtrhlMyFQX9kKl_WshJJNaa5Y1ZwCP4ywsU_E2XnMTFbCxtHb6BjfJI9lwUMX2YeS_LwhDNxEzNXyvNuifeAnFfiLfGhWBdTpk5yswR1xGukRi2MpODBzAF5meKVemm0a2-IuGczzyo_DRLRpiLngEiGbP8cayjMQn0H6HqjsJWwnfnL1J8Jsj0y0JWh5r_y0-uuIcIQeMCYgNH5_gjs",
-    alt: "CryoPump LT-200 cryogenic pump",
-  },
-  // PRESSURE
-  {
-    id: "PR-001",
-    category: "pressure",
-    name: "SafeGuard SRV-X1",
-    shortDesc: "Spring-loaded safety relief valve for extreme-pressure systems.",
-    specs: {
-      "Set Pressure": "1–600 bar",
-      Orifice: "D through T",
-      Temperature: "-100°C to +500°C",
-      Standard: "API 520/526",
-      Material: "CF8M / Alloy 20",
-    },
-    tags: ["API 526", "Safety Critical", "Spring-Loaded"],
-    badge: null,
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAKoz5gHndWXh5_3oy-EIPO-532FWLFESOSHBJb_lwVAN8QhdlBaE2gP-TdEgwEX9ld9U-GTLt-vQecDerBRtAUcpmZlp8u8aUisXQ-e9R1XcCutPz4yV49FiqWDUOGJsAOIugxdo78ol51ZSQPopXeECcDB-Grbf4LStLX0YAdDLdmayGpRjAAzQsniB_BMeFbtN842Mc1HuWWkt_qEp3tMYQZZJkl5BbnoAzq_SIOt9a9oUJggWxU7R77gw8ystaTXdvOH5h0aVY",
-    alt: "SafeGuard SRV-X1 safety relief valve",
+    image: "/media/KU-003.png",
+    alt: "Klaus Union multi-stage centrifugal pump magnet drive",
   },
   {
-    id: "PR-002",
-    category: "pressure",
-    name: "BurstShield BD-300",
-    shortDesc: "Graphite bursting disc for last-resort overpressure protection.",
+    id: "KU-004",
+    category: "mechanical",
+    brand: "Klaus Union",
+    name: "Multi-Stage Side Channel Pump – Magnet Drive (ISO 15783)",
+    shortDesc: "Sealless side channel pump for low-flow, high-head duties with volatile or gas-laden liquids.",
     specs: {
-      "Burst Pressure": "0.5–250 bar",
-      Diameter: "25–600 mm",
-      Temperature: "Up to +600°C",
-      Standard: "ISO 6718",
-      Material: "Graphite / Hastelloy",
+      Standard: "DIN EN ISO 15783",
+      Drive: "Magnet Drive (Sealless)",
+      Type: "Multi-Stage Side Channel",
+      Application: "Low-Flow / High-Head / Gas-Laden",
     },
-    tags: ["ISO 6718", "Bursting Disc", "Fail-Safe"],
+    tags: ["Klaus Union", "Side Channel", "ISO 15783"],
     badge: null,
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAKoz5gHndWXh5_3oy-EIPO-532FWLFESOSHBJb_lwVAN8QhdlBaE2gP-TdEgwEX9ld9U-GTLt-vQecDerBRtAUcpmZlp8u8aUisXQ-e9R1XcCutPz4yV49FiqWDUOGJsAOIugxdo78ol51ZSQPopXeECcDB-Grbf4LStLX0YAdDLdmayGpRjAAzQsniB_BMeFbtN842Mc1HuWWkt_qEp3tMYQZZJkl5BbnoAzq_SIOt9a9oUJggWxU7R77gw8ystaTXdvOH5h0aVY",
-    alt: "BurstShield BD-300 bursting disc",
-  },
-  // SEALING
-  {
-    id: "S-001",
-    category: "sealing",
-    name: "MechSeal MS-750",
-    shortDesc: "Dual mechanical seal for aggressive chemical and hydrocarbon service.",
-    specs: {
-      Shaft: "20–150 mm",
-      "Pressure": "Up to 25 bar",
-      Temperature: "-40°C to +350°C",
-      Standard: "API 682",
-      Material: "SiC / Carbon",
-    },
-    tags: ["API 682", "Dual Seal", "Chemical Service"],
-    badge: null,
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCDDb-MMmeocsZZEng578yPflwCU1dWY3SW_FSzWRd-9K0CwDEgiNkmgyTOc_2YYsGxVKXq-IY4EQ_2AHJt8wgfGF38znes6bl4ZI-CUD93yQgD7X6mpZ70gttzbMt3MoCP0rOHKVFmT6rnoyWyVXzYd0TXRlvuvEI_OVgbLlSRySU5fftQuCm-jKSxOjormhNMqkZsOTjgbjM1ZnIgqm3AcBHX--P5-QAMGJvm3HzUwk3vgj4Hw7EDMe6okQTKJJJiPMq4P81Lg_Q",
-    alt: "MechSeal MS-750 dual mechanical seal",
+    image: "/media/KU-004.png",
+    alt: "Klaus Union multi-stage side channel pump magnet drive",
   },
   {
-    id: "S-002",
-    category: "sealing",
-    name: "FlexiGask SG-100",
-    shortDesc: "Spiral-wound gaskets for high-temperature flange applications.",
+    id: "KU-005",
+    category: "mechanical",
+    brand: "Klaus Union",
+    name: "Submerged Pump – Magnet Drive (ISO 2858/ISO 15783)",
+    shortDesc: "Submerged sealless pump for tank-mounted or pit-mounted hazardous fluid extraction.",
     specs: {
-      Diameter: "½\" to 24\"",
-      Pressure: "Class 150–2500",
-      Temperature: "-200°C to +1000°C",
-      Standard: "ASME B16.20",
-      Material: "SS 316 / Graphite",
+      Standard: "DIN EN ISO 2858 / DIN EN ISO 15783",
+      Drive: "Magnet Drive (Sealless)",
+      Type: "Submerged Centrifugal",
+      Application: "Tank / Pit Mounted",
     },
-    tags: ["ASME B16.20", "Spiral-Wound", "High-Temp"],
+    tags: ["Klaus Union", "Submerged", "Sealless"],
     badge: null,
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCDDb-MMmeocsZZEng578yPflwCU1dWY3SW_FSzWRd-9K0CwDEgiNkmgyTOc_2YYsGxVKXq-IY4EQ_2AHJt8wgfGF38znes6bl4ZI-CUD93yQgD7X6mpZ70gttzbMt3MoCP0rOHKVFmT6rnoyWyVXzYd0TXRlvuvEI_OVgbLlSRySU5fftQuCm-jKSxOjormhNMqkZsOTjgbjM1ZnIgqm3AcBHX--P5-QAMGJvm3HzUwk3vgj4Hw7EDMe6okQTKJJJiPMq4P81Lg_Q",
-    alt: "FlexiGask SG-100 spiral wound gaskets",
-  },
-  // VALVES
-  {
-    id: "V-001",
-    category: "valves",
-    name: "TurboGate TG-800",
-    shortDesc: "Full-bore gate valve for on/off isolation in crude & gas lines.",
-    specs: {
-      "Size": "2\" to 48\"",
-      "Rating": "Class 150–2500",
-      Temperature: "-29°C to +425°C",
-      Standard: "API 600",
-      Material: "WCB / CF8M",
-    },
-    tags: ["API 600", "Gate Valve", "Full Bore"],
-    badge: null,
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAKoz5gHndWXh5_3oy-EIPO-532FWLFESOSHBJb_lwVAN8QhdlBaE2gP-TdEgwEX9ld9U-GTLt-vQecDerBRtAUcpmZlp8u8aUisXQ-e9R1XcCutPz4yV49FiqWDUOGJsAOIugxdo78ol51ZSQPopXeECcDB-Grbf4LStLX0YAdDLdmayGpRjAAzQsniB_BMeFbtN842Mc1HuWWkt_qEp3tMYQZZJkl5BbnoAzq_SIOt9a9oUJggWxU7R77gw8ystaTXdvOH5h0aVY",
-    alt: "TurboGate TG-800 gate valve",
+    image: "/media/KU-005.png",
+    alt: "Klaus Union submerged pump magnet drive",
   },
   {
-    id: "V-002",
-    category: "valves",
-    name: "PrecisionBall PB-360",
-    shortDesc: "Trunnion-mounted ball valve for high-pressure pipeline control.",
+    id: "KU-006",
+    category: "mechanical",
+    brand: "Klaus Union",
+    name: "Centrifugal Pump – Mechanical Seal (ISO 2858/5199)",
+    shortDesc: "Mechanical-seal centrifugal pump for general chemical and process industry service.",
     specs: {
-      "Size": "2\" to 60\"",
-      "Rating": "Class 300–1500",
-      Temperature: "-46°C to +230°C",
-      Standard: "API 6D",
-      Material: "SS 316 / Inconel",
+      Standard: "DIN EN ISO 2858 / 5199",
+      Drive: "Mechanical Seal",
+      Type: "Centrifugal",
+      Application: "General Chemical / Process",
     },
-    tags: ["API 6D", "Ball Valve", "Trunnion"],
+    tags: ["Klaus Union", "Mechanical Seal", "ISO 5199"],
     badge: null,
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAKoz5gHndWXh5_3oy-EIPO-532FWLFESOSHBJb_lwVAN8QhdlBaE2gP-TdEgwEX9ld9U-GTLt-vQecDerBRtAUcpmZlp8u8aUisXQ-e9R1XcCutPz4yV49FiqWDUOGJsAOIugxdo78ol51ZSQPopXeECcDB-Grbf4LStLX0YAdDLdmayGpRjAAzQsniB_BMeFbtN842Mc1HuWWkt_qEp3tMYQZZJkl5BbnoAzq_SIOt9a9oUJggWxU7R77gw8ystaTXdvOH5h0aVY",
-    alt: "PrecisionBall PB-360 trunnion ball valve",
+    image: "/media/KU-006.png",
+    alt: "Klaus Union centrifugal pump mechanical seal ISO 2858",
+  },
+  {
+    id: "KU-007",
+    category: "mechanical",
+    brand: "Klaus Union",
+    name: "Single Volute Twin Screw Pump – Magnet Drive (API 676)",
+    shortDesc: "Sealless twin-screw pump for viscous, shear-sensitive, and two-phase fluid transfer.",
+    specs: {
+      Standard: "API 676",
+      Drive: "Magnet Drive (Sealless)",
+      Type: "Single Volute Twin Screw",
+      Application: "Viscous / Two-Phase Fluids",
+    },
+    tags: ["Klaus Union", "Twin Screw", "API 676"],
+    badge: null,
+    image: "/media/KU-007.PNG",
+    alt: "Klaus Union twin screw pump magnet drive API 676",
+  },
+ 
+  // ── MECHANICAL: Protectoseal ─────────────────────────────────────────────
+  {
+    id: "PS-001",
+    category: "mechanical",
+    brand: "Protectoseal",
+    name: "Flame Arresters",
+    shortDesc: "In-line and end-of-line flame arresters preventing ignition propagation in tank venting systems.",
+    specs: {
+      Type: "In-Line / End-of-Line",
+      Application: "Tank Venting / Pipeline",
+      Standard: "EN ISO 16852 / FM Approved",
+    },
+    tags: ["Protectoseal", "Flame Arrester", "Fire Safety"],
+    badge: null,
+    image: "/media/PS-001.png",
+    alt: "Protectoseal flame arrester",
+  },
+  {
+    id: "PS-002",
+    category: "mechanical",
+    brand: "Protectoseal",
+    name: "Conservation Vents",
+    shortDesc: "Pressure/vacuum relief vents protecting atmospheric storage tanks from over- and under-pressure.",
+    specs: {
+      Type: "Pressure / Vacuum Relief",
+      Application: "Atmospheric Storage Tanks",
+      Standard: "API 2000 / EN ISO 28300",
+    },
+    tags: ["Protectoseal", "Conservation Vent", "API 2000"],
+    badge: null,
+    image: "/media/PS-002.png",
+    alt: "Protectoseal conservation vent",
+  },
+  {
+    id: "PS-003",
+    category: "mechanical",
+    brand: "Protectoseal",
+    name: "Emergency Pressure Relief Vents",
+    shortDesc: "High-capacity emergency vents for rapid pressure relief during fire exposure or process upset.",
+    specs: {
+      Type: "Emergency Relief",
+      Application: "Fire Exposure / Process Upset",
+      Standard: "API 2000 / NFPA 30",
+    },
+    tags: ["Protectoseal", "Emergency Vent", "NFPA 30"],
+    badge: null,
+    image: "/media/PS-003.png",
+    alt: "Protectoseal emergency pressure relief vent",
+  },
+ 
+  // ── MECHANICAL: Victor Pumpen ────────────────────────────────────────────
+  {
+    id: "VP-001",
+    category: "mechanical",
+    brand: "Victor Pumpen",
+    name: "Self-Priming Pump",
+    shortDesc: "Robust self-priming centrifugal pump for draining, loading, and transfer in demanding environments.",
+    specs: {
+      Type: "Self-Priming Centrifugal",
+      Application: "Draining / Loading / Transfer",
+      Feature: "Dry-Run Capable",
+    },
+    tags: ["Victor Pumpen", "Self-Priming", "Centrifugal"],
+    badge: null,
+    image: "/media/VP-001.png",
+    alt: "Victor Pumpen self-priming pump",
+  },
+ 
+  // ── MECHANICAL: 3PPrinz ──────────────────────────────────────────────────
+  {
+    id: "3P-001",
+    category: "mechanical",
+    brand: "3PPrinz",
+    name: "Rotary Vane Pumps",
+    shortDesc: "Positive-displacement rotary vane pumps for metering and transfer of fuels, solvents, and lubricants.",
+    specs: {
+      Type: "Rotary Vane (Positive Displacement)",
+      Application: "Fuels / Solvents / Lubricants",
+      Feature: "Precision Metering",
+    },
+    tags: ["3PPrinz", "Rotary Vane", "Positive Displacement"],
+    badge: null,
+    image: "/media/3P-001.png",
+    alt: "3PPrinz rotary vane pump",
+  },
+ 
+  // ── MECHANICAL: Dixon ────────────────────────────────────────────────────
+  {
+    id: "DX-001",
+    category: "mechanical",
+    brand: "Dixon",
+    name: "Loading Arm",
+    shortDesc: "Top and bottom loading arms for safe, spill-free transfer of petroleum products and chemicals.",
+    specs: {
+      Type: "Loading / Unloading Arm",
+      Application: "Petroleum / Chemical Transfer",
+      Standard: "API 1004",
+    },
+    tags: ["Dixon", "Loading Arm", "API 1004"],
+    badge: null,
+    image: "/media/DX-001.png",
+    alt: "Dixon loading arm",
+  },
+ 
+  // ── ELECTRICAL ───────────────────────────────────────────────────────────
+  {
+    id: "EL-001",
+    category: "electrical",
+    brand: "Aircon",
+    name: "Pneumatic Actuator",
+    shortDesc: "Double-acting and spring-return pneumatic actuators for reliable automated valve control.",
+    specs: {
+      Type: "Double-Acting / Spring-Return",
+      Application: "Automated Valve Control",
+      Medium: "Instrument Air / Gas",
+    },
+    tags: ["Aircon", "Pneumatic", "Actuator"],
+    badge: null,
+    image: "/media/AIRCON.png",
+    alt: "Aircon pneumatic actuator",
+  },
+  {
+    id: "EL-002",
+    category: "electrical",
+    brand: "Hitork",
+    name: "Electric Actuator",
+    shortDesc: "Multi-turn and part-turn electric actuators for precise valve automation in process plants.",
+    specs: {
+      Type: "Multi-Turn / Part-Turn",
+      Application: "Process Valve Automation",
+      Control: "On/Off & Modulating",
+    },
+    tags: ["Hitork", "Electric", "Actuator"],
+    badge: null,
+    image: "/media/AIRCON.png",
+    alt: "Hitork electric actuator",
+  },
+ 
+  // ── INSTRUMENT ───────────────────────────────────────────────────────────
+  {
+    id: "FH-001",
+    category: "instrument",
+    brand: "Faure Herman",
+    name: "Flow Meter (Mechanical)",
+    shortDesc: "High-accuracy positive-displacement and turbine flow meters for custody transfer and process measurement.",
+    specs: {
+      Type: "Positive Displacement / Turbine",
+      Application: "Custody Transfer / Process",
+      Accuracy: "±0.1%",
+    },
+    tags: ["Faure Herman", "Flow Meter", "Custody Transfer"],
+    badge: null,
+    image: "/media/AFH.png",
+    alt: "Faure Herman mechanical flow meter",
+  },
+  {
+    id: "FH-002",
+    category: "instrument",
+    brand: "Faure Herman",
+    name: "Ultrasonic Flow Meter",
+    shortDesc: "Non-intrusive clamp-on and inline ultrasonic flow meters for liquids and gases.",
+    specs: {
+      Type: "Clamp-On / Inline Ultrasonic",
+      Application: "Liquids & Gases",
+      Feature: "No Moving Parts",
+    },
+    tags: ["Faure Herman", "Ultrasonic", "Non-Intrusive"],
+    badge: null,
+    image: "/media/AFH.png",
+    alt: "Faure Herman ultrasonic flow meter",
+  },
+  {
+    id: "DX-002",
+    category: "instrument",
+    brand: "Dixon",
+    name: "ADS Overfill Protection Rack Monitor",
+    shortDesc: "Automatic Dependent Surveillance rack monitor for vehicle overfill prevention during tank loading.",
+    specs: {
+      Type: "Overfill Protection / Rack Monitor",
+      Application: "Tanker Loading / Terminal",
+      Standard: "API / OIML",
+      Feature: "Ground Verification + Overfill Sensing",
+    },
+    tags: ["Dixon", "Overfill Protection", "ADS"],
+    badge: null,
+    image: "/media/DX-002.png",
+    alt: "Dixon ADS overfill protection rack monitor",
   },
 ]
-
 // ─── COMPONENT ───────────────────────────────────────────────────────────────
 
 export default function ProductsPage() {
