@@ -1,10 +1,12 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect, Suspense } from "react"
+import { useSearchParams } from "next/navigation"
 import { Search } from '@/components/Search'
 import { ProductModal } from "@/components/ProductModal/page"
 // ─── DATA ────────────────────────────────────────────────────────────────────
 import { MobileCategoryDropdown } from "@/components/MobileCategoryDropdown/page"
+
 export const categories = [
   { id: "all", label: "All Products" },
   { id: "mechanical", label: "Mechanical" },
@@ -352,11 +354,19 @@ export const products = [
     alt: "Dixon ADS overfill protection rack monitor",
   },
 ]
-// ─── COMPONENT ───────────────────────────────────────────────────────────────
 
-export default function ProductsPage() {
+function ProductsContent() {
+  const searchParams = useSearchParams()
+  const categoryParam = searchParams.get('category')
+  
   const [activeCategory, setActiveCategory] = useState("all")
   const [selectedProduct, setSelectedProduct] = useState<(typeof products)[0] | null>(null)
+
+  useEffect(() => {
+    if (categoryParam && categories.some(cat => cat.id === categoryParam)) {
+      setActiveCategory(categoryParam)
+    }
+  }, [categoryParam])
 
   const filtered =
     activeCategory === "all"
@@ -379,6 +389,7 @@ export default function ProductsPage() {
           <MobileCategoryDropdown
             activeCategory={activeCategory}
             setActiveCategory={setActiveCategory}
+            categories={categories}
           />
 
           {/* Desktop: tab bar */}
@@ -527,5 +538,13 @@ export default function ProductsPage() {
         onClose={() => setSelectedProduct(null)}
       />
     </div>
+  )
+}
+
+export default function ProductsPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-white" />}>
+      <ProductsContent />
+    </Suspense>
   )
 }

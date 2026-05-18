@@ -16,39 +16,30 @@ const trustStats = [
 const categories = [
   {
     index: "01",
-    title: "Pump & System",
+    title: "Mechanical Equipment",
     description:
-      "Centrifugal, gear, diaphragm, twin screw, metering, and submersible pumps for chemical, petrochemical, and wastewater applications.",
-    specs: ["API 610", "ISO 5199", "API 676"],
-    href: "/products?category=pumps",
-    cta: "View Pumps",
+      "Magnet-drive and mechanical-seal centrifugal pumps, twin-screw pumps, flame arresters, conservation vents, and loading arms from Tier-1 manufacturers.",
+    specs: ["API 610", "API 676", "API 2000", "ISO 5199"],
+    href: "/products?category=mechanical",
+    cta: "View Mechanical",
   },
   {
     index: "02",
-    title: "Valves",
+    title: "Electrical Actuators",
     description:
-      "Manual, automated, and specialty valves — ball, gate, globe, butterfly, double block & bleed, rising stem, and trunnion configurations.",
-    specs: ["API 6D", "API 6A", "ANSI/ASME"],
-    href: "/products?category=valves",
-    cta: "View Valves",
+      "Pneumatic and electric actuators for valve automation, engineered for reliable on/off and modulating control in process environments.",
+    specs: ["Pneumatic", "Electric", "Modulating", "Valve Automation"],
+    href: "/products?category=electrical",
+    cta: "View Electrical",
   },
   {
     index: "03",
-    title: "Tank & Safety Equipment",
+    title: "Instrument & Monitoring",
     description:
-      "Flame arresters, pressure/vacuum relief vents, emergency vents, gauge hatches, and nitrogen blanketing valves for storage tank protection.",
-    specs: ["API 2000", "EN ISO 28300", "ATEX"],
-    href: "/products?category=tank-equipment",
-    cta: "View Tank Equipment",
-  },
-  {
-    index: "04",
-    title: "Other Field",
-    description:
-      "Loading arms, swivel joints, actuators, flowmeters, level sensors, expansion joints, and mechanical parts for wider plant utility needs.",
-    specs: ["API", "ISO", "DIN"],
-    href: "/products?category=other",
-    cta: "View Other Products",
+      "Precision flow measurement and overfill protection solutions covering mechanical, ultrasonic, and safety-critical monitoring applications.",
+    specs: ["Flow Meters", "Ultrasonic", "Overfill Protection", "API / OIML"],
+    href: "/products?category=instrument",
+    cta: "View Instruments",
   },
 ]
 
@@ -225,7 +216,7 @@ export default function Page() {
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 gap-px bg-neutral-900 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-px bg-neutral-900 md:grid-cols-2 lg:grid-cols-3">
             {categories.map((cat, i) => (
               <ScrollReveal key={cat.index} animation="animate-fade-up" delay={i * 100} className="flex">
                 <Link href={cat.href} className="group bg-neutral-50 hover:bg-white transition-colors duration-200 flex flex-col w-full">

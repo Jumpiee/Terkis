@@ -3,20 +3,18 @@
 import { useState, useRef, useEffect } from "react"
 import { ChevronDown, X } from "lucide-react"
 
-const categories = [
-  { id: "all", label: "All Products" },
-  { id: "pumps", label: "Pumping Systems" },
-  { id: "pressure", label: "Pressure Management" },
-  { id: "sealing", label: "Industrial Sealing" },
-  { id: "valves", label: "Flow Control" },
-]
+interface Category {
+  id: string
+  label: string
+}
 
 interface Props {
   activeCategory: string
   setActiveCategory: (id: string) => void
+  categories: Category[]
 }
 
-export function MobileCategoryDropdown({ activeCategory, setActiveCategory }: Props) {
+export function MobileCategoryDropdown({ activeCategory, setActiveCategory, categories }: Props) {
   const [open, setOpen] = useState(false)
   const overlayRef = useRef<HTMLDivElement>(null)
 
@@ -39,7 +37,7 @@ export function MobileCategoryDropdown({ activeCategory, setActiveCategory }: Pr
           <div className="flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full bg-red-700" />
             <span className="text-xs font-bold uppercase tracking-[0.12em] text-neutral-700">
-              {active?.label}
+              {active?.label || "Select Category"}
             </span>
           </div>
           <ChevronDown
