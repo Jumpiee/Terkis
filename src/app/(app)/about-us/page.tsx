@@ -1,5 +1,6 @@
 import Image from 'next/image'
-
+import PartnersGrid from '@/components/PartnerGrid/page'
+import Link from 'next/link'
 // ── Data ─────────────────────────────────────────────────────────────
 
 const stats = [
@@ -127,33 +128,33 @@ export default function AboutUsPage() {
       </section>
 
       {/* ── SECTION: OUR PARTNER ─────────────────────── */}
-      <section className="py-20 bg-white">
+      <section className="border-b border-neutral-200 bg-neutral-50 py-16">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-12 text-center md:text-left">
-            <p className="mb-2 font-mono text-xs font-bold uppercase tracking-[0.18em] text-red-900">
-              Strategic Network
-            </p>
-            <h2 className="text-3xl font-extrabold uppercase tracking-tight">
-              Our Partners
-            </h2>
+          <div className="mb-10 flex items-end justify-between">
+            <div>
+              <p className="mb-2 font-mono text-xs font-bold uppercase tracking-[0.18em] text-red-900">
+                Our Partners
+              </p>
+              <h2 className="text-3xl font-extrabold uppercase tracking-tight">
+                International Brands We Represent
+              </h2>
+              <p className="mt-2 text-sm text-neutral-500">
+                Authorized distributor and agent for leading European and American manufacturers.
+              </p>
+            </div>
+            <Link
+              href="/brands"
+              className="hidden md:flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-red-900 border-b border-red-900 pb-0.5 hover:gap-3 transition-all"
+            >
+              View All Brands →
+            </Link>
           </div>
 
-          <div className="grid grid-cols-2 gap-px bg-neutral-200 md:grid-cols-4 lg:grid-cols-5 border border-neutral-200">
-            {partners.map((partner) => (
-              <div
-                key={partner.name}
-                className="flex h-32 items-center justify-center bg-white p-6 grayscale hover:grayscale-0 transition-all duration-300"
-              >
-                <Image
-                  src={partner.logo}
-                  alt={partner.name}
-                  width={200}
-                  height={80}
-                  className="max-h-12 w-auto object-contain"
-                />
-              </div>
-            ))}
-          </div>
+          <PartnersGrid />
+
+          <p className="mt-6 font-mono text-xs uppercase tracking-widest text-neutral-400">
+            All products are supplied through authorized distribution channels. Datasheets and compliance certificates available on request.
+          </p>
         </div>
       </section>
     </main>
