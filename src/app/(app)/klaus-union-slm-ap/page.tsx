@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
+import { useState } from "react";
 
 // ─── TYPES ────────────────────────────────────────────────────────────────────
 
@@ -165,7 +165,7 @@ export default function KlausUnionFullPresentation() {
               </div>
 
               {/* Anatomy Grid (Smaller, moved under longDescription) */}
-              <div className="grid grid-cols-1 gap-px bg-neutral-200">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-neutral-200">
                 {product.anatomy.map((item, idx) => (
                   <article key={idx} className="group bg-white p-8 transition-colors hover:bg-neutral-50">
                     <div className="mb-6 flex items-center gap-4">
@@ -182,7 +182,7 @@ export default function KlausUnionFullPresentation() {
             </div>
 
             {/* Image section on the right side */}
-            <div className="relative aspect-square lg:aspect-auto lg:h-[400px] bg-neutral-200 border border-neutral-200 overflow-hidden">
+            <div className="relative aspect-square lg:aspect-auto lg:self-stretch bg-neutral-200 border border-neutral-200 overflow-hidden">
               <img
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIEFalUGxusGZnWk1jBKqqBdnZdjU4PfbLjH4wlZXjcouYvfwCU6_mMSVFtrhlMyFQX9kKl_WshJJNaa5Y1ZwCP4ywsU_E2XnMTFbCxtHb6BjfJI9lwUMX2YeS_LwhDNxEzNXyvNuifeAnFfiLfGhWBdTpk5yswR1xGukRi2MpODBzAF5meKVemm0a2-IuGczzyo_DRLRpiLngEiGbP8cayjMQn0H6HqjsJWwnfnL1J8Jsj0y0JWh5r_y0-uuIcIQeMCYgNH5_gjs"
                 alt="Technical illustration of Klaus Union SLM AP"
