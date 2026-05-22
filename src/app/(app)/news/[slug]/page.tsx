@@ -1,5 +1,5 @@
 import { RichText } from '@/components/RichText'
-import type { Category, Media, Post, User } from '@/payload-types'
+import type { Media, Post, PostCategory, User } from '@/payload-types'
 import configPromise from '@payload-config'
 import type { Metadata } from 'next'
 import Image from 'next/image'
@@ -35,7 +35,7 @@ export default async function NewsArticlePage({ params }: Args) {
   if (!post) return notFound()
 
   const cover = typeof post.coverImage === 'object' ? (post.coverImage as Media) : null
-  const category = typeof post.category === 'object' ? (post.category as Category) : null
+  const category = typeof post.category === 'object' ? (post.category as PostCategory) : null
   const author = typeof post.author === 'object' ? (post.author as User) : null
 
   // Related posts: same category, excluding current
@@ -175,7 +175,7 @@ export default async function NewsArticlePage({ params }: Args) {
             <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
               {related.map((rel, i) => {
                 const relCover = typeof rel.coverImage === 'object' ? (rel.coverImage as Media) : null
-                const relCat = typeof rel.category === 'object' ? (rel.category as Category) : null
+                const relCat = typeof rel.category === 'object' ? (rel.category as PostCategory) : null
 
                 return (
                   <article key={rel.id} className="group bg-neutral-50 hover:bg-white transition-colors duration-200 flex flex-col border border-neutral-400">
@@ -246,7 +246,7 @@ function HeroMeta({
   post,
   author,
 }: {
-  category: Category | null
+  category: PostCategory | null
   post: Post
   author: User | null
 }) {
