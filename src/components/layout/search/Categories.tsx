@@ -16,16 +16,12 @@ async function CategoryList() {
 
   return (
     <div>
-      <h3 className="text-xs mb-2 text-neutral-500 dark:text-neutral-400">Category</h3>
-
-      <ul>
-        {categories.docs.map((category) => {
-          return (
-            <li key={category.id}>
-              <CategoryItem category={category} />
-            </li>
-          )
-        })}
+      <ul className="flex flex-col">
+        {categories.docs.map((category) => (
+          <li key={category.id}>
+            <CategoryItem category={category} />
+          </li>
+        ))}
       </ul>
     </div>
   )

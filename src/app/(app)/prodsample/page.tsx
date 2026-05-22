@@ -1,298 +1,224 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import Link from "next/link";
+import { useState } from "react"
+import Link from "next/link"
 
-// ─── TYPES ────────────────────────────────────────────────────────────────────
+// ─── FAKE DATA (simulates what Payload would return) ──────────────────────────
 
-interface Product {
-  id: string;
-  brand: string;
-  name: string;
-  category: string;
-  status: "In Stock" | "Lead Time" | "Enquire";
-  description: string;
-  specs: Record<string, string>;
-  tags: string[];
-  image: string;
-  alt: string;
-  documents?: { label: string; size: string }[];
-}
+const fakeProducts = [
+  { id: "KU-001", name: "Centrifugal Pump – Magnet Drive", brand: "Klaus Union", category: "mechanical", tag: "ISO 2858", image: "/media/KU-001.png" },
+  { id: "KU-007", name: "Twin Screw Pump – Magnet Drive", brand: "Klaus Union", category: "mechanical", tag: "API 676", image: "/media/KU-007.PNG" },
+  { id: "PS-001", name: "Flame Arresters", brand: "Protectoseal", category: "mechanical", tag: "EN ISO 16852", image: "/media/PS-001.png" },
+  { id: "EL-001", name: "Pneumatic Actuator", brand: "Aircon", category: "electrical", tag: "Double-Acting", image: "/media/AIRCON.png" },
+  { id: "EL-002", name: "Electric Actuator", brand: "Hitork", category: "electrical", tag: "Multi-Turn", image: "/media/AIRCON.png" },
+  { id: "FH-001", name: "Flow Meter (Mechanical)", brand: "Faure Herman", category: "instrument", tag: "±0.1%", image: "/media/AFH.png" },
+  { id: "DX-002", name: "ADS Overfill Protection", brand: "Dixon", category: "instrument", tag: "API / OIML", image: "/media/DX-002.png" },
+]
 
-// ─── DEMO DATA ────────────────────────────────────────────────────────────────
+const categories = [
+  { id: "all", label: "All Products" },
+  { id: "mechanical", label: "Mechanical" },
+  { id: "electrical", label: "Electrical" },
+  { id: "instrument", label: "Instrument" },
+]
 
-const product: Product = {
-  id: "M-001",
-  brand: "Klaus Union",
-  name: "Sealless Mag-Drive Pump",
-  category: "Mechanical Seals & Pumps",
-  status: "Enquire",
-  description:
-    "Magnetically coupled sealless pump eliminating fugitive emissions — engineered for hazardous, toxic, and ultra-pure process fluids where zero leakage is non-negotiable. Compliant with API 685 standards for heavy-duty industrial service.",
-  specs: {
-    Type: "Sealless / Mag-Drive",
-    "Flow Rate": "Up to 900 m³/h",
-    "Max Pressure": "25 bar",
-    Temperature: "−100°C to +350°C",
-    Material: "Alloy 20 / Hastelloy",
-    Standard: "API 685",
-  },
-  tags: ["API 685", "Sealless", "Zero-Emission", "ATEX"],
-  image:
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuCIEFalUGxusGZnWk1jBKqqBdnZdjU4PfbLjH4wlZXjcouYvfwCU6_mMSVFtrhlMyFQX9kKl_WshJJNaa5Y1ZwCP4ywsU_E2XnMTFbCxtHb6BjfJI9lwUMX2YeS_LwhDNxEzNXyvNuifeAnFfiLfGhWBdTpk5yswR1xGukRi2MpODBzAF5meKVemm0a2-IuGczzyo_DRLRpiLngEiGbP8cayjMQn0H6HqjsJWwnfnL1J8Jsj0y0JWh5r_y0-uuIcIQeMCYgNH5_gjs",
-  alt: "Klaus Union sealless mag-drive pump",
-  documents: [
-    { label: "Technical Datasheet", size: "PDF · 420 KB" },
-    { label: "API 685 Compliance Certificate", size: "PDF · 188 KB" },
-    { label: "Installation & Maintenance Manual", size: "PDF · 1.2 MB" },
-  ],
-};
+// ─── VERSION A — Current (static, client-side filter) ─────────────────────────
 
-const relatedProducts = [
-  {
-    id: "01",
-    code: "P-001",
-    name: "HydroForce CF-900",
-    category: "Pumping Systems",
-    tag: "API 610",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCIEFalUGxusGZnWk1jBKqqBdnZdjU4PfbLjH4wlZXjcouYvfwCU6_mMSVFtrhlMyFQX9kKl_WshJJNaa5Y1ZwCP4ywsU_E2XnMTFbCxtHb6BjfJI9lwUMX2YeS_LwhDNxEzNXyvNuifeAnFfiLfGhWBdTpk5yswR1xGukRi2MpODBzAF5meKVemm0a2-IuGczzyo_DRLRpiLngEiGbP8cayjMQn0H6HqjsJWwnfnL1J8Jsj0y0JWh5r_y0-uuIcIQeMCYgNH5_gjs",
-  },
-  {
-    id: "02",
-    code: "P-002",
-    name: "VacuDrive PD-450",
-    category: "Pumping Systems",
-    tag: "Metering",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCIEFalUGxusGZnWk1jBKqqBdnZdjU4PfbLjH4wlZXjcouYvfwCU6_mMSVFtrhlMyFQX9kKl_WshJJNaa5Y1ZwCP4ywsU_E2XnMTFbCxtHb6BjfJI9lwUMX2YeS_LwhDNxEzNXyvNuifeAnFfiLfGhWBdTpk5yswR1xGukRi2MpODBzAF5meKVemm0a2-IuGczzyo_DRLRpiLngEiGbP8cayjMQn0H6HqjsJWwnfnL1J8Jsj0y0JWh5r_y0-uuIcIQeMCYgNH5_gjs",
-  },
-  {
-    id: "03",
-    code: "P-003",
-    name: "CryoPump LT-200",
-    category: "Pumping Systems",
-    tag: "Cryogenic",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCIEFalUGxusGZnWk1jBKqqBdnZdjU4PfbLjH4wlZXjcouYvfwCU6_mMSVFtrhlMyFQX9kKl_WshJJNaa5Y1ZwCP4ywsU_E2XnMTFbCxtHb6BjfJI9lwUMX2YeS_LwhDNxEzNXyvNuifeAnFfiLfGhWBdTpk5yswR1xGukRi2MpODBzAF5meKVemm0a2-IuGczzyo_DRLRpiLngEiGbP8cayjMQn0H6HqjsJWwnfnL1J8Jsj0y0JWh5r_y0-uuIcIQeMCYgNH5_gjs",
-  },
-];
+function VersionA() {
+  const [active, setActive] = useState("all")
 
-// ─── PAGE ─────────────────────────────────────────────────────────────────────
-
-export default function ProductDetailPage() {
-  const [enquired, setEnquired] = useState(false);
-  const [activeTab, setActiveTab] = useState<"specs" | "documents">("specs");
+  const filtered = active === "all" ? fakeProducts : fakeProducts.filter(p => p.category === active)
 
   return (
-    <div className="bg-neutral-50 text-neutral-900">
-      {/* ── HERO HEADER ── */}
-      <section className="bg-neutral-900 py-20 text-white">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <div>
-              <p className="mb-2 font-mono text-xs font-bold uppercase tracking-[0.18em] text-red-400">
-                {product.brand} · {product.category}
-              </p>
-              <h1 className="max-w-3xl text-4xl font-extrabold uppercase leading-[1.05] tracking-tight md:text-5xl lg:text-6xl">
-                {product.name}
-              </h1>
-              <div className="mt-6 flex items-center gap-4">
-                <span className="font-mono text-xs text-neutral-500">ID: {product.id}</span>
-                <span className="h-px w-8 bg-neutral-700" />
-                <div className="border-l-2 border-red-900 pl-3">
-                  <span className="font-mono text-xs font-bold uppercase tracking-widest text-red-400">
-                    {product.status}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div className="bg-white text-neutral-900">
+      {/* Tabs */}
+      <div className="sticky top-0 z-10 border-b border-neutral-200 bg-white">
+        <div className="flex">
+          {categories.map(cat => (
+            <button
+              key={cat.id}
+              onClick={() => setActive(cat.id)}
+              className={`border-b-2 px-8 py-4 font-mono text-xs font-bold uppercase tracking-[0.12em] transition-colors ${
+                active === cat.id ? "border-red-900 text-red-900" : "border-transparent text-neutral-500 hover:text-neutral-900"
+              }`}
+            >
+              {cat.label}
+            </button>
+          ))}
         </div>
-      </section>
+      </div>
 
-      {/* ── MAIN PRODUCT INFO ── */}
-      <section className="bg-white py-20">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid grid-cols-1 gap-px bg-neutral-900 lg:grid-cols-2">
-            {/* LEFT — Image */}
-            <div className="bg-white p-8 lg:p-12">
-              <div className="relative aspect-square overflow-hidden bg-neutral-50">
-                <img
-                  src={product.image}
-                  alt={product.alt}
-                  className="h-full w-full object-cover transition-all duration-700"
-                />
+      {/* Grid */}
+      <div className="p-6">
+        <div className="grid grid-cols-2 gap-px bg-neutral-200 sm:grid-cols-3">
+          {filtered.map(p => (
+            <article key={p.id} className="flex flex-col bg-white p-5">
+              <div className="mb-2 aspect-[3/2] bg-neutral-100 flex items-center justify-center">
+                <img src={p.image} alt={p.name} className="max-h-full max-w-full object-contain p-3" />
               </div>
-            </div>
+              <span className="font-mono text-xs text-neutral-400">{p.id}</span>
+              <h3 className="text-xs font-extrabold uppercase leading-tight mt-1">{p.name}</h3>
+              <span className="mt-2 font-mono text-xs uppercase tracking-widest text-neutral-500">{p.tag}</span>
+              <button className="mt-3 bg-red-900 py-1.5 font-mono text-xs font-bold uppercase tracking-widest text-white hover:bg-red-800">
+                View Specs
+              </button>
+            </article>
+          ))}
+        </div>
+        <p className="mt-4 font-mono text-xs text-neutral-400 uppercase tracking-widest">
+          Filter is client-side. Data is hardcoded. No URL change.
+        </p>
+      </div>
+    </div>
+  )
+}
 
-            {/* RIGHT — Details */}
-            <div className="flex flex-col bg-white">
-              {/* Technical Description */}
-              <div className="p-8 md:p-10">
-                <p className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-red-900">
-                  Specification Overview
-                </p>
-                <h2 className="mt-2 text-3xl font-extrabold uppercase tracking-tight">
-                  Product Details
-                </h2>
-                <p className="mt-6 text-base leading-relaxed text-neutral-600">
-                  {product.description}
-                </p>
-              </div>
+// ─── VERSION B — Shop soul (URL-driven, real Payload data feel) ───────────────
 
-              {/* Tab Switcher */}
-              <div className="grid grid-cols-2 gap-px bg-neutral-900 border-t border-neutral-900">
-                {(["specs", "documents"] as const).map((tab) => (
-                  <button
-                    key={tab}
-                    onClick={() => setActiveTab(tab)}
-                    className={`px-6 py-4 font-mono text-xs font-bold uppercase tracking-widest transition-colors ${
-                      activeTab === tab ? "bg-red-900 text-white" : "bg-white text-neutral-500 hover:bg-neutral-50 hover:text-neutral-900"
-                    }`}
-                  >
-                    {tab === "specs" ? "Technical Data" : "Documentation"}
-                  </button>
-                ))}
-              </div>
+function VersionB() {
+  const [active, setActive] = useState("all")
+  const [search, setSearch] = useState("")
 
-              {/* Tab Content: Specs */}
-              {activeTab === "specs" && (
-                <div className="grid grid-cols-2 gap-px bg-neutral-200">
-                  {Object.entries(product.specs).map(([label, value]) => (
-                    <div key={label} className="bg-white p-6">
-                      <p className="mb-1 font-mono text-xs uppercase tracking-widest text-neutral-500">
-                        {label}
-                      </p>
-                      <p className="text-sm font-extrabold uppercase tracking-tight text-neutral-900">
-                        {value}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              )}
+  const filtered = fakeProducts
+    .filter(p => active === "all" || p.category === active)
+    .filter(p => p.name.toLowerCase().includes(search.toLowerCase()) || p.brand.toLowerCase().includes(search.toLowerCase()))
 
-              {/* Tab Content: Documents */}
-              {activeTab === "documents" && (
-                <div className="flex flex-col gap-px bg-neutral-200">
-                  {product.documents?.map((doc) => (
-                    <button
-                      key={doc.label}
-                      className="group flex w-full items-center justify-between bg-white px-8 py-5 text-left transition-colors hover:bg-neutral-50"
-                    >
-                      <div>
-                        <p className="text-sm font-extrabold uppercase leading-tight text-neutral-900">
-                          {doc.label}
-                        </p>
-                        <p className="mt-1 font-mono text-xs text-neutral-400">{doc.size}</p>
-                      </div>
-                      <span className="font-mono text-xs font-bold uppercase tracking-widest text-red-900 border-b border-red-900 pb-0.5">
-                        Download
-                      </span>
-                    </button>
-                  ))}
-                </div>
-              )}
+  // In the real version this would be: searchParams.get('category') from the URL
+  // and payload.find({ where: { categories: { contains: category } } })
 
-              {/* Action Area */}
-              <div className="mt-auto grid grid-cols-1 gap-px bg-neutral-900 border-t border-neutral-900 md:grid-cols-2">
-                <button className="h-14 bg-white px-6 text-xs font-bold uppercase tracking-widest text-neutral-900 transition-colors hover:bg-neutral-50">
-                  Technical Support
-                </button>
+  return (
+    <div className="bg-white text-neutral-900">
+      {/* Search bar — like /shop */}
+      <div className="border-b border-neutral-200 px-6 py-4">
+        <input
+          type="text"
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+          placeholder="SEARCH PRODUCTS..."
+          className="w-full border border-neutral-300 bg-neutral-50 px-4 py-2.5 font-mono text-xs uppercase tracking-widest placeholder:text-neutral-400 focus:border-neutral-900 focus:outline-none"
+        />
+      </div>
+
+      <div className="flex">
+        {/* Sidebar — like /shop */}
+        <aside className="w-44 flex-none border-r border-neutral-200 p-5">
+          <p className="mb-3 font-mono text-xs uppercase tracking-widest text-neutral-400">Category</p>
+          <ul className="flex flex-col gap-1">
+            {categories.map(cat => (
+              <li key={cat.id}>
                 <button
-                  onClick={() => setEnquired(true)}
-                  className="h-14 bg-red-900 px-6 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-red-800"
+                  onClick={() => setActive(cat.id)}
+                  className={`w-full text-left font-mono text-xs uppercase tracking-widest py-1.5 transition-colors ${
+                    active === cat.id ? "text-red-900 font-bold" : "text-neutral-500 hover:text-neutral-900"
+                  }`}
                 >
-                  {enquired ? "Enquiry Sent" : "Request Quote →"}
+                  {active === cat.id ? "→ " : ""}{cat.label}
                 </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+              </li>
+            ))}
+          </ul>
 
-      {/* ── RELATED PRODUCTS ── */}
-      <section className="bg-neutral-50 py-20">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-12">
-            <p className="mb-2 font-mono text-xs font-bold uppercase tracking-[0.18em] text-red-900">
-              Related Equipment
-            </p>
-            <h2 className="text-3xl font-extrabold uppercase tracking-tight">
-              Complementary Solutions
-            </h2>
-          </div>
+          <p className="mt-6 mb-3 font-mono text-xs uppercase tracking-widest text-neutral-400">Sort by</p>
+          <ul className="flex flex-col gap-1">
+            {["Title A–Z", "Newest", "Brand"].map(s => (
+              <li key={s}>
+                <button className="w-full text-left font-mono text-xs uppercase tracking-widest text-neutral-500 hover:text-neutral-900 py-1.5">
+                  {s}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </aside>
 
-          <div className="grid grid-cols-1 gap-px bg-neutral-900 md:grid-cols-3">
-            {relatedProducts.map((rel) => (
-              <article key={rel.id} className="group flex flex-col bg-white p-8 transition-colors hover:bg-neutral-50">
-                <div className="mb-6 flex items-start justify-between">
-                  <span className="font-mono text-xs text-neutral-400">{rel.id}</span>
-                  <span className="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-200 text-red-900 font-mono text-xs">
-                    →
-                  </span>
+        {/* Grid */}
+        <div className="flex-1 p-6">
+          <p className="mb-4 font-mono text-xs uppercase tracking-widest text-neutral-400">
+            {filtered.length} {filtered.length === 1 ? "result" : "results"}
+            {search ? ` for "${search}"` : ""}
+          </p>
+          <div className="grid grid-cols-2 gap-px bg-neutral-200 sm:grid-cols-3">
+            {filtered.map(p => (
+              <article key={p.id} className="flex flex-col bg-white p-5">
+                <div className="mb-2 aspect-[3/2] bg-neutral-100 flex items-center justify-center">
+                  <img src={p.image} alt={p.name} className="max-h-full max-w-full object-contain p-3" />
                 </div>
-
-                <div className="mb-6 aspect-[4/3] overflow-hidden bg-neutral-50">
-                  <img
-                    src={rel.image}
-                    alt={rel.name}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-
-                <h3 className="mb-3 text-lg font-extrabold uppercase leading-tight">{rel.name}</h3>
-                <p className="mb-6 text-sm text-neutral-600 leading-relaxed flex-1">
-                  High-performance {rel.category.toLowerCase()} rated for {rel.tag} service conditions.
-                </p>
-
-                <div className="mb-4 flex flex-wrap gap-1.5">
-                  <span className="border border-neutral-300 px-2 py-0.5 font-mono text-xs uppercase tracking-widest text-neutral-500">
-                    {rel.tag}
-                  </span>
-                </div>
-
-                <Link
-                  href={`/products/${rel.code}`}
-                  className="inline-block self-start font-mono text-xs font-bold uppercase tracking-[0.14em] text-red-900 border-b border-red-900 pb-0.5"
-                >
-                  View Specification
+                <span className="font-mono text-xs text-neutral-400">{p.id}</span>
+                <h3 className="text-xs font-extrabold uppercase leading-tight mt-1">{p.name}</h3>
+                <span className="mt-1 font-mono text-xs text-neutral-500">{p.brand}</span>
+                {/* In real version: Link href={`/products/${slug}`} */}
+                <Link href="/products" className="mt-3 bg-neutral-900 py-1.5 text-center font-mono text-xs font-bold uppercase tracking-widest text-white hover:bg-neutral-700">
+                  View Detail →
                 </Link>
               </article>
             ))}
           </div>
+          {filtered.length === 0 && (
+            <p className="font-mono text-xs uppercase tracking-widest text-neutral-400 mt-6">No products found.</p>
+          )}
+          <p className="mt-4 font-mono text-xs text-neutral-400 uppercase tracking-widest">
+            In real version: filter = URL param, data = payload.find(). Search works server-side.
+          </p>
         </div>
-      </section>
-
-      {/* ── ENGINEERING CTA ── */}
-      <section className="bg-neutral-900 py-20 text-white">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-14">
-            <p className="mb-2 font-mono text-xs font-bold uppercase tracking-[0.18em] text-red-400">
-              Expert Consultation
-            </p>
-            <h2 className="text-3xl font-extrabold uppercase tracking-tight text-white">
-              Engineering Support
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
-            <p className="text-base text-neutral-400 leading-relaxed">
-              Our engineering team provides full application review, thermodynamic simulation, and custom sourcing from
-              Tier-1 European and American manufacturers. We ensure every component meets your exact process
-              requirements and international standards.
-            </p>
-            <div className="flex flex-col gap-4 sm:flex-row md:justify-end">
-              <button className="h-11 rounded-none border border-white px-6 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-white hover:text-neutral-900">
-                Download Catalogue
-              </button>
-              <button className="h-11 rounded-none bg-red-900 px-6 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-red-800">
-                Get a Quote
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
     </div>
-  );
+  )
+}
+
+// ─── DEMO PAGE ────────────────────────────────────────────────────────────────
+
+export default function ProdSamplePage() {
+  const [view, setView] = useState<"a" | "b">("a")
+
+  return (
+    <div className="min-h-screen bg-neutral-50 text-neutral-900">
+
+      {/* Header */}
+      <div className="border-b border-neutral-200 bg-white px-6 py-5">
+        <p className="font-mono text-xs uppercase tracking-widest text-neutral-400">Demo · /prodsample</p>
+        <h1 className="mt-1 text-xl font-extrabold uppercase tracking-tight">Product Page Comparison</h1>
+        <p className="mt-1 text-sm text-neutral-500">Toggle between the two approaches to see the difference.</p>
+
+        <div className="mt-4 flex gap-px">
+          <button
+            onClick={() => setView("a")}
+            className={`px-6 py-2.5 font-mono text-xs font-bold uppercase tracking-widest transition-colors ${
+              view === "a" ? "bg-neutral-900 text-white" : "bg-neutral-100 text-neutral-500 hover:bg-neutral-200"
+            }`}
+          >
+            A — Current (static)
+          </button>
+          <button
+            onClick={() => setView("b")}
+            className={`px-6 py-2.5 font-mono text-xs font-bold uppercase tracking-widest transition-colors ${
+              view === "b" ? "bg-red-900 text-white" : "bg-neutral-100 text-neutral-500 hover:bg-neutral-200"
+            }`}
+          >
+            B — Shop Soul (Payload)
+          </button>
+        </div>
+
+        <div className="mt-3 max-w-lg">
+          {view === "a" ? (
+            <p className="text-xs text-neutral-500 leading-relaxed">
+              <span className="font-bold text-neutral-900">Version A:</span> Tab filter runs in browser only.
+              Data is a hardcoded array in the file. No search. Clicking "View Specs" opens a modal.
+              Adding a new product = editing the source code.
+            </p>
+          ) : (
+            <p className="text-xs text-neutral-500 leading-relaxed">
+              <span className="font-bold text-red-900">Version B:</span> Search bar + sidebar filter.
+              In the real version, category and search come from the URL (<code className="bg-neutral-100 px-1">/products?category=mechanical&q=pump</code>),
+              data comes from <code className="bg-neutral-100 px-1">payload.find()</code>. Adding a product = publish in admin. No code change needed.
+            </p>
+          )}
+        </div>
+      </div>
+
+      {/* Demo */}
+      <div className="mx-auto max-w-4xl border-x border-neutral-200 bg-white shadow-sm">
+        {view === "a" ? <VersionA /> : <VersionB />}
+      </div>
+
+    </div>
+  )
 }

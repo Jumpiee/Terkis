@@ -27,26 +27,26 @@ export const Search: React.FC<Props> = ({ className }) => {
       newParams.delete('q')
     }
 
-    router.push(createUrl('/product', newParams))
+    router.push(createUrl('/products', newParams))
   }
 
   return (
-    <div className="flex w-full justify-center px-4">
+    <div className="flex w-full justify-center px-6">
       <form
-        className={cn('relative w-full max-w-xl', className)}
+        className={cn('relative w-full max-w-2xl', className)}
         onSubmit={onSubmit}
       >
         <input
           autoComplete="off"
-          className="w-full border bg-white px-4 py-2 pr-10 text-sm text-black placeholder:text-neutral-500 "         
+          className="w-full border border-neutral-300 bg-white px-4 py-3 pr-10 font-mono text-xs uppercase tracking-widest text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-900 focus:outline-none transition-colors"
           defaultValue={searchParams?.get('q') || ''}
           key={searchParams?.get('q')}
           name="search"
-          placeholder="Search for products..."
+          placeholder="SEARCH PRODUCTS..."
           type="text"
         />
-        <div className="absolute right-0 top-0 mr-3 flex h-full items-center">
-          <SearchIcon className="h-4" />
+        <div className="absolute right-0 top-0 mr-4 flex h-full items-center">
+          <SearchIcon className="h-3.5 w-3.5 text-neutral-400" />
         </div>
       </form>
     </div>
