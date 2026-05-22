@@ -309,12 +309,6 @@ export default function Page() {
                   Authorized distributor and agent for leading European and American manufacturers.
                 </p>
               </div>
-              <Link
-                href="/brands"
-                className="hidden md:flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-red-900 border-b border-red-900 pb-0.5 hover:gap-3 transition-all"
-              >
-                View All Brands →
-              </Link>
             </div>
           </ScrollReveal>
 
@@ -324,7 +318,7 @@ export default function Page() {
 
           <ScrollReveal animation="animate-fade-in" delay={400}>
             <p className="mt-6 font-mono text-xs uppercase tracking-widest text-neutral-400">
-              All products are supplied through authorized distribution channels. Datasheets and compliance certificates available on request.
+              All products are supplied through authorized distribution channels.
             </p>
           </ScrollReveal>
         </div>
@@ -368,134 +362,6 @@ export default function Page() {
                 </article>
               </ScrollReveal>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── BLOCK 8: CONTACT / RFQ ────────────────────────────────────────── */}
-      <section id="contact" className="border-t border-neutral-200 bg-white py-20">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
-            {/* Left: copy */}
-            <ScrollReveal animation="animate-slide-in-left">
-              <div className="flex flex-col justify-center">
-                <p className="mb-3 font-mono text-xs font-bold uppercase tracking-[0.18em] text-red-900">
-                  Enquiries
-                </p>
-                <h2 className="mb-6 text-4xl font-extrabold uppercase leading-tight tracking-tight">
-                  Ready to Specify or Source?
-                </h2>
-                <p className="mb-8 text-sm text-neutral-600 leading-relaxed max-w-sm">
-                  Send us your requirements and we'll recommend the right product from our range —
-                  or connect you directly with the manufacturer's technical team. Datasheets,
-                  compliance certificates, and pricing are available on request.
-                </p>
-
-                <div className="space-y-4">
-                  <a href="tel:+66849035656" className="flex items-center gap-4 group">
-                    <div className="flex h-10 w-10 items-center justify-center border border-neutral-300 group-hover:border-red-900 transition-colors">
-                      <svg className="h-4 w-4 text-neutral-500 group-hover:text-red-900 transition-colors" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <span className="block font-mono text-xs uppercase tracking-widest text-neutral-400">Direct Line</span>
-                      <span className="text-sm font-semibold text-neutral-800 group-hover:text-red-900 transition-colors">
-                        +66 (0)84 903 5656
-                      </span>
-                    </div>
-                  </a>
-
-                  <a href="mailto:sales@terkis.co.th" className="flex items-center gap-4 group">
-                    <div className="flex h-10 w-10 items-center justify-center border border-neutral-300 group-hover:border-red-900 transition-colors">
-                      <svg className="h-4 w-4 text-neutral-500 group-hover:text-red-900 transition-colors" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
-                      </svg>
-                    </div>
-                    <div>
-                      <span className="block font-mono text-xs uppercase tracking-widest text-neutral-400">Email</span>
-                      <span className="text-sm font-semibold text-neutral-800 group-hover:text-red-900 transition-colors">
-                        sales@terkis.co.th
-                      </span>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </ScrollReveal>
-
-            {/* Right: form */}
-            <ScrollReveal animation="animate-slide-in-right">
-              <div className="border border-neutral-200 bg-neutral-50 p-8">
-                <form className="space-y-5">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="mb-1.5 block font-mono text-xs uppercase tracking-widest text-neutral-500">
-                        Name *
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        className="w-full border border-neutral-300 bg-white px-3 py-2.5 text-sm text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-900 focus:outline-none transition-colors"
-                        placeholder="Your name"
-                      />
-                    </div>
-                    <div>
-                      <label className="mb-1.5 block font-mono text-xs uppercase tracking-widest text-neutral-500">
-                        Company *
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        className="w-full border border-neutral-300 bg-white px-3 py-2.5 text-sm text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-900 focus:outline-none transition-colors"
-                        placeholder="Company name"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="mb-1.5 block font-mono text-xs uppercase tracking-widest text-neutral-500">
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      className="w-full border border-neutral-300 bg-white px-3 py-2.5 text-sm text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-900 focus:outline-none transition-colors"
-                      placeholder="your@company.com"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="mb-1.5 block font-mono text-xs uppercase tracking-widest text-neutral-500">
-                      Phone (optional)
-                    </label>
-                    <input
-                      type="tel"
-                      className="w-full border border-neutral-300 bg-white px-3 py-2.5 text-sm text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-900 focus:outline-none transition-colors"
-                      placeholder="+66 ..."
-                    />
-                  </div>
-
-                  <div>
-                    <label className="mb-1.5 block font-mono text-xs uppercase tracking-widest text-neutral-500">
-                      Product Enquiry / Requirements *
-                    </label>
-                    <textarea
-                      required
-                      rows={4}
-                      className="w-full border border-neutral-300 bg-white px-3 py-2.5 text-sm text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-900 focus:outline-none transition-colors resize-none"
-                      placeholder="Describe the equipment you need, application, operating conditions, or standards required..."
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full bg-red-900 py-3 font-mono text-xs font-bold uppercase tracking-[0.14em] text-white hover:bg-red-800 transition-colors"
-                  >
-                    Send Enquiry
-                  </button>
-                </form>
-              </div>
-            </ScrollReveal>
           </div>
         </div>
       </section>
