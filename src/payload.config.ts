@@ -2,6 +2,7 @@ import { postgresAdapter } from '@payloadcms/db-postgres'
 import {
   BoldFeature,
   EXPERIMENTAL_TableFeature,
+  HeadingFeature,
   IndentFeature,
   ItalicFeature,
   LinkFeature,
@@ -51,6 +52,7 @@ export default buildConfig({
   editor: lexicalEditor({
     features: () => {
       return [
+        HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
         UnderlineFeature(),
         BoldFeature(),
         ItalicFeature(),
