@@ -299,6 +299,7 @@ export interface Product {
         | TechnicalPillarsBlock
         | DataSheetBlock
         | ApplicationsBlock
+        | TechDownloadsBlock
       )[]
     | null;
   inventory?: number | null;
@@ -960,6 +961,31 @@ export interface ApplicationsBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'applicationsBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TechDownloadsBlock".
+ */
+export interface TechDownloadsBlock {
+  eyebrow: string;
+  heading: string;
+  description: string;
+  documents?:
+    | {
+        label: string;
+        file: number | Media;
+        id?: string | null;
+      }[]
+    | null;
+  ctaEyebrow: string;
+  ctaHeading: string;
+  ctaDescription: string;
+  ctaInputLabel: string;
+  ctaInputPlaceholder?: string | null;
+  ctaButtonLabel: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'techDownloads';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1765,6 +1791,7 @@ export interface ProductsSelect<T extends boolean = true> {
         technicalPillars?: T | TechnicalPillarsBlockSelect<T>;
         dataSheet?: T | DataSheetBlockSelect<T>;
         applicationsBlock?: T | ApplicationsBlockSelect<T>;
+        techDownloads?: T | TechDownloadsBlockSelect<T>;
       };
   inventory?: T;
   enableVariants?: T;
@@ -1856,6 +1883,30 @@ export interface ApplicationsBlockSelect<T extends boolean = true> {
         badge?: T;
         id?: T;
       };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TechDownloadsBlock_select".
+ */
+export interface TechDownloadsBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  heading?: T;
+  description?: T;
+  documents?:
+    | T
+    | {
+        label?: T;
+        file?: T;
+        id?: T;
+      };
+  ctaEyebrow?: T;
+  ctaHeading?: T;
+  ctaDescription?: T;
+  ctaInputLabel?: T;
+  ctaInputPlaceholder?: T;
+  ctaButtonLabel?: T;
   id?: T;
   blockName?: T;
 }

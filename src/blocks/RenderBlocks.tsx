@@ -8,6 +8,7 @@ import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { ApplicationsBlockComponent } from '@/blocks/ApplicationsBlock/Component'
 import { DataSheetBlockComponent } from '@/blocks/DataSheet/Component'
 import { StatsBlockComponent } from '@/blocks/StatsBlock/Component'
+import { TechDownloadsBlockComponent } from '@/blocks/TechDownloads/Component'
 import { TechnicalPillarsBlockComponent } from '@/blocks/TechnicalPillars/Component'
 import { ThreeItemGridBlock } from '@/blocks/ThreeItemGrid/Component'
 import { toKebabCase } from '@/utilities/toKebabCase'
@@ -24,6 +25,7 @@ import type {
   ApplicationsBlock,
   DataSheetBlock,
   StatsBlock,
+  TechDownloadsBlock,
   TechnicalPillarsBlock,
   ThreeItemGridBlock as ThreeItemGridBlockType,
 } from '../payload-types'
@@ -39,6 +41,7 @@ type LayoutBlock =
   | FormBlockType
   | MediaBlockType
   | StatsBlock
+  | TechDownloadsBlock
   | TechnicalPillarsBlock
   | ThreeItemGridBlockType
 
@@ -53,6 +56,7 @@ const blockComponents = {
   formBlock: FormBlock,
   mediaBlock: MediaBlock,
   statsBlock: StatsBlockComponent,
+  techDownloads: TechDownloadsBlockComponent,
   technicalPillars: TechnicalPillarsBlockComponent,
   threeItemGrid: ThreeItemGridBlock,
 }

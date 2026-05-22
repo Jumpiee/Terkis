@@ -3,6 +3,7 @@ import { Content } from '@/blocks/Content/config'
 import { MediaBlock } from '@/blocks/MediaBlock/config'
 import { StatsBlock } from '@/blocks/StatsBlock/config'
 import { ApplicationsBlock } from '@/blocks/ApplicationsBlock/config'
+import { TechDownloads } from '@/blocks/TechDownloads/config'
 import { DataSheet } from '@/blocks/DataSheet/config'
 import { TechnicalPillars } from '@/blocks/TechnicalPillars/config'
 import { slugField } from 'payload'
@@ -139,7 +140,7 @@ export const ProductsCollection: CollectionOverride = ({ defaultCollection }) =>
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, StatsBlock, TechnicalPillars, DataSheet, ApplicationsBlock],
+              blocks: [CallToAction, Content, MediaBlock, StatsBlock, TechnicalPillars, DataSheet, ApplicationsBlock, TechDownloads],
             },
           ],
           label: 'Content',
