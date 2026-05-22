@@ -17,7 +17,7 @@ export function FooterMenu({ menu }: Props) {
             <CMSLink
               appearance="link"
               {...item.link}
-              className="text-xs uppercase tracking-widest text-gray-500 hover:text-terkis-red transition-colors"
+              className="text-xs uppercase tracking-widest text-neutral-500 hover:text-red-900 transition-colors"
             />
           </li>
         ))}
