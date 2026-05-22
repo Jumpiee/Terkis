@@ -1,11 +1,11 @@
-import type { Category, Media, Post } from '@/payload-types'
+import type { Media, Post, PostCategory } from '@/payload-types'
 import configPromise from '@payload-config'
 import Image from 'next/image'
 import Link from 'next/link'
 import { getPayload } from 'payload'
 import { NewsGrid } from './NewsGrid'
 
-const POSTS_PER_PAGE = 9
+const POSTS_PER_PAGE = 6
 
 export default async function NewsPage({
   searchParams,
@@ -98,7 +98,7 @@ export default async function NewsPage({
                     <div className="mb-6 flex items-center gap-4">
                       {pinned.category && typeof pinned.category === 'object' && (
                         <span className="border border-red-900 px-2 py-0.5 font-mono text-xs uppercase tracking-widest text-red-400">
-                          {(pinned.category as Category).title}
+                          {(pinned.category as PostCategory).title}
                         </span>
                       )}
                       <span className="font-mono text-xs text-neutral-500">
@@ -152,7 +152,7 @@ export default async function NewsPage({
                 {gridPosts.map((post, i) => {
                   const idx = (page - 1) * POSTS_PER_PAGE + i + 1
                   const cover = typeof post.coverImage === 'object' ? post.coverImage as Media : null
-                  const category = typeof post.category === 'object' ? post.category as Category : null
+                  const category = typeof post.category === 'object' ? post.category as PostCategory : null
 
                   return (
                     <article key={post.id} className="group bg-neutral-50 hover:bg-white transition-colors duration-200 flex flex-col border border-neutral-200">
