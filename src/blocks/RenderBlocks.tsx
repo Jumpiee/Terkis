@@ -6,6 +6,7 @@ import { ContentBlock } from '@/blocks/Content/Component'
 import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { ApplicationsBlockComponent } from '@/blocks/ApplicationsBlock/Component'
+import { CtaBannerBlockComponent } from '@/blocks/CtaBanner/Component'
 import { DataSheetBlockComponent } from '@/blocks/DataSheet/Component'
 import { StatsBlockComponent } from '@/blocks/StatsBlock/Component'
 import { TechDownloadsBlockComponent } from '@/blocks/TechDownloads/Component'
@@ -23,6 +24,7 @@ import type {
   FormBlock as FormBlockType,
   MediaBlock as MediaBlockType,
   ApplicationsBlock,
+  CtaBannerBlock,
   DataSheetBlock,
   StatsBlock,
   TechDownloadsBlock,
@@ -33,6 +35,7 @@ import type {
 type LayoutBlock =
   | ApplicationsBlock
   | ArchiveBlockType
+  | CtaBannerBlock
   | DataSheetBlock
   | BannerBlockType
   | CallToActionBlockType
@@ -48,6 +51,7 @@ type LayoutBlock =
 const blockComponents = {
   applicationsBlock: ApplicationsBlockComponent,
   archive: ArchiveBlock,
+  ctaBanner: CtaBannerBlockComponent,
   dataSheet: DataSheetBlockComponent,
   banner: BannerBlock,
   carousel: CarouselBlock,

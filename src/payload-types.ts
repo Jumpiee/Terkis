@@ -300,6 +300,7 @@ export interface Product {
         | DataSheetBlock
         | ApplicationsBlock
         | TechDownloadsBlock
+        | CtaBannerBlock
       )[]
     | null;
   inventory?: number | null;
@@ -986,6 +987,21 @@ export interface TechDownloadsBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'techDownloads';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CtaBannerBlock".
+ */
+export interface CtaBannerBlock {
+  heading: string;
+  description: string;
+  primaryLabel: string;
+  primaryHref: string;
+  secondaryLabel: string;
+  secondaryHref: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'ctaBanner';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1792,6 +1808,7 @@ export interface ProductsSelect<T extends boolean = true> {
         dataSheet?: T | DataSheetBlockSelect<T>;
         applicationsBlock?: T | ApplicationsBlockSelect<T>;
         techDownloads?: T | TechDownloadsBlockSelect<T>;
+        ctaBanner?: T | CtaBannerBlockSelect<T>;
       };
   inventory?: T;
   enableVariants?: T;
@@ -1907,6 +1924,20 @@ export interface TechDownloadsBlockSelect<T extends boolean = true> {
   ctaInputLabel?: T;
   ctaInputPlaceholder?: T;
   ctaButtonLabel?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CtaBannerBlock_select".
+ */
+export interface CtaBannerBlockSelect<T extends boolean = true> {
+  heading?: T;
+  description?: T;
+  primaryLabel?: T;
+  primaryHref?: T;
+  secondaryLabel?: T;
+  secondaryHref?: T;
   id?: T;
   blockName?: T;
 }

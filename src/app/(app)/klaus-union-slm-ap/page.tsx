@@ -314,7 +314,7 @@ export default function KlausUnionFullPresentation() {
       {/* ── SECTION 07: FOOTER CTA ── */}
       <section className="bg-neutral-50 border-t border-neutral-200 py-20 text-center">
         <div className="mx-auto max-w-3xl px-6">
-          <h2 className="text-3xl font-extrabold uppercase tracking-tight">
+          <h2 className="text-3xl font-extrabold uppercase tracking-tight text-red-900">
             Ready to secure your process?
           </h2>
           <p className="mt-6 text-neutral-600">
