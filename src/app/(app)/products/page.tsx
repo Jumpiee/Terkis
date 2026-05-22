@@ -458,11 +458,11 @@ function ProductsContent() {
           )}
 
           {/* 1:1 Image */}
-          <div className="aspect-[3/2] overflow-hidden bg-neutral-100">
+          <div className="flex aspect-[3/2] items-center justify-center overflow-hidden bg-neutral-100">
             <img
               src={product.image}
               alt={product.alt}
-              className="h-full w-full object-cover p-[0%] transition-all duration-500 group-hover:grayscale-0"
+              className="max-h-full max-w-full object-contain p-4 transition-transform duration-500 group-hover:scale-110"
             />
           </div>
 
@@ -487,14 +487,8 @@ function ProductsContent() {
             </p>
 
             <div className="mt-auto flex gap-1.5">
-              <button
-                onClick={() => setSelectedProduct(product)}
-                className="flex-1 border border-neutral-900 py-2 text-[9px] font-bold uppercase tracking-widest hover:bg-neutral-900 hover:text-white transition-colors"
-              >
-                Specs
-              </button>
               <button className="flex-1 bg-red-900 py-2 text-[9px] font-bold uppercase tracking-widest text-white hover:bg-red-800 transition-colors">
-                Quote
+                Specs
               </button>
             </div>
           </div>

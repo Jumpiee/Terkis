@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import PartnersGrid from '@/components/PartnerGrid/page'
 import Link from 'next/link'
+import { Checkbox } from '@/components/ui/checkbox'
 // ── Data ─────────────────────────────────────────────────────────────
 
 const stats = [
@@ -142,18 +143,12 @@ export default function AboutUsPage() {
                 Authorized distributor and agent for leading European and American manufacturers.
               </p>
             </div>
-            <Link
-              href="/brands"
-              className="hidden md:flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-red-900 border-b border-red-900 pb-0.5 hover:gap-3 transition-all"
-            >
-              View All Brands →
-            </Link>
           </div>
 
           <PartnersGrid />
 
           <p className="mt-6 font-mono text-xs uppercase tracking-widest text-neutral-400">
-            All products are supplied through authorized distribution channels. Datasheets and compliance certificates available on request.
+            All products are supplied through authorized distribution channels.
           </p>
         </div>
       </section>

@@ -213,11 +213,11 @@ export function ProductDetailUI({
                   </div>
 
                   {rel.image?.url ? (
-                    <div className="mb-6 aspect-4/3 overflow-hidden bg-neutral-50">
+                    <div className="mb-6 flex aspect-4/3 items-center justify-center overflow-hidden bg-neutral-50">
                       <img
                         src={rel.image.url}
                         alt={rel.image.alt || rel.title}
-                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="max-h-full max-w-full object-contain p-4 transition-transform duration-500 group-hover:scale-110"
                       />
                     </div>
                   ) : (
