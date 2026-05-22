@@ -204,6 +204,16 @@ export const ProductsCollection: CollectionOverride = ({ defaultCollection }) =>
       ],
     },
     {
+      name: 'brand',
+      type: 'relationship',
+      admin: {
+        position: 'sidebar',
+        sortOptions: 'title',
+      },
+      hasMany: false,
+      relationTo: 'brands',
+    },
+    {
       name: 'categories',
       type: 'relationship',
       admin: {
