@@ -1,3 +1,4 @@
+import { Brands } from '@/components/layout/search/Brands'
 import { Categories } from '@/components/layout/search/Categories'
 import { FilterList } from '@/components/layout/search/filter'
 import { sorting } from '@/lib/constants'
@@ -27,6 +28,14 @@ export default function ProductsLayout({ children }: { children: React.ReactNode
                 </p>
                 <Suspense fallback={null}>
                   <Categories />
+                </Suspense>
+              </div>
+              <div>
+                <p className="mb-3 font-mono text-xs uppercase tracking-widest text-neutral-400">
+                  Brand
+                </p>
+                <Suspense fallback={null}>
+                  <Brands />
                 </Suspense>
               </div>
               <div>

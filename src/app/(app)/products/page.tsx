@@ -16,7 +16,8 @@ export const metadata = {
 }
 
 export default async function ProductsPage({ searchParams }: Props) {
-  const { q: searchValue, sort, category } = await searchParams
+  const { q: searchValue, sort, category, brand } = await searchParams
+  const brandIds = brand ? (Array.isArray(brand) ? brand : [brand]) : []
 
   const payload = await getPayload({ config: configPromise })
 
@@ -30,6 +31,7 @@ export default async function ProductsPage({ searchParams }: Props) {
       slug: true,
       gallery: true,
       categories: true,
+      brand: true,
       priceInUSD: true,
     },
     ...(sort ? { sort: sort as string } : { sort: 'title' }),
@@ -46,6 +48,9 @@ export default async function ProductsPage({ searchParams }: Props) {
           : []),
         ...(category
           ? [{ categories: { contains: category } }]
+          : []),
+        ...(brandIds.length > 0
+          ? [{ brand: { in: brandIds } }]
           : []),
       ],
     },
