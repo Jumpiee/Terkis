@@ -24,6 +24,7 @@ export default async function NewsPage({
     sort: '-createdAt',
     where: { _status: { equals: 'published' } },
     depth: 2,
+    overrideAccess: false,
   })
 
   const pinned = pinnedResult.docs[0] as Post | undefined
@@ -41,6 +42,7 @@ export default async function NewsPage({
       ],
     },
     depth: 2,
+    overrideAccess: false,
   })
 
   const gridPosts = gridResult.docs as Post[]
