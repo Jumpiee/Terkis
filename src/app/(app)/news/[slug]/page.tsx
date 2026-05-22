@@ -172,13 +172,13 @@ export default async function NewsArticlePage({ params }: Args) {
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 gap-px bg-neutral-900 md:grid-cols-3">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
               {related.map((rel, i) => {
                 const relCover = typeof rel.coverImage === 'object' ? (rel.coverImage as Media) : null
                 const relCat = typeof rel.category === 'object' ? (rel.category as Category) : null
 
                 return (
-                  <article key={rel.id} className="group bg-neutral-50 hover:bg-white transition-colors duration-200 flex flex-col">
+                  <article key={rel.id} className="group bg-neutral-50 hover:bg-white transition-colors duration-200 flex flex-col border border-neutral-400">
                     <div className="relative aspect-video overflow-hidden bg-neutral-200">
                       {relCover?.url ? (
                         <Image
