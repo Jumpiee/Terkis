@@ -68,6 +68,9 @@ export default async function ProductPage({ params }: Args) {
 
   const status = hasStock ? "In Stock" : "Enquire";
 
+  // ── Brand ──────────────────────────────────────────────────────────────────
+  const brandLabel = typeof product.brand === "object" && product.brand ? product.brand.title : "";
+
   // ── Categories ─────────────────────────────────────────────────────────────
   const categoryLabel =
     product.categories
@@ -123,7 +126,7 @@ export default async function ProductPage({ params }: Args) {
       />
       <ProductDetailUI
         title={product.title}
-        brand=""
+        brand={brandLabel}
         category={categoryLabel}
         status={status}
         productId={String(product.id)}
