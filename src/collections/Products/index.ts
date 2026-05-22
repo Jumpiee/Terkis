@@ -2,6 +2,7 @@ import { CallToAction } from '@/blocks/CallToAction/config'
 import { Content } from '@/blocks/Content/config'
 import { MediaBlock } from '@/blocks/MediaBlock/config'
 import { StatsBlock } from '@/blocks/StatsBlock/config'
+import { TechnicalPillars } from '@/blocks/TechnicalPillars/config'
 import { slugField } from 'payload'
 import { generatePreviewPath } from '@/utilities/generatePreviewPath'
 import { CollectionOverride } from '@payloadcms/plugin-ecommerce/types'
@@ -136,7 +137,7 @@ export const ProductsCollection: CollectionOverride = ({ defaultCollection }) =>
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, StatsBlock],
+              blocks: [CallToAction, Content, MediaBlock, StatsBlock, TechnicalPillars],
             },
           ],
           label: 'Content',

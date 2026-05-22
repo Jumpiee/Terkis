@@ -6,6 +6,7 @@ import { ContentBlock } from '@/blocks/Content/Component'
 import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { StatsBlockComponent } from '@/blocks/StatsBlock/Component'
+import { TechnicalPillarsBlockComponent } from '@/blocks/TechnicalPillars/Component'
 import { ThreeItemGridBlock } from '@/blocks/ThreeItemGrid/Component'
 import { toKebabCase } from '@/utilities/toKebabCase'
 import React, { Fragment } from 'react'
@@ -19,6 +20,7 @@ import type {
   FormBlock as FormBlockType,
   MediaBlock as MediaBlockType,
   StatsBlock,
+  TechnicalPillarsBlock,
   ThreeItemGridBlock as ThreeItemGridBlockType,
 } from '../payload-types'
 
@@ -31,6 +33,7 @@ type LayoutBlock =
   | FormBlockType
   | MediaBlockType
   | StatsBlock
+  | TechnicalPillarsBlock
   | ThreeItemGridBlockType
 
 const blockComponents = {
@@ -42,6 +45,7 @@ const blockComponents = {
   formBlock: FormBlock,
   mediaBlock: MediaBlock,
   statsBlock: StatsBlockComponent,
+  technicalPillars: TechnicalPillarsBlockComponent,
   threeItemGrid: ThreeItemGridBlock,
 }
 
