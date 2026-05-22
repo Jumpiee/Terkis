@@ -498,34 +498,6 @@ function ProductsContent() {
   </div>
 </section>
 
-      {/* ── CTA BANNER ── */}
-      <section className="border-t border-neutral-900 bg-neutral-900 px-6 py-16">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center">
-            <div>
-              <p className="mb-2 text-xs font-bold uppercase tracking-[0.12em] text-red-500">
-                Engineering Support
-              </p>
-              <h2 className="text-3xl font-extrabold uppercase text-white">
-                Can't find what you need?
-              </h2>
-              <p className="mt-3 text-neutral-400">
-                Our technical team provides component matching, thermodynamic simulation review,
-                and custom sourcing from Tier-1 European and American manufacturers.
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-4 md:justify-end">
-              <button className="border border-white px-8 py-4 text-xs font-bold uppercase tracking-[0.12em] text-white hover:bg-white hover:text-neutral-900 transition-colors">
-                Download Catalogue
-              </button>
-              <button className="bg-red-900 px-8 py-4 text-xs font-bold uppercase tracking-[0.12em] text-white hover:bg-red-800 transition-colors">
-                Contact Engineering Team
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ── PRODUCT MODAL ── */}
       <ProductModal
         product={selectedProduct}
