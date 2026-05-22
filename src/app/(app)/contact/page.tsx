@@ -10,17 +10,17 @@ const contactDetails = [
   {
     label: 'Enquiry',
     value: 'sales@terkis.co.th',
-    description: 'For product specifications, pricing, and authorized distribution queries.',
+    description: '',
   },
   {
     label: 'Phone',
     value: '+66 84 903 5656',
-    description: 'Engineering consultation and post-commissioning service support.',
+    description: '',
   },
   {
     label: 'Headquarters',
-    value: 'Bangkok, Thailand',
-    description: 'Serving petrochemical and refinery sectors across Southeast Asia.',
+    value: 'Terkis Co., Ltd. (Head Office)',
+    description: '111/12 Moo 11 Racha Thewa Bang Phli Samut Prakan 10540',
   },
 ]
 
