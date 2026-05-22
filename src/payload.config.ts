@@ -1,5 +1,6 @@
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import {
+  BlocksFeature,
   BoldFeature,
   EXPERIMENTAL_TableFeature,
   HeadingFeature,
@@ -9,13 +10,17 @@ import {
   OrderedListFeature,
   UnderlineFeature,
   UnorderedListFeature,
+  UploadFeature,
   lexicalEditor,
 } from '@payloadcms/richtext-lexical'
+
+import { ImageGalleryBlock } from '@/blocks/ImageGallery/config'
 import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 
-import { Categories } from '@/collections/Categories'
+import { PostCategories } from '@/collections/PostCategories'
+import { ProductCategories } from '@/collections/ProductCategories'
 import { Media } from '@/collections/Media'
 import { Pages } from '@/collections/Pages'
 import { Posts } from '@/collections/Posts'
@@ -43,7 +48,7 @@ export default buildConfig({
     },
     user: Users.slug,
   },
-  collections: [Users, Pages, Posts, Categories, Media],
+  collections: [Users, Pages, Posts, PostCategories, ProductCategories, Media],
   db: postgresAdapter({
     pool: {
       connectionString: process.env.DATABASE_URL || '',
@@ -82,6 +87,12 @@ export default buildConfig({
         }),
         IndentFeature(),
         EXPERIMENTAL_TableFeature(),
+        UploadFeature({
+          enabledCollections: ['media'],
+        }),
+        BlocksFeature({
+          blocks: [ImageGalleryBlock],
+        }),
       ]
     },
   }),

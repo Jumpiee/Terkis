@@ -148,14 +148,14 @@ export default async function NewsPage({
 
           {gridPosts.length > 0 ? (
             <>
-              <div className="grid grid-cols-1 gap-px bg-neutral-900 md:grid-cols-2 lg:grid-cols-3">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {gridPosts.map((post, i) => {
                   const idx = (page - 1) * POSTS_PER_PAGE + i + 1
                   const cover = typeof post.coverImage === 'object' ? post.coverImage as Media : null
                   const category = typeof post.category === 'object' ? post.category as Category : null
 
                   return (
-                    <article key={post.id} className="group bg-neutral-50 hover:bg-white transition-colors duration-200 flex flex-col">
+                    <article key={post.id} className="group bg-neutral-50 hover:bg-white transition-colors duration-200 flex flex-col border border-neutral-200">
                       {/* Image */}
                       <div className="relative aspect-video overflow-hidden bg-neutral-200">
                         {cover?.url ? (
