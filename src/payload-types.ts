@@ -75,7 +75,8 @@ export interface Config {
     users: User;
     pages: Page;
     posts: Post;
-    categories: Category;
+    'post-categories': PostCategory;
+    'product-categories': ProductCategory;
     media: Media;
     forms: Form;
     'form-submissions': FormSubmission;
@@ -109,7 +110,8 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
     posts: PostsSelect<false> | PostsSelect<true>;
-    categories: CategoriesSelect<false> | CategoriesSelect<true>;
+    'post-categories': PostCategoriesSelect<false> | PostCategoriesSelect<true>;
+    'product-categories': ProductCategoriesSelect<false> | ProductCategoriesSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
@@ -322,7 +324,7 @@ export interface Product {
     image?: (number | null) | Media;
     description?: string | null;
   };
-  categories?: (number | Category)[] | null;
+  categories?: (number | ProductCategory)[] | null;
   /**
    * When enabled, the slug will auto-generate from the title field on save and autosave.
    */
@@ -594,7 +596,7 @@ export interface ArchiveBlock {
   } | null;
   populateBy?: ('collection' | 'selection') | null;
   relationTo?: 'products' | null;
-  categories?: (number | Category)[] | null;
+  categories?: (number | ProductCategory)[] | null;
   limit?: number | null;
   selectedDocs?:
     | {
@@ -608,9 +610,9 @@ export interface ArchiveBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "categories".
+ * via the `definition` "product-categories".
  */
-export interface Category {
+export interface ProductCategory {
   id: number;
   title: string;
   /**
@@ -628,7 +630,7 @@ export interface Category {
 export interface CarouselBlock {
   populateBy?: ('collection' | 'selection') | null;
   relationTo?: 'products' | null;
-  categories?: (number | Category)[] | null;
+  categories?: (number | ProductCategory)[] | null;
   limit?: number | null;
   selectedDocs?:
     | {
@@ -1162,7 +1164,7 @@ export interface Post {
    */
   generateSlug?: boolean | null;
   slug: string;
-  category?: (number | null) | Category;
+  category?: (number | null) | PostCategory;
   author?: (number | null) | User;
   excerpt?: string | null;
   content: {
@@ -1183,6 +1185,21 @@ export interface Post {
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "post-categories".
+ */
+export interface PostCategory {
+  id: number;
+  title: string;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1238,8 +1255,12 @@ export interface PayloadLockedDocument {
         value: number | Post;
       } | null)
     | ({
-        relationTo: 'categories';
-        value: number | Category;
+        relationTo: 'post-categories';
+        value: number | PostCategory;
+      } | null)
+    | ({
+        relationTo: 'product-categories';
+        value: number | ProductCategory;
       } | null)
     | ({
         relationTo: 'media';
@@ -1545,9 +1566,20 @@ export interface PostsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "categories_select".
+ * via the `definition` "post-categories_select".
  */
-export interface CategoriesSelect<T extends boolean = true> {
+export interface PostCategoriesSelect<T extends boolean = true> {
+  title?: T;
+  generateSlug?: T;
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "product-categories_select".
+ */
+export interface ProductCategoriesSelect<T extends boolean = true> {
   title?: T;
   generateSlug?: T;
   slug?: T;

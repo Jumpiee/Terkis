@@ -211,7 +211,7 @@ export const ProductsCollection: CollectionOverride = ({ defaultCollection }) =>
         sortOptions: 'title',
       },
       hasMany: true,
-      relationTo: 'categories',
+      relationTo: 'product-categories',
     },
     slugField(),
   ],
