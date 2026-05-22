@@ -1,13 +1,13 @@
 import { Brands } from '@/components/layout/search/Brands'
 import { Categories } from '@/components/layout/search/Categories'
 import { FilterList } from '@/components/layout/search/filter'
-import { sorting } from '@/lib/constants'
 import { Search } from '@/components/Search'
+import { sorting } from '@/lib/constants'
 import React, { Suspense } from 'react'
 
 export default function ProductsLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-white text-neutral-900">
+    <div className="bg-white text-neutral-900">
 
       {/* Search bar */}
       <div className="border-b border-neutral-200 bg-white py-5">
