@@ -290,7 +290,9 @@ export interface Product {
         id?: string | null;
       }[]
     | null;
-  layout?: (CallToActionBlock | ContentBlock | MediaBlock | StatsBlock | TechnicalPillarsBlock)[] | null;
+  layout?:
+    | (CallToActionBlock | ContentBlock | MediaBlock | StatsBlock | TechnicalPillarsBlock | DataSheetBlock)[]
+    | null;
   inventory?: number | null;
   enableVariants?: boolean | null;
   variantTypes?: (number | VariantType)[] | null;
@@ -912,6 +914,24 @@ export interface TechnicalPillarsBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'technicalPillars';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "DataSheetBlock".
+ */
+export interface DataSheetBlock {
+  eyebrow: string;
+  heading: string;
+  specs?:
+    | {
+        label: string;
+        value: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'dataSheet';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1715,6 +1735,7 @@ export interface ProductsSelect<T extends boolean = true> {
         mediaBlock?: T | MediaBlockSelect<T>;
         statsBlock?: T | StatsBlockSelect<T>;
         technicalPillars?: T | TechnicalPillarsBlockSelect<T>;
+        dataSheet?: T | DataSheetBlockSelect<T>;
       };
   inventory?: T;
   enableVariants?: T;
@@ -1770,6 +1791,23 @@ export interface TechnicalPillarsBlockSelect<T extends boolean = true> {
         id?: T;
       };
   image?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "DataSheetBlock_select".
+ */
+export interface DataSheetBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  heading?: T;
+  specs?:
+    | T
+    | {
+        label?: T;
+        value?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }

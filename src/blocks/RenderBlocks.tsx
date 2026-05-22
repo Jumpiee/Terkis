@@ -5,6 +5,7 @@ import { CarouselBlock } from '@/blocks/Carousel/Component'
 import { ContentBlock } from '@/blocks/Content/Component'
 import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
+import { DataSheetBlockComponent } from '@/blocks/DataSheet/Component'
 import { StatsBlockComponent } from '@/blocks/StatsBlock/Component'
 import { TechnicalPillarsBlockComponent } from '@/blocks/TechnicalPillars/Component'
 import { ThreeItemGridBlock } from '@/blocks/ThreeItemGrid/Component'
@@ -19,6 +20,7 @@ import type {
   ContentBlock as ContentBlockType,
   FormBlock as FormBlockType,
   MediaBlock as MediaBlockType,
+  DataSheetBlock,
   StatsBlock,
   TechnicalPillarsBlock,
   ThreeItemGridBlock as ThreeItemGridBlockType,
@@ -26,6 +28,7 @@ import type {
 
 type LayoutBlock =
   | ArchiveBlockType
+  | DataSheetBlock
   | BannerBlockType
   | CallToActionBlockType
   | CarouselBlockType
@@ -38,6 +41,7 @@ type LayoutBlock =
 
 const blockComponents = {
   archive: ArchiveBlock,
+  dataSheet: DataSheetBlockComponent,
   banner: BannerBlock,
   carousel: CarouselBlock,
   content: ContentBlock,
