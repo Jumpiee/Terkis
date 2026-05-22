@@ -291,7 +291,15 @@ export interface Product {
       }[]
     | null;
   layout?:
-    | (CallToActionBlock | ContentBlock | MediaBlock | StatsBlock | TechnicalPillarsBlock | DataSheetBlock)[]
+    | (
+        | CallToActionBlock
+        | ContentBlock
+        | MediaBlock
+        | StatsBlock
+        | TechnicalPillarsBlock
+        | DataSheetBlock
+        | ApplicationsBlock
+      )[]
     | null;
   inventory?: number | null;
   enableVariants?: boolean | null;
@@ -932,6 +940,26 @@ export interface DataSheetBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'dataSheet';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ApplicationsBlock".
+ */
+export interface ApplicationsBlock {
+  eyebrow: string;
+  heading: string;
+  applications?:
+    | {
+        code: string;
+        title: string;
+        body: string;
+        badge: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'applicationsBlock';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1736,6 +1764,7 @@ export interface ProductsSelect<T extends boolean = true> {
         statsBlock?: T | StatsBlockSelect<T>;
         technicalPillars?: T | TechnicalPillarsBlockSelect<T>;
         dataSheet?: T | DataSheetBlockSelect<T>;
+        applicationsBlock?: T | ApplicationsBlockSelect<T>;
       };
   inventory?: T;
   enableVariants?: T;
@@ -1806,6 +1835,25 @@ export interface DataSheetBlockSelect<T extends boolean = true> {
     | {
         label?: T;
         value?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ApplicationsBlock_select".
+ */
+export interface ApplicationsBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  heading?: T;
+  applications?:
+    | T
+    | {
+        code?: T;
+        title?: T;
+        body?: T;
+        badge?: T;
         id?: T;
       };
   id?: T;
