@@ -42,14 +42,14 @@ export const ImageGalleryClient: React.FC<ImageGalleryBlockProps> = ({ images })
                 return (
                   <CarouselItem
                     key={entry.id ?? i}
-                    className="basis-full"
+                    className="basis-full h-125"
                   >
                     <button
                       type="button"
                       className="group relative block w-full overflow-hidden bg-neutral-100 focus:outline-none"
                       onClick={() => setLightbox(i)}
                     >
-                      <div className="relative h-[500px] max-h-[500px] overflow-hidden">
+                      <div className="relative h-125 w-full overflow-hidden">
                         <Image
                           src={media.url}
                           alt={media.alt ?? entry.caption ?? ''}

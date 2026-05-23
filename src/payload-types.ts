@@ -77,6 +77,7 @@ export interface Config {
     posts: Post;
     'post-categories': PostCategory;
     'product-categories': ProductCategory;
+    brands: Brand;
     media: Media;
     forms: Form;
     'form-submissions': FormSubmission;
@@ -112,6 +113,7 @@ export interface Config {
     posts: PostsSelect<false> | PostsSelect<true>;
     'post-categories': PostCategoriesSelect<false> | PostCategoriesSelect<true>;
     'product-categories': ProductCategoriesSelect<false> | ProductCategoriesSelect<true>;
+    brands: BrandsSelect<false> | BrandsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
@@ -324,6 +326,7 @@ export interface Product {
     image?: (number | null) | Media;
     description?: string | null;
   };
+  brand?: (number | null) | Brand;
   categories?: (number | ProductCategory)[] | null;
   /**
    * When enabled, the slug will auto-generate from the title field on save and autosave.
@@ -1027,6 +1030,22 @@ export interface Variant {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "brands".
+ */
+export interface Brand {
+  id: number;
+  title: string;
+  logo?: (number | null) | Media;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "transactions".
  */
 export interface Transaction {
@@ -1261,6 +1280,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'product-categories';
         value: number | ProductCategory;
+      } | null)
+    | ({
+        relationTo: 'brands';
+        value: number | Brand;
       } | null)
     | ({
         relationTo: 'media';
@@ -1588,6 +1611,18 @@ export interface ProductCategoriesSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "brands_select".
+ */
+export interface BrandsSelect<T extends boolean = true> {
+  title?: T;
+  logo?: T;
+  generateSlug?: T;
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media_select".
  */
 export interface MediaSelect<T extends boolean = true> {
@@ -1856,6 +1891,7 @@ export interface ProductsSelect<T extends boolean = true> {
         image?: T;
         description?: T;
       };
+  brand?: T;
   categories?: T;
   generateSlug?: T;
   slug?: T;
