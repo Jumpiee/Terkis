@@ -6,6 +6,7 @@ import { ContentBlock } from '@/blocks/Content/Component'
 import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { ApplicationsBlockComponent } from '@/blocks/ApplicationsBlock/Component'
+import { ComparisonTableBlockComponent } from '@/blocks/ComparisonTable/Component'
 import { CtaBannerBlockComponent } from '@/blocks/CtaBanner/Component'
 import { DataSheetBlockComponent } from '@/blocks/DataSheet/Component'
 import { StatsBlockComponent } from '@/blocks/StatsBlock/Component'
@@ -16,6 +17,7 @@ import { toKebabCase } from '@/utilities/toKebabCase'
 import React, { Fragment } from 'react'
 
 import type {
+  ComparisonTableBlock,
   ArchiveBlock as ArchiveBlockType,
   BannerBlock as BannerBlockType,
   CallToActionBlock as CallToActionBlockType,
@@ -34,6 +36,7 @@ import type {
 
 type LayoutBlock =
   | ApplicationsBlock
+  | ComparisonTableBlock
   | ArchiveBlockType
   | CtaBannerBlock
   | DataSheetBlock
@@ -50,6 +53,7 @@ type LayoutBlock =
 
 const blockComponents = {
   applicationsBlock: ApplicationsBlockComponent,
+  comparisonTable: ComparisonTableBlockComponent,
   archive: ArchiveBlock,
   ctaBanner: CtaBannerBlockComponent,
   dataSheet: DataSheetBlockComponent,
