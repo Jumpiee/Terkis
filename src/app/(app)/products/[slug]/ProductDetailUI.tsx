@@ -84,9 +84,9 @@ export function ProductDetailUI({
               {/* Header */}
               <div className="p-8 lg:p-12">
                 {/* Brand / Category row */}
-                {(category || brand) && (
+                {category && (
                   <p className="mb-6 font-mono text-sm font-bold uppercase tracking-[0.2em] text-red-900">
-                    {[category, brand].filter(Boolean).join(" | ")}
+                    {category}
                   </p>
                 )}
 
@@ -94,6 +94,13 @@ export function ProductDetailUI({
                 <h1 className="text-3xl font-extrabold uppercase leading-[1.05] tracking-tight md:text-4xl lg:text-5xl text-neural-900">
                   {title}
                 </h1>
+
+                {/* Description */}
+                {brand && (
+                  <p className="mb-6 font-mono text-sm font-bold uppercase tracking-[0.2em] text-red-900">
+                    {brand}
+                  </p>
+                )}
 
                 {/* Description */}
                 {description && (
@@ -171,32 +178,7 @@ export function ProductDetailUI({
         </section>
       )}
 
-      {/* ── ENGINEERING CTA ── */}
       <section className="bg-neutral-900 py-20 text-white">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-14">
-            <p className="mb-2 font-mono text-xs font-bold uppercase tracking-[0.18em] text-red-400">
-              Expert Consultation
-            </p>
-            <h2 className="text-3xl font-extrabold uppercase tracking-tight text-white">
-              Engineering Support
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
-            <p className="text-sm text-neutral-400 leading-relaxed">
-              Our engineering team provides full application review, thermodynamic simulation, and custom sourcing from Tier-1 European and American manufacturers. We ensure every component meets your exact process requirements and international standards.
-            </p>
-            <div className="flex flex-col gap-4 sm:flex-row md:justify-end">
-              <button className="h-11 border border-white px-6 font-mono text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-white hover:text-neutral-900">
-                Download Catalogue
-              </button>
-              <button className="h-11 bg-red-900 px-6 font-mono text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-red-800">
-                Get a Quote
-              </button>
-            </div>
-          </div>
-        </div>
       </section>
 
     </div>
