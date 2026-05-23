@@ -1,8 +1,6 @@
 import { Brands } from '@/components/layout/search/Brands'
 import { Categories } from '@/components/layout/search/Categories'
-import { FilterList } from '@/components/layout/search/filter'
 import { Search } from '@/components/Search'
-import { sorting } from '@/lib/constants'
 import React, { Suspense } from 'react'
 
 export default function ProductsLayout({ children }: { children: React.ReactNode }) {
@@ -23,7 +21,7 @@ export default function ProductsLayout({ children }: { children: React.ReactNode
           <aside className="w-full flex-none border-b border-neutral-200 py-6 md:w-48 md:border-b-0 md:border-r md:py-10 md:pr-8">
             <div className="flex flex-col gap-8">
               <div>
-                <p className="mb-3 font-mono text-xs uppercase tracking-widest text-neutral-400">
+                <p className="mb-3 font-mono text-xs uppercase tracking-widest text-neutral-700 font-bold">
                   Category
                 </p>
                 <Suspense fallback={null}>
@@ -31,19 +29,19 @@ export default function ProductsLayout({ children }: { children: React.ReactNode
                 </Suspense>
               </div>
               <div>
-                <p className="mb-3 font-mono text-xs uppercase tracking-widest text-neutral-400">
+                <p className="mb-3 font-mono text-xs uppercase tracking-widest text-neutral-700 font-bold">
                   Brand
                 </p>
                 <Suspense fallback={null}>
                   <Brands />
                 </Suspense>
               </div>
-              <div>
-                <p className="mb-3 font-mono text-xs uppercase tracking-widest text-neutral-400">
+              {/* <div>
+                <p className="mb-3 font-mono text-xs uppercase tracking-widest text-neutral-700 font-bold">
                   Sort by
                 </p>
                 <FilterList list={sorting} />
-              </div>
+              </div> */}
             </div>
           </aside>
 
