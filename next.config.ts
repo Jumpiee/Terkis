@@ -23,6 +23,9 @@ const nextConfig: NextConfig = {
       {
         pathname: '/image/**',
       },
+      {
+        pathname: '/block-previews/**',
+      },
     ],
     qualities: [90, 100],
     remotePatterns: [

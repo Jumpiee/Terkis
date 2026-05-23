@@ -3,6 +3,8 @@ import type { Block } from 'payload'
 export const ApplicationsBlock: Block = {
   slug: 'applicationsBlock',
   interfaceName: 'ApplicationsBlock',
+  imageURL: '/block-previews/applications_block.png',
+  imageAltText: 'Preview of the Applications Block layout',
   labels: {
     singular: 'Applications Block',
     plural: 'Applications Blocks',

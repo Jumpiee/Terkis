@@ -1,6 +1,8 @@
 import type { Block } from 'payload'
 
 export const TechnicalPillars: Block = {
+  imageURL: '/block-previews/technical_pillars.png',
+  imageAltText: 'Preview of the Technical Pillars block layout',
   slug: 'technicalPillars',
   interfaceName: 'TechnicalPillarsBlock',
   labels: {

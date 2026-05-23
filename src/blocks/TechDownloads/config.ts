@@ -3,6 +3,8 @@ import type { Block } from 'payload'
 export const TechDownloads: Block = {
   slug: 'techDownloads',
   interfaceName: 'TechDownloadsBlock',
+  imageURL: '/block-previews/tech_downloads_block.png',
+  imageAltText: 'Preview of the Tech Downloads Block layout',
   labels: {
     singular: 'Tech Downloads',
     plural: 'Tech Downloads',

@@ -3,6 +3,8 @@ import type { Block } from 'payload'
 export const ComparisonTable: Block = {
   slug: 'comparisonTable',
   interfaceName: 'ComparisonTableBlock',
+  imageURL: '/block-previews/comparison_table.png',
+  imageAltText: 'Preview of the Comparison Table layout',
   labels: {
     singular: 'Comparison Table',
     plural: 'Comparison Tables',

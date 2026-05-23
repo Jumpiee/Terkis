@@ -3,6 +3,8 @@ import type { Block } from 'payload'
 export const CtaBanner: Block = {
   slug: 'ctaBanner',
   interfaceName: 'CtaBannerBlock',
+  imageURL: '/block-previews/cta_banner_block.png',
+  imageAltText: 'Preview of the CTA Banner Block layout',
   labels: {
     singular: 'CTA Banner',
     plural: 'CTA Banners',

@@ -1,6 +1,8 @@
 import type { Block } from 'payload'
 
 export const StatsBlock: Block = {
+  imageURL: '/block-previews/stats_block.png',
+  imageAltText: 'Preview of the Stats Block layout',
   slug: 'statsBlock',
   interfaceName: 'StatsBlock',
   labels: {
