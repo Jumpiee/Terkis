@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { getPayload } from 'payload'
 import { NewsGrid } from './NewsGrid'
 
-const POSTS_PER_PAGE = 6
+const POSTS_PER_PAGE = 9
 
 export default async function NewsPage({
   searchParams,
