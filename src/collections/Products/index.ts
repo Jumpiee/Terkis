@@ -1,3 +1,4 @@
+import { ComparisonTable } from '@/blocks/ComparisonTable/config'
 import { CallToAction } from '@/blocks/CallToAction/config'
 import { Content } from '@/blocks/Content/config'
 import { MediaBlock } from '@/blocks/MediaBlock/config'
@@ -141,7 +142,7 @@ export const ProductsCollection: CollectionOverride = ({ defaultCollection }) =>
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, StatsBlock, TechnicalPillars, DataSheet, ApplicationsBlock, TechDownloads, CtaBanner],
+              blocks: [CallToAction, ComparisonTable, Content, MediaBlock, StatsBlock, TechnicalPillars, DataSheet, ApplicationsBlock, TechDownloads, CtaBanner],
             },
           ],
           label: 'Content',

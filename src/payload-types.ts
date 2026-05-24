@@ -297,6 +297,7 @@ export interface Product {
   layout?:
     | (
         | CallToActionBlock
+        | ComparisonTableBlock
         | ContentBlock
         | MediaBlock
         | StatsBlock
@@ -892,6 +893,37 @@ export interface Form {
     | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ComparisonTableBlock".
+ */
+export interface ComparisonTableBlock {
+  eyebrow: string;
+  heading: string;
+  columns?:
+    | {
+        code: string;
+        label: string;
+        sub?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  rows?:
+    | {
+        param: string;
+        values?:
+          | {
+              cell: string;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'comparisonTable';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1868,6 +1900,7 @@ export interface ProductsSelect<T extends boolean = true> {
     | T
     | {
         cta?: T | CallToActionBlockSelect<T>;
+        comparisonTable?: T | ComparisonTableBlockSelect<T>;
         content?: T | ContentBlockSelect<T>;
         mediaBlock?: T | MediaBlockSelect<T>;
         statsBlock?: T | StatsBlockSelect<T>;
@@ -1899,6 +1932,36 @@ export interface ProductsSelect<T extends boolean = true> {
   createdAt?: T;
   deletedAt?: T;
   _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ComparisonTableBlock_select".
+ */
+export interface ComparisonTableBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  heading?: T;
+  columns?:
+    | T
+    | {
+        code?: T;
+        label?: T;
+        sub?: T;
+        id?: T;
+      };
+  rows?:
+    | T
+    | {
+        param?: T;
+        values?:
+          | T
+          | {
+              cell?: T;
+              id?: T;
+            };
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

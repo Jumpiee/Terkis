@@ -1,4 +1,3 @@
-import React from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -22,7 +21,12 @@ const contactDetails = [
   },
 ]
 
-export default function ContactPage() {
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ subject?: string }>
+}) {
+  const { subject } = await searchParams
   return (
     <div className="min-h-screen bg-neutral-50 text-neutral-900">
 
@@ -63,7 +67,7 @@ export default function ContactPage() {
       </section>
 
       {/* ── ENQUIRY FORM ────────────────────────────────────────────────── */}
-      <section className="bg-neutral-50 py-20">
+      <section id="enquire-form" className="bg-neutral-50 py-20">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
 
@@ -120,7 +124,7 @@ export default function ContactPage() {
 
                 <div className="flex flex-col gap-1.5">
                   <Label htmlFor="subject">Subject *</Label>
-                  <Input id="subject" placeholder="TECHNICAL ENQUIRY / SALES" required />
+                  <Input id="subject" placeholder="TECHNICAL ENQUIRY / SALES" defaultValue={subject} required />
                 </div>
 
                 <div className="flex flex-col gap-1.5">

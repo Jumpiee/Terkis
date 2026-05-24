@@ -3,6 +3,8 @@ import type { Block } from 'payload'
 export const DataSheet: Block = {
   slug: 'dataSheet',
   interfaceName: 'DataSheetBlock',
+  imageURL: '/block-previews/data_sheet.png',
+  imageAltText: 'Preview of the Data Sheet block layout',
   labels: {
     singular: 'Data Sheet',
     plural: 'Data Sheets',

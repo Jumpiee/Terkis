@@ -115,7 +115,7 @@ export default function KlausUnionFullPresentation() {
                 </div>
                 <img
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIEFalUGxusGZnWk1jBKqqBdnZdjU4PfbLjH4wlZXjcouYvfwCU6_mMSVFtrhlMyFQX9kKl_WshJJNaa5Y1ZwCP4ywsU_E2XnMTFbCxtHb6BjfJI9lwUMX2YeS_LwhDNxEzNXyvNuifeAnFfiLfGhWBdTpk5yswR1xGukRi2MpODBzAF5meKVemm0a2-IuGczzyo_DRLRpiLngEiGbP8cayjMQn0H6HqjsJWwnfnL1J8Jsj0y0JWh5r_y0-uuIcIQeMCYgNH5_gjs"
-                  alt={product.alt}
+                  alt={product.name}
                   className="w-full grayscale brightness-75 transition-all duration-700 hover:grayscale-0 hover:brightness-100"
                 />
               </div>
@@ -253,7 +253,151 @@ export default function KlausUnionFullPresentation() {
         </div>
       </section>
 
-      {/* ── SECTION 06: DOCUMENTATION (SPEC-LIST) ── */}
+      {/* ── SECTION 06: TECHNICAL FACT SHEET ── */}
+      <section className="bg-white py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mb-14">
+            <p className="mb-2 font-mono text-xs font-bold uppercase tracking-[0.18em] text-red-900">
+              NOV Centrifugal Pump Line
+            </p>
+            <h2 className="text-3xl font-extrabold uppercase tracking-tight">
+              Technical Fact Sheet
+            </h2>
+          </div>
+
+          <div className="border border-neutral-200">
+            {[
+              { param: "Design Standards", spec: "DIN EN ISO 2858, DIN EN ISO 5199" },
+              { param: "Max Flow Rate", spec: "3,500 m³/h" },
+              { param: "Max Delivery Head", spec: "220 m L.C." },
+              { param: "Operating Temp", spec: "-120°C to +550°C" },
+              { param: "Pressure Rating", spec: "Max PN 400 (5800 psi) depending on casing material" },
+              { param: "Flange Standard", spec: "EN 1092-1 or ASME B16.5" },
+              { param: "Body Materials", spec: "Cast Steel, Stainless Steel (316, Duplex), Special Alloys" },
+              { param: "Shaft Materials", spec: "High-tensile Carbon Steel, AISI 316, Duplex" },
+              { param: "Sealing System", spec: "Single or Double Mechanical Seals, Cartridge Type" },
+            ].map((row, idx) => (
+              <div
+                key={idx}
+                className={`grid grid-cols-[1fr_2fr] divide-x divide-neutral-200 ${idx !== 0 ? "border-t border-neutral-200" : ""} group hover:bg-neutral-50 transition-colors`}
+              >
+                <div className="flex items-center gap-4 px-8 py-5">
+                  <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-neutral-400 w-5 shrink-0">
+                    {String(idx + 1).padStart(2, "0")}
+                  </span>
+                  <span className="font-mono text-xs font-bold uppercase tracking-widest text-neutral-700">
+                    {row.param}
+                  </span>
+                </div>
+                <div className="flex items-center px-8 py-5">
+                  <span className="text-sm font-semibold text-neutral-900">{row.spec}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION 07: HOMA SUBMERSIBLE COMPARISON TABLE ── */}
+      <section className="bg-neutral-50 py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mb-14">
+            <p className="mb-2 font-mono text-xs font-bold uppercase tracking-[0.18em] text-red-900">
+              HOMA Submersible Sewage Pumps
+            </p>
+            <h2 className="text-3xl font-extrabold uppercase tracking-tight">
+              Technical Fact Sheet
+            </h2>
+          </div>
+
+          <div className="border border-neutral-200 overflow-x-auto">
+            {/* Header Row */}
+            <div className="grid grid-cols-[1.4fr_1fr_1fr_1fr] divide-x divide-neutral-200 bg-neutral-900">
+              <div className="px-6 py-4">
+                <span className="font-mono text-xs font-bold uppercase tracking-widest text-neutral-500">
+                  Specification
+                </span>
+              </div>
+              {[
+                { code: "VAR-01", label: "Single Channel", sub: "Cast Iron" },
+                { code: "VAR-02", label: "V(X) Vortex", sub: "Series" },
+                { code: "VAR-03", label: "CMX(S)", sub: "Stainless Steel" },
+              ].map((col, i) => (
+                <div key={i} className="px-6 py-4 flex flex-col gap-0.5">
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-neutral-500">
+                    {col.code}
+                  </span>
+                  <span className="text-sm font-extrabold uppercase tracking-tight text-white leading-tight">
+                    {col.label}
+                  </span>
+                  <span className="font-mono text-xs text-neutral-400">{col.sub}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Data Rows */}
+            {[
+              {
+                param: "Discharge Size",
+                vals: ["DN 80 / DN 100 / DN 150", "DN 80 / DN 100", "DN 80 / DN 100 / DN 150"],
+              },
+              {
+                param: "Max Flow Rate",
+                vals: ["72.0 to 390.0 m³/h", "54.0 to 228.0 m³/h", "68.2 to 384.1 m³/h"],
+              },
+              {
+                param: "Max Head",
+                vals: ["4.8 to 42.2 m", "7.0 to 53.8 m", "2.0 to 42.1 m"],
+              },
+              {
+                param: "Spherical Clearance",
+                vals: ["80 to 100 mm", "80 to 100 mm", "80 to 100 mm"],
+              },
+              {
+                param: "Motor Power (P1)",
+                vals: ["1.7 to 43.0 kW", "1.5 to 30.0 kW", "1.7 to 43.0 kW"],
+              },
+              {
+                param: "Motor Power (P2)",
+                vals: ["Up to 25.4 kW", "1.3 to 25.4 kW", "Up to 25.4 kW"],
+              },
+              {
+                param: "Nominal Speed",
+                vals: ["2900 / 1450 / 960 rpm", "2900 / 1450 / 960 rpm", "2900 / 1450 / 960 rpm"],
+              },
+              {
+                param: "Body Material",
+                vals: ["Cast Iron GG25 (GJL-250)", "Cast Iron GG25 (GJL-250)", "Stainless Steel 316 (1.4408)"],
+              },
+              {
+                param: "Impeller Material",
+                vals: ["Cast Iron GG25", "Cast Iron GG25", "Stainless Steel 316 (1.4408)"],
+              },
+            ].map((row, idx) => (
+              <div
+                key={idx}
+                className="grid grid-cols-[1.4fr_1fr_1fr_1fr] divide-x divide-neutral-200 border-t border-neutral-200 group hover:bg-white transition-colors"
+              >
+                <div className="flex items-center gap-4 px-6 py-5 bg-white group-hover:bg-neutral-50 transition-colors">
+                  <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-neutral-400 shrink-0 w-5">
+                    {String(idx + 1).padStart(2, "0")}
+                  </span>
+                  <span className="font-mono text-xs font-bold uppercase tracking-widest text-neutral-700">
+                    {row.param}
+                  </span>
+                </div>
+                {row.vals.map((val, vi) => (
+                  <div key={vi} className="flex items-center px-6 py-5">
+                    <span className="text-sm font-semibold text-neutral-900">{val}</span>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION 09: DOCUMENTATION (SPEC-LIST) ── */}
       <section className="bg-white py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
@@ -270,7 +414,7 @@ export default function KlausUnionFullPresentation() {
               <div className="mt-12 flex flex-col gap-px bg-neutral-200 border border-neutral-200">
                 {product.documents.map((doc, idx) => (
                   <button key={idx} className="group flex items-center justify-between bg-white px-8 py-6 transition-colors hover:bg-neutral-50">
-                    <div>
+                    <div className="text-left">
                       <p className="text-sm font-extrabold uppercase tracking-tight">{doc.label}</p>
                       <p className="mt-1 font-mono text-xs text-neutral-400">{doc.size}</p>
                     </div>
@@ -311,7 +455,7 @@ export default function KlausUnionFullPresentation() {
         </div>
       </section>
 
-      {/* ── SECTION 07: FOOTER CTA ── */}
+      {/* ── SECTION 08: FOOTER CTA ── */}
       <section className="bg-neutral-50 border-t border-neutral-200 py-20 text-center">
         <div className="mx-auto max-w-3xl px-6">
           <h2 className="text-3xl font-extrabold uppercase tracking-tight text-red-900">
