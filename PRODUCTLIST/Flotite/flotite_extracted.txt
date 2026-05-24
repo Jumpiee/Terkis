@@ -1,0 +1,49 @@
+1. Threaded, Economy, & Standard 1-Piece / 2-Piece Valves
+Fusion S23 / S23SS: 1-Piece Stainless Steel Full Port Threaded Ball Valve (250 PSI SWP). 
+Fusion T23: 2-Piece Threaded Ball Valve.
+Flotron S3000 / Flotron-II S6000: High-pressure threaded industrial models.
+Kingtron ST336 / T70 / Omni T12: Standard utility and threaded service valves. 
+EconoFlo T-45 / T82 / T80SS: Economy-tier utility ball valves. 
+T91 / T92 RB & T91-B / T92-B JOJ: Reduced bore and generic utility configurations. 
+2. Direct Mount (Automation-Ready) Series
+DM 2000 / DMV-2000: 2-Piece 2000 PSI WOG body with integral ISO 5211 direct mounting pad (DMV version utilizes a V-ball for throttling). 
+DM 110 / DMV-110: Direct-mount economy line featuring standard or V-Ball components. 
+DM 310 / EconoFlo DM300: 3-Piece direct mount economy series. 
+DM 51 / DM 52 / DM 85 / DM80SS: Industrial-grade direct-mount automation units. 
+DM-MPT100 / DM-MPT200: Multi-port direct mount variations. 
+DM-W150: Direct-mount wafer-style space-saving ball valve. 
+EconoFlo DMF15: Direct-mount flanged end economy valve. 
+3. 3-Piece Industrial & Severe Service Valves
+Tri-Star 410 / 420 (Carbon Steel) & 510 / 520 (Stainless Steel): High-performance 3-piece ball valves for demanding process industries. 
+Multi-Choice 300 / 200: Highly customizable 3-piece standard series. 
+Multi-Choice Weld-In-Place (335, 325, 225, 235): 3-piece series engineered specifically to be welded directly into the pipeline without disassembly. 
+Tri-Pro HPF 40, 50 / HPS 40, 50 / HPF 3000: High-pressure, severe-service 3-piece process valves.
+Titan 1540 / 1550: Heavy-duty, high-pressure 3-piece series.
+Multi-Choice Sanitary 350 / 370: Polish-finished 3-piece valves matching food, beverage, and pharmaceutical standards.
+Pro-Max 361 / 362: High-performance, heavy-duty severe service series.
+Econo-Groove 190 / 390: 3-Piece ball valves featuring grooved mechanical pipe connection ends.
+4. Flanged & Segmented Process Valves
+Full-Flo F150 / F300: Standard 2-Piece Full Port Flanged Valves (ANSI Class 150 & 300). 
+EC Series (EC F15 / EC F30): Econo-Clean/Econo-Chem flanged configurations.
+Uni-Flo (SF150 / SF300): Standard port / 1-Piece reduced port flanged options.
+Sentinel Series (RV-150 / RV-300 / RV-600): High-performance segmented or eccentric V-port control valves for slurry or throttling applications.
+Petro F60: Specialized flanged service valve optimized for oil, petroleum, and hydrocarbon handling. 
+EZ Series (RF15 / RF30): Easily maintained flanged processing line.
+Kompact Ball Valve W150 / FDUE 3000: Wafer-style space-saving flanged designs. 
+5. Multi-Port (3-Way & 4-Way) Valves
+Trans-Flo MPF 15 / MPF 30 / MPF 60: Multi-port 3 & 4-way flanged ball valves spanning ANSI classes 150 through 600. 
+MPF 154 / MPT 104: Dedicated 4-way flanged and threaded options.
+MPT 100: Threaded 3-way multi-port configuration. 
+Bottom Entry MPF 155: 3-Way bottom entry flanged multi-port profile. 
+Bottom Flow 3W HPF / HPS: High-pressure specialized 3-way bottom-entry diversion.
+MPT 355 / MPT 365 / MPT 366 / MPT 355 JN: Multi-port instrumentation-level small-bore ball valves.
+6. Specialty & Heavy Engineered Valves
+TM Series Trunnion (TM150 / TM300 / TM600): Large-bore pipeline trunnion ball valves built to API-6D standards for midstream and heavy industrial applications.
+Control Set DM V60-SS: Precision modulation stainless control package. 
+EconoChem 110 / 120 / 130 / 190: Chemical process-focused specialized alloys. 
+Chem-Flo Series / PFA Lined Ball Valves: PFA-lined ball valves designed for handling extremely corrosive media.
+PFA Lined Ball Check Valves: Combined check/ball configurations. 
+Cryo Series: Extended bonnet valves built for liquid nitrogen and extreme cryogenic environments.
+Ceramic Valve Series: Exceptionally hard ceramic internals for extreme abrasive slurry wear resistance.
+Flush Bottom Tank Series (TK300): Unique design engineered to mount flush with tank bottoms for zero-dead-space drainage.
+Media Containment (Series 140): Advanced safety valves featuring primary seal monitoring mechanisms to prevent ambient leaks.
