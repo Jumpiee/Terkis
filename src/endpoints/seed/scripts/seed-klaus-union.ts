@@ -43,16 +43,6 @@ async function main() {
         ]
       },
       {
-        blockType: 'content',
-        blockName: 'Working Principle',
-        columns: [
-          {
-            size: 'full',
-            richText: richText('Fluid is accelerated through a standardized centrifugal impeller. Shaft sealing is provided by single or double mechanical seals, which require custom external flush plans according to the wetted chemical process fluid.')
-          }
-        ]
-      },
-      {
         blockType: 'technicalPillars',
         blockName: 'Engineering Advantages',
         eyebrow: 'Engineered Design',
@@ -90,16 +80,6 @@ async function main() {
           { code: 'APP-01', title: 'Utility Water Circulation', body: 'Reliable handling of utility and process water loops.', badge: 'Mechanical' },
           { code: 'APP-02', title: 'Chemical Blending', body: 'Safe transfer of non-volatile and mild chemical solutions.', badge: 'Mechanical' },
           { code: 'APP-03', title: 'Solvent Handling', body: 'Efficient transfer of non-toxic industrial solvents.', badge: 'Mechanical' }
-        ]
-      },
-      {
-        blockType: 'content',
-        blockName: 'Maintenance & Safety',
-        columns: [
-          {
-            size: 'full',
-            richText: richText('Verify seal flush plans are active and pressurized before startup. Regularly check mechanical seal faces for wear and leakages during routine maintenance inspections.')
-          }
         ]
       },
       {
@@ -156,16 +136,6 @@ async function main() {
         ]
       },
       {
-        blockType: 'content',
-        blockName: 'Working Principle',
-        columns: [
-          {
-            size: 'full',
-            richText: richText('Driven by a synchronous magnetic coupling, the inner rotor and impeller are isolated within a static containment shell. The pump meets heavy-duty API 685 pressure and nozzle load requirements, utilizing product-lubricated silicon carbide bearings instead of mechanical seals.')
-          }
-        ]
-      },
-      {
         blockType: 'technicalPillars',
         blockName: 'Engineering Advantages',
         eyebrow: 'Refinery Class',
@@ -203,16 +173,6 @@ async function main() {
           { code: 'APP-01', title: 'Volatile Hydrocarbons', body: 'Leak-free pumping of light hydrocarbons and volatile fuels.', badge: 'Mechanical' },
           { code: 'APP-02', title: 'Hot Oil Recirculation', body: 'High-temperature oil circulation up to +550 °C.', badge: 'Mechanical' },
           { code: 'APP-03', title: 'Toxic Chemical Process', body: 'Absolute containment of hazardous chemicals.', badge: 'Mechanical' }
-        ]
-      },
-      {
-        blockType: 'content',
-        blockName: 'Maintenance & Safety',
-        columns: [
-          {
-            size: 'full',
-            richText: richText('Monitor bearing wear via the integrated thrust indicator. Internal product-lubricated silicon carbide journal bearings must remain fully flooded during operation to prevent dry-running.')
-          }
         ]
       },
       {
@@ -269,16 +229,6 @@ async function main() {
         ]
       },
       {
-        blockType: 'content',
-        blockName: 'Working Principle',
-        columns: [
-          {
-            size: 'full',
-            richText: richText('Two intermeshing, counter-rotating screws move the fluid axially from the suction side to the discharge center. The screws have no metal-to-metal contact. The pump is driven via a sealless magnetic coupling, preventing high-pressure viscous leakage and shaft seal failures.')
-          }
-        ]
-      },
-      {
         blockType: 'technicalPillars',
         blockName: 'Engineering Advantages',
         eyebrow: 'High Viscosity',
@@ -318,16 +268,6 @@ async function main() {
           { code: 'APP-01', title: 'Crude Oil Loading', body: 'High-capacity transfer of viscous hydrocarbons and crude oil.', badge: 'Mechanical' },
           { code: 'APP-02', title: 'Bitumen & Polymer Feed', body: 'Pumping hot asphalt and thick chemical polymers.', badge: 'Mechanical' },
           { code: 'APP-03', title: 'Multi-phase Pipelines', body: 'Transporting oil-gas-water mixtures with high gas fraction.', badge: 'Mechanical' }
-        ]
-      },
-      {
-        blockType: 'content',
-        blockName: 'Maintenance & Safety',
-        columns: [
-          {
-            size: 'full',
-            richText: richText('Confirm that timing gears remain correctly lubricated. Maintain suction line filtration to prevent large hard solids from entering and damaging the intermeshing screws.')
-          }
         ]
       },
       {
@@ -384,16 +324,6 @@ async function main() {
         ]
       },
       {
-        blockType: 'content',
-        blockName: 'Working Principle',
-        columns: [
-          {
-            size: 'full',
-            richText: richText('Utilizing multiple impeller stages arranged in series, fluid pressure is increased incrementally at each stage. The pump shaft is driven by a hermetic magnetic coupling, eliminating mechanical seals and ensuring zero leaks under extreme discharge pressures.')
-          }
-        ]
-      },
-      {
         blockType: 'technicalPillars',
         blockName: 'Engineering Advantages',
         eyebrow: 'High Pressure',
@@ -431,16 +361,6 @@ async function main() {
           { code: 'APP-01', title: 'Boiler Feedwater', body: 'Reliable feed injection into high-pressure boilers without seal wear.', badge: 'Mechanical' },
           { code: 'APP-02', title: 'Chemical Injection', body: 'High-pressure dosing of toxic or aggressive chemicals.', badge: 'Mechanical' },
           { code: 'APP-03', title: 'Hydrocarbon Injection', body: 'High-head liquid gas and hydrocarbon process feeds.', badge: 'Mechanical' }
-        ]
-      },
-      {
-        blockType: 'content',
-        blockName: 'Maintenance & Safety',
-        columns: [
-          {
-            size: 'full',
-            richText: richText('Ensure correct motor alignment during installation. Maintain minimum flow requirements using bypass loops to prevent fluid overheating inside the containment shell.')
-          }
         ]
       },
       {
@@ -497,16 +417,6 @@ async function main() {
         ]
       },
       {
-        blockType: 'content',
-        blockName: 'Working Principle',
-        columns: [
-          {
-            size: 'full',
-            richText: richText('The electric motor turns an outer magnet rotor located outside the pump pressure boundary. This outer rotor magnetically couples with an inner magnet rotor mounted on the pump shaft inside the casing. As the outer magnet turns, it drives the inner magnet and impeller. The wetted pump shaft is completely isolated by a static containment shell.')
-          }
-        ]
-      },
-      {
         blockType: 'technicalPillars',
         blockName: 'Engineering Advantages',
         eyebrow: 'Standard Process',
@@ -544,16 +454,6 @@ async function main() {
           { code: 'APP-01', title: 'Hazardous Chemicals', body: 'Safe transfer of acids, alkalis, and toxic process fluids.', badge: 'Mechanical' },
           { code: 'APP-02', title: 'Organic Solvents', body: 'Emission-free storage tank transfer of highly flammable solvents.', badge: 'Mechanical' },
           { code: 'APP-03', title: 'Toxic Dosing Loops', body: 'Continuous inline feed of dangerous chemical agents.', badge: 'Mechanical' }
-        ]
-      },
-      {
-        blockType: 'content',
-        blockName: 'Maintenance & Safety',
-        columns: [
-          {
-            size: 'full',
-            richText: richText('Journal bearings are product-lubricated; do not run the pump dry. Monitor the containment shell temperature and drive vibrations. Standard manufacturer warranty applies.')
-          }
         ]
       },
       {
@@ -610,16 +510,6 @@ async function main() {
         ]
       },
       {
-        blockType: 'content',
-        blockName: 'Working Principle',
-        columns: [
-          {
-            size: 'full',
-            richText: richText('The pump casing and impeller are submerged inside the tank at the end of a column. The shaft runs up to the support plate where the magnetic coupling is located. The motor drives the shaft magnetically, preventing standard vertical packing leakage.')
-          }
-        ]
-      },
-      {
         blockType: 'technicalPillars',
         blockName: 'Engineering Advantages',
         eyebrow: 'Sump Drainage',
@@ -658,16 +548,6 @@ async function main() {
           { code: 'APP-01', title: 'Deep Chemical Tanks', body: 'Emptying hazardous liquids from deep vertical storage vessels.', badge: 'Mechanical' },
           { code: 'APP-02', title: 'Underground Drainage', body: 'Safe drainage of toxic run-off and process wastewater sumps.', badge: 'Mechanical' },
           { code: 'APP-03', title: 'Refinery Collection Pits', body: 'Emptying oil sludge and drain pits with absolute containment.', badge: 'Mechanical' }
-        ]
-      },
-      {
-        blockType: 'content',
-        blockName: 'Maintenance & Safety',
-        columns: [
-          {
-            size: 'full',
-            richText: richText('Ensure wetted guide bearings are checked for wear at scheduled shutdowns. Maintain minimum fluid levels to ensure proper pump priming.')
-          }
         ]
       },
       {
@@ -724,16 +604,6 @@ async function main() {
         ]
       },
       {
-        blockType: 'content',
-        blockName: 'Working Principle',
-        columns: [
-          {
-            size: 'full',
-            richText: richText('The side channel design uses a star-shaped impeller that accelerates liquid inside the side channel. This design generates high pressure and can pump liquid-gas mixtures, enabling self-priming capability. The shaft is driven via a sealless magnetic coupling.')
-          }
-        ]
-      },
-      {
         blockType: 'technicalPillars',
         blockName: 'Engineering Advantages',
         eyebrow: 'Self-Priming',
@@ -771,16 +641,6 @@ async function main() {
           { code: 'APP-01', title: 'LPG Cylinder Loading', body: 'Safe transfer of liquefied petroleum gas and pressurized hydrocarbons.', badge: 'Mechanical' },
           { code: 'APP-02', title: 'Condensate Extraction', body: 'Pumping hot condensate under high vacuum conditions.', badge: 'Mechanical' },
           { code: 'APP-03', title: 'Volatile Solvents', body: 'Safe handling of solvents near their boiling point.', badge: 'Mechanical' }
-        ]
-      },
-      {
-        blockType: 'content',
-        blockName: 'Maintenance & Safety',
-        columns: [
-          {
-            size: 'full',
-            richText: richText('Always prime the pump body before the first startup. Do not exceed the maximum gas-fraction limit to prevent dry running of internal bearings.')
-          }
         ]
       },
       {

@@ -9,7 +9,7 @@ export const PASSWORD = process.env.SEED_PASSWORD ?? 'admin1234'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-export async function api(method: 'GET' | 'POST' | 'PATCH', pathStr: string, body?: unknown, token?: string) {
+export async function api(method: 'GET' | 'POST' | 'PATCH' | 'DELETE', pathStr: string, body?: unknown, token?: string) {
   const res = await fetch(`${BASE_URL}/api${pathStr}`, {
     method,
     headers: {
@@ -42,24 +42,33 @@ export async function findOrCreate(
   return created.doc ?? created
 }
 
+const MEDIA_STATIC_DIR = path.resolve(__dirname, '../../../../public/media')
+
 export async function uploadMedia(filePath: string, altText: string, token: string): Promise<number> {
   const filename = path.basename(filePath)
-  
-  // 1. Check if media already exists
+
+  // 1. Check if media already exists in DB AND the file is physically on disk
   const params = new URLSearchParams({ 'where[filename][equals]': filename })
   const searchRes = await api('GET', `/media?${params}`, undefined, token)
   if (searchRes.docs?.length > 0) {
-    console.log(`  ✓ Media already exists: ${filename} (id: ${searchRes.docs[0].id})`)
-    return Number(searchRes.docs[0].id)
+    const existingId = searchRes.docs[0].id
+    const physicalPath = path.join(MEDIA_STATIC_DIR, filename)
+    if (fs.existsSync(physicalPath)) {
+      console.log(`  ✓ Media already exists: ${filename} (id: ${existingId})`)
+      return Number(existingId)
+    }
+    // DB record exists but file is missing from disk — delete the stale record and re-upload
+    console.log(`  ⚠ DB record exists but file missing from disk, re-uploading: ${filename}`)
+    await api('DELETE', `/media/${existingId}`, undefined, token).catch(() => {})
   }
-  
+
   // 2. Upload using FormData
   console.log(`  Uploading media: ${filename}...`)
   const fileBuffer = fs.readFileSync(filePath)
   const fileBlob = new Blob([fileBuffer])
   
   const formData = new FormData()
-  formData.append('alt', altText)
+  formData.append('_payload', JSON.stringify({ alt: altText }))
   formData.append('file', fileBlob, filename)
   
   const res = await fetch(`${BASE_URL}/api/media`, {
@@ -402,18 +411,6 @@ export async function seedProduct(
     })
 
     // B. Working Principle (Content)
-    if (workingPrinciple) {
-      layout.push({
-        blockType: 'content',
-        blockName: 'Working Principle & Design',
-        columns: [
-          {
-            size: 'full',
-            richText: richText(workingPrinciple),
-          },
-        ],
-      })
-    }
 
     // C. technicalPillars
     if (keyFeatures.length > 0 && mainImageId) {
@@ -464,18 +461,6 @@ export async function seedProduct(
     })
 
     // F. Maintenance (Content)
-    if (maintenance) {
-      layout.push({
-        blockType: 'content',
-        blockName: 'Maintenance, Safety & Warranty',
-        columns: [
-          {
-            size: 'full',
-            richText: richText(maintenance),
-          },
-        ],
-      })
-    }
 
     // G. ctaBanner
     layout.push({

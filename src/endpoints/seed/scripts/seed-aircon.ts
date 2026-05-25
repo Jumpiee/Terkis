@@ -2,7 +2,7 @@
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
-import { login, findOrCreate, uploadMedia, richText } from './seed-helpers'
+import { login, findOrCreate, uploadMedia, richText, richTextWithSections } from './seed-helpers'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -22,6 +22,9 @@ async function main() {
 
   const gallery = [{ image: mainImageId }, { image: galleryImage1Id }, { image: galleryImage2Id }]
 
+  const workingPrincipleText = 'The actuator operates on a dual-piston rack and pinion mechanism. Compressed air enters the cylinder chambers, driving the pistons inward or outward. The linear motion of the pistons is converted into 90° rotational torque through the integrated pinion gear, operating the attached valve.'
+  const maintenanceText = 'Pre-lubricated internals ensure long maintenance-free service. Accessories mount easily via standard NAMUR VDI/VDE 3845 dimensions. Enclosure is certified NEMA 4/4X and IP67 powder-coated. Standard 12-month manufacturer warranty.'
+
   const layout = [
     {
       blockType: 'statsBlock',
@@ -31,16 +34,6 @@ async function main() {
         { title: 'Up to 28,500', unit: 'in-lbs', label: 'TORQUE RANGE' },
         { title: '40 to 150', unit: 'PSIG', label: 'OPERATING PRESSURE' },
         { title: '90° / ±5°', unit: '', label: 'ROTATIONAL STROKE' }
-      ]
-    },
-    {
-      blockType: 'content',
-      blockName: 'Working Principle',
-      columns: [
-        {
-          size: 'full',
-          richText: richText('The actuator operates on a dual-piston rack and pinion mechanism. Compressed air enters the cylinder chambers, driving the pistons inward or outward. The linear motion of the pistons is converted into 90° rotational torque through the integrated pinion gear, operating the attached valve.')
-        }
       ]
     },
     {
@@ -85,16 +78,6 @@ async function main() {
       ]
     },
     {
-      blockType: 'content',
-      blockName: 'Maintenance & Standards',
-      columns: [
-        {
-          size: 'full',
-          richText: richText('Pre-lubricated internals ensure long maintenance-free service. Accessories mount easily via standard NAMUR VDI/VDE 3845 dimensions. Enclosure is certified NEMA 4/4X and IP67 powder-coated. Standard 12-month manufacturer warranty.')
-        }
-      ]
-    },
-    {
       blockType: 'ctaBanner',
       blockName: 'CTA',
       heading: 'Need an AIRCON Pneumatic Actuator?',
@@ -112,7 +95,11 @@ async function main() {
     _status: 'published',
     brand: brand.id,
     categories: [category.id],
-    description: richText('Heavy-duty rack and pinion pneumatic actuator with dual opposed pistons, ±5° travel stop adjustments, and NAMUR standard interface for industrial valve automation.'),
+    description: richTextWithSections(
+      'Heavy-duty rack and pinion pneumatic actuator with dual opposed pistons, ±5° travel stop adjustments, and NAMUR standard interface for industrial valve automation.',
+      workingPrincipleText,
+      maintenanceText
+    ),
     gallery,
     priceInUSDEnabled: false,
     relatedProducts: [],

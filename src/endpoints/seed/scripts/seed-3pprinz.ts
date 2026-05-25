@@ -33,16 +33,6 @@ async function main() {
       ]
     },
     {
-      blockType: 'content',
-      blockName: 'Working Principle',
-      columns: [
-        {
-          size: 'full',
-          richText: richText('The pump operates on an eccentric rotation principle. A slot-guided rotor is mounted off-center within the pump body. As the rotor turns, centrifugal force and hydraulic pressure push the self-adjusting vanes outward, keeping them in constant contact with the internal casing wall. The self-adjusting design ensures that as the vanes wear, they automatically slide outward to maintain a tight seal, preventing internal slippage.')
-        }
-      ]
-    },
-    {
       blockType: 'technicalPillars',
       blockName: 'Engineering Advantages',
       eyebrow: 'Why Choose Us',
@@ -82,16 +72,6 @@ async function main() {
         { code: 'APP-01', title: 'Petroleum Refineries', body: 'Reliable transfer of volatile fuel oils and hydrocarbon blending.', badge: 'Mechanical' },
         { code: 'APP-02', title: 'Chemical Terminals', body: 'Safe handling of corrosive solvents, alcohols, and aggressive acids.', badge: 'Mechanical' },
         { code: 'APP-03', title: 'Marine Loading', body: 'High-suction fuel transfer for loading and unloading operations.', badge: 'Mechanical' }
-      ]
-    },
-    {
-      blockType: 'content',
-      blockName: 'Maintenance & Warranty',
-      columns: [
-        {
-          size: 'full',
-          richText: richText('Scheduled maintenance involves checking vane wear via the inspection cover. Internals are fully interchangeable. Built-in relief valves are recommended to protect the closed loop from over-pressure. Standard 12-month manufacturer warranty is provided.')
-        }
       ]
     },
     {

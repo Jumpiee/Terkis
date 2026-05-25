@@ -44,16 +44,6 @@ async function main() {
         ]
       },
       {
-        blockType: 'content',
-        blockName: 'Working Principle',
-        columns: [
-          {
-            size: 'full',
-            richText: richText('Fluid flows upward through a tapered plastic tube. The drag force lifts a wetted float to a height proportional to the flow rate. The position is read locally against a scale.')
-          }
-        ]
-      },
-      {
         blockType: 'technicalPillars',
         blockName: 'Engineering Advantages',
         eyebrow: 'Why Choose Us',
@@ -91,16 +81,6 @@ async function main() {
           { code: 'APP-01', title: 'Chemical Dosing Pipelines', body: 'Accurate measurement of dosing chemicals.', badge: 'Instrument' },
           { code: 'APP-02', title: 'Water Treatment', body: 'Recirculation and neutralizing dosing systems.', badge: 'Instrument' },
           { code: 'APP-03', title: 'Plating Baths', body: 'Flow monitoring of corrosive electroplating liquids.', badge: 'Instrument' }
-        ]
-      },
-      {
-        blockType: 'content',
-        blockName: 'Maintenance & Support',
-        columns: [
-          {
-            size: 'full',
-            richText: richText('Keep the float assembly free of solid build-up. Ensure vertical alignment during installation. Backed by a standard 12-month manufacturer warranty. STÜBBE provides detailed documentation for chemical compatibility.')
-          }
         ]
       },
       {
@@ -196,16 +176,6 @@ async function main() {
         ]
       },
       {
-        blockType: 'content',
-        blockName: 'Maintenance & Warranty',
-        columns: [
-          {
-            size: 'full',
-            richText: richText('Routine checks should verify diaphragm integrity and setpoint spring tension. Backed by a standard 12-month manufacturer warranty. STÜBBE provides full support for replacement components.')
-          }
-        ]
-      },
-      {
         blockType: 'ctaBanner',
         blockName: 'CTA',
         heading: 'Need a STÜBBE DHV Relief Valve?',
@@ -298,16 +268,6 @@ async function main() {
         ]
       },
       {
-        blockType: 'content',
-        blockName: 'Maintenance & Warranty',
-        columns: [
-          {
-            size: 'full',
-            richText: richText('Diaphragms should be replaced during standard maintenance schedules if wear or discoloration is noticed. Covered by a 12-month manufacturer warranty. STÜBBE provides full diagnostic support.')
-          }
-        ]
-      },
-      {
         blockType: 'ctaBanner',
         blockName: 'CTA',
         heading: 'Need a STÜBBE MDM Gauge Guard?',
@@ -397,16 +357,6 @@ async function main() {
           { code: 'APP-01', title: 'Chemical Piping Networks', body: 'Monitors pressure drops and temperature increases.', badge: 'Instrument' },
           { code: 'APP-02', title: 'Dosing Automation', body: 'Provides feedback loops for dosing speed controllers.', badge: 'Instrument' },
           { code: 'APP-03', title: 'Safety Monitoring', body: 'Alerts PLC systems in case of runaway thermal reactions.', badge: 'Instrument' }
-        ]
-      },
-      {
-        blockType: 'content',
-        blockName: 'Maintenance & Warranty',
-        columns: [
-          {
-            size: 'full',
-            richText: richText('Sensors must be periodically calibrated to ensure telemetry accuracy. Standard 12-month manufacturer warranty. STÜBBE provides telemetry calibration and field diagnostic documentation.')
-          }
         ]
       },
       {
@@ -504,16 +454,6 @@ async function main() {
         ]
       },
       {
-        blockType: 'content',
-        blockName: 'Maintenance & Support',
-        columns: [
-          {
-            size: 'full',
-            richText: richText('Scheduled maintenance involves checking seal fluid pressures and monitoring impeller wear. Backed by a standard 12-month manufacturer warranty. STÜBBE provides full diagnostic support and replacement parts to guarantee high reliability and safe operation.')
-          }
-        ]
-      },
-      {
         blockType: 'ctaBanner',
         blockName: 'CTA',
         heading: 'Need a STÜBBE X-CLASS Pump?',
@@ -606,16 +546,6 @@ async function main() {
           { code: 'APP-01', title: 'Sump Drainage', body: 'Emptying chemical sump basins and effluent collection pits.', badge: 'Mechanical' },
           { code: 'APP-02', title: 'Acid Recirculation', body: 'Continuous pumping of aggressive liquors from storage tanks.', badge: 'Mechanical' },
           { code: 'APP-03', title: 'Neutralization Plants', body: 'Recirculating water and waste scrubbers in environment protection loops.', badge: 'Mechanical' }
-        ]
-      },
-      {
-        blockType: 'content',
-        blockName: 'Maintenance & Support',
-        columns: [
-          {
-            size: 'full',
-            richText: richText('Ensure the shaft runs clear of debris and check the external bearing lubrication weekly. Backed by a standard 12-month warranty. STÜBBE provides full diagnostic support and replacement parts to guarantee safe operation.')
-          }
         ]
       },
       {

@@ -136,7 +136,7 @@ async function main() {
           { title: 'High Viscosity', body: 'Custom-calibrated for high-viscosity hydrocarbon transfers (greater than 350 cSt).' },
           { title: 'Ultra-High Stability', body: 'Double-rotor option compensates for high swirl and viscosity pulsations.' },
           { title: 'Rapid Maintenance', body: 'Allows full cartridge replacement and calibration checks in under 1 hour.' },
-          { label: 'Flow Tuning Options', body: 'Provides Downsizing (DS) and Flexible Flowrates (FF) configurations for optimized utility.' }
+          { title: 'Flow Tuning Options', body: 'Provides Downsizing (DS) and Flexible Flowrates (FF) configurations for optimized utility.' }
         ],
         image: mainImageId
       },
