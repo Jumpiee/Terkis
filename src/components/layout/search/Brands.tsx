@@ -9,6 +9,7 @@ async function BrandList() {
 
   const brands = await payload.find({
     collection: 'brands',
+    limit: 100,
     sort: 'title',
   })
 

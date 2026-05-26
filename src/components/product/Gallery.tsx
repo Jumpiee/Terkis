@@ -51,9 +51,9 @@ export const Gallery: React.FC<Props> = ({ gallery }) => {
     <div>
       <div className="relative flex aspect-square w-full items-center justify-center overflow-hidden mb-8 bg-neutral-50">
         <Media
+          fill
           resource={gallery[current].image}
-          className="max-h-full max-w-full"
-          imgClassName="max-h-full max-w-full object-contain"
+          imgClassName="object-contain"
         />
       </div>
 
