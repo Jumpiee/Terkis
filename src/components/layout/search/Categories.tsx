@@ -1,31 +1,26 @@
 import configPromise from '@payload-config'
-import { getPayload } from 'payload'
 import clsx from 'clsx'
-import React, { Suspense } from 'react'
+import { getPayload } from 'payload'
+import { Suspense } from 'react'
 
-import { FilterList } from './filter'
 import { CategoryItem } from './Categories.client'
 
 async function CategoryList() {
   const payload = await getPayload({ config: configPromise })
 
   const categories = await payload.find({
-    collection: 'categories',
+    collection: 'product-categories',
     sort: 'title',
   })
 
   return (
     <div>
-      <h3 className="text-xs mb-2 text-neutral-500 dark:text-neutral-400">Category</h3>
-
-      <ul>
-        {categories.docs.map((category) => {
-          return (
-            <li key={category.id}>
-              <CategoryItem category={category} />
-            </li>
-          )
-        })}
+      <ul className="flex flex-col">
+        {categories.docs.map((category) => (
+          <li key={category.id}>
+            <CategoryItem category={category} />
+          </li>
+        ))}
       </ul>
     </div>
   )

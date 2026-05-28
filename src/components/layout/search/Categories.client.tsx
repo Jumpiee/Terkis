@@ -35,9 +35,13 @@ export const CategoryItem: React.FC<Props> = ({ category }) => {
   return (
     <button
       onClick={() => setQuery()}
-      className={clsx('hover:cursor-pointer', {
-        ' underline': isActive,
-      })}
+      className={clsx(
+        'w-full text-left font-mono text-xs uppercase tracking-widest py-1.5 transition-colors hover:text-neutral-900',
+        {
+          'font-bold text-red-900': isActive,
+          'text-neutral-500': !isActive,
+        },
+      )}
     >
       {category.title}
     </button>

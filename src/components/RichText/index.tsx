@@ -1,4 +1,5 @@
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
+import { ImageGalleryClient } from '@/blocks/ImageGallery/Component.client'
 import { DefaultNodeTypes, SerializedBlockNode } from '@payloadcms/richtext-lexical'
 import { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
 import {
@@ -11,6 +12,7 @@ import { CodeBlock, CodeBlockProps } from '@/blocks/Code/Component'
 import type {
   BannerBlock as BannerBlockProps,
   CallToActionBlock as CTABlockProps,
+  ImageGalleryBlock as ImageGalleryBlockProps,
   MediaBlock as MediaBlockProps,
 } from '@/payload-types'
 import { BannerBlock } from '@/blocks/Banner/Component'
@@ -19,7 +21,7 @@ import { cn } from '@/utilities/cn'
 
 type NodeTypes =
   | DefaultNodeTypes
-  | SerializedBlockNode<CTABlockProps | MediaBlockProps | BannerBlockProps | CodeBlockProps>
+  | SerializedBlockNode<CTABlockProps | MediaBlockProps | BannerBlockProps | CodeBlockProps | ImageGalleryBlockProps>
 
 const jsxConverters: JSXConvertersFunction<NodeTypes> = ({ defaultConverters }) => ({
   ...defaultConverters,
@@ -37,6 +39,11 @@ const jsxConverters: JSXConvertersFunction<NodeTypes> = ({ defaultConverters }) 
     ),
     code: ({ node }) => <CodeBlock className="col-start-2" {...node.fields} />,
     cta: ({ node }) => <CallToActionBlock {...node.fields} />,
+    imageGallery: ({ node }) => (
+      <div className="col-start-1 col-span-3 my-4 not-prose">
+        <ImageGalleryClient {...(node.fields as ImageGalleryBlockProps)} />
+      </div>
+    ),
   },
 })
 

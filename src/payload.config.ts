@@ -1,22 +1,30 @@
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import {
+  BlocksFeature,
   BoldFeature,
   EXPERIMENTAL_TableFeature,
+  HeadingFeature,
   IndentFeature,
   ItalicFeature,
   LinkFeature,
   OrderedListFeature,
   UnderlineFeature,
   UnorderedListFeature,
+  UploadFeature,
   lexicalEditor,
 } from '@payloadcms/richtext-lexical'
+
+import { ImageGalleryBlock } from '@/blocks/ImageGallery/config'
 import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 
-import { Categories } from '@/collections/Categories'
+import { Brands } from '@/collections/Brands'
+import { PostCategories } from '@/collections/PostCategories'
+import { ProductCategories } from '@/collections/ProductCategories'
 import { Media } from '@/collections/Media'
 import { Pages } from '@/collections/Pages'
+import { Posts } from '@/collections/Posts'
 import { Users } from '@/collections/Users'
 import { Footer } from '@/globals/Footer'
 import { Header } from '@/globals/Header'
@@ -35,9 +43,13 @@ export default buildConfig({
       // Feel free to delete this at any time. Simply remove the line below and the import `BeforeDashboard` statement on line 15.
       beforeDashboard: ['@/components/BeforeDashboard#BeforeDashboard'],
     },
+    livePreview: {
+      url: process.env.PAYLOAD_PUBLIC_SERVER_URL || 'http://localhost:3000',
+      collections: ['pages', 'products'],
+    },
     user: Users.slug,
   },
-  collections: [Users, Pages, Categories, Media],
+  collections: [Users, Pages, Posts, PostCategories, ProductCategories, Brands, Media],
   db: postgresAdapter({
     pool: {
       connectionString: process.env.DATABASE_URL || '',
@@ -46,6 +58,7 @@ export default buildConfig({
   editor: lexicalEditor({
     features: () => {
       return [
+        HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
         UnderlineFeature(),
         BoldFeature(),
         ItalicFeature(),
@@ -75,6 +88,12 @@ export default buildConfig({
         }),
         IndentFeature(),
         EXPERIMENTAL_TableFeature(),
+        UploadFeature({
+          enabledCollections: ['media'],
+        }),
+        BlocksFeature({
+          blocks: [ImageGalleryBlock],
+        }),
       ]
     },
   }),

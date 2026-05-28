@@ -27,7 +27,7 @@ const collections: CollectionSlug[] = [
   'orders',
 ]
 
-const categories = ['Accessories', 'T-Shirts', 'Hats']
+const categories = ['Mechanical', 'Electrical', 'Instrument']
 
 const sizeVariantOptions = [
   { label: 'Small', value: 'small' },
@@ -521,7 +521,7 @@ export const seed = async ({
             link: {
               type: 'custom',
               label: 'Shop',
-              url: '/shop',
+              url: '/product',
             },
           },
           {

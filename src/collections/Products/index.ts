@@ -1,6 +1,13 @@
+import { ComparisonTable } from '@/blocks/ComparisonTable/config'
 import { CallToAction } from '@/blocks/CallToAction/config'
 import { Content } from '@/blocks/Content/config'
 import { MediaBlock } from '@/blocks/MediaBlock/config'
+import { StatsBlock } from '@/blocks/StatsBlock/config'
+import { ApplicationsBlock } from '@/blocks/ApplicationsBlock/config'
+import { CtaBanner } from '@/blocks/CtaBanner/config'
+import { TechDownloads } from '@/blocks/TechDownloads/config'
+import { DataSheet } from '@/blocks/DataSheet/config'
+import { TechnicalPillars } from '@/blocks/TechnicalPillars/config'
 import { slugField } from 'payload'
 import { generatePreviewPath } from '@/utilities/generatePreviewPath'
 import { CollectionOverride } from '@payloadcms/plugin-ecommerce/types'
@@ -135,7 +142,7 @@ export const ProductsCollection: CollectionOverride = ({ defaultCollection }) =>
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock],
+              blocks: [CallToAction, ComparisonTable, Content, MediaBlock, StatsBlock, TechnicalPillars, DataSheet, ApplicationsBlock, TechDownloads, CtaBanner],
             },
           ],
           label: 'Content',
@@ -198,6 +205,16 @@ export const ProductsCollection: CollectionOverride = ({ defaultCollection }) =>
       ],
     },
     {
+      name: 'brand',
+      type: 'relationship',
+      admin: {
+        position: 'sidebar',
+        sortOptions: 'title',
+      },
+      hasMany: false,
+      relationTo: 'brands',
+    },
+    {
       name: 'categories',
       type: 'relationship',
       admin: {
@@ -205,7 +222,7 @@ export const ProductsCollection: CollectionOverride = ({ defaultCollection }) =>
         sortOptions: 'title',
       },
       hasMany: true,
-      relationTo: 'categories',
+      relationTo: 'product-categories',
     },
     slugField(),
   ],

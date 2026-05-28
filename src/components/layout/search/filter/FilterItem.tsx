@@ -52,11 +52,15 @@ function SortFilterItem({ item }: { item: SortFilterItemType }) {
   const DynamicTag = active ? 'p' : Link
 
   return (
-    <li className="mt-2 flex text-sm text-black dark:text-white" key={item.title}>
+    <li className="flex" key={item.title}>
       <DynamicTag
-        className={clsx('w-full hover:underline hover:underline-offset-4', {
-          'underline underline-offset-4': active,
-        })}
+        className={clsx(
+          'w-full py-1.5 font-mono text-xs uppercase tracking-widest transition-colors hover:text-neutral-900',
+          {
+            'font-bold text-red-900': active,
+            'text-neutral-500': !active,
+          },
+        )}
         href={href}
         prefetch={!active ? false : undefined}
       >

@@ -1,0 +1,1049 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              outline: '#737a61',
+              'surface-container': '#eeeeee',
+              'on-secondary-container': '#636262',
+              'primary-fixed': '#b8f600',
+              'on-primary-fixed': '#141f00',
+              'surface-container-high': '#e8e8e8',
+              'secondary-container': '#e2dfde',
+              secondary: '#5f5e5e',
+              error: '#ba1a1a',
+              tertiary: '#5d5f5f',
+              'secondary-fixed-dim': '#c8c6c5',
+              'on-error': '#ffffff',
+              'outline-variant': '#c3caac',
+              'tertiary-container': '#eaeaea',
+              'surface-bright': '#f9f9f9',
+              'surface-tint': '#4b6700',
+              'inverse-primary': '#a1d800',
+              'on-primary-container': '#557300',
+              'inverse-surface': '#2f3131',
+              'tertiary-fixed': '#e2e2e2',
+              'on-surface': '#1a1c1c',
+              'surface-container-low': '#f3f3f3',
+              background: '#f9f9f9',
+              primary: '#4b6700',
+              'on-tertiary': '#ffffff',
+              'on-surface-variant': '#434933',
+              'surface-dim': '#dadada',
+              'secondary-fixed': '#e5e2e1',
+              'on-secondary-fixed-variant': '#474746',
+              'on-primary-fixed-variant': '#384e00',
+              'on-tertiary-container': '#686969',
+              'primary-fixed-dim': '#a1d800',
+              'tertiary-fixed-dim': '#c6c6c6',
+              'surface-variant': '#e2e2e2',
+              'on-background': '#1a1c1c',
+              'on-secondary-fixed': '#1c1b1b',
+              'on-secondary': '#ffffff',
+              'primary-container': '#bfff00',
+              'error-container': '#ffdad6',
+              'inverse-on-surface': '#f1f1f1',
+              'on-primary': '#ffffff',
+              'surface-container-highest': '#e2e2e2',
+              surface: '#f9f9f9',
+              'on-error-container': '#93000a',
+              'on-tertiary-fixed': '#1a1c1c',
+              'surface-container-lowest': '#ffffff',
+              'on-tertiary-fixed-variant': '#454747',
+            },
+            borderRadius: {
+              DEFAULT: '0.125rem',
+              lg: '0.25rem',
+              xl: '0.5rem',
+              full: '0.75rem',
+            },
+            spacing: {
+              'stack-sm': '8px',
+              'stack-lg': '32px',
+              gutter: '16px',
+              'container-max': '1440px',
+              'stack-md': '16px',
+              unit: '4px',
+              'stack-xs': '4px',
+              margin: '24px',
+            },
+            fontFamily: {
+              'headline-lg': ['Inter'],
+              'label-mono': ['Inter'],
+              'data-display': ['Inter'],
+              'body-lg': ['Inter'],
+              'headline-sm': ['Inter'],
+              'body-md': ['Inter'],
+              'headline-md': ['Inter'],
+            },
+            fontSize: {
+              'headline-lg': [
+                '32px',
+                { lineHeight: '40px', letterSpacing: '-0.02em', fontWeight: '700' },
+              ],
+              'label-mono': [
+                '12px',
+                { lineHeight: '16px', letterSpacing: '0.05em', fontWeight: '500' },
+              ],
+              'data-display': [
+                '14px',
+                { lineHeight: '20px', letterSpacing: '0.02em', fontWeight: '600' },
+              ],
+              'body-lg': ['16px', { lineHeight: '24px', letterSpacing: '0em', fontWeight: '400' }],
+              'headline-sm': [
+                '18px',
+                { lineHeight: '24px', letterSpacing: '0em', fontWeight: '600' },
+              ],
+              'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0em', fontWeight: '400' }],
+              'headline-md': [
+                '24px',
+                { lineHeight: '32px', letterSpacing: '-0.01em', fontWeight: '600' },
+              ],
+            },
+          },
+        },
+      }
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24;
+      }
+      body {
+        background-color: #f9f9f9;
+      }
+    </style>
+  </head>
+  <body class="font-body-md text-on-background selection:bg-primary-container">
+    <!-- Top Navigation Bar -->
+    <header
+      class="bg-zinc-100 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800 flex justify-between items-center px-6 h-14 w-full sticky top-0 z-50"
+    >
+      <div class="flex items-center gap-8">
+        <span class="text-lg font-black tracking-tighter text-zinc-900 dark:text-zinc-50 uppercase"
+          >TERKIS</span
+        >
+        <nav class="hidden md:flex gap-6 items-center">
+          <a
+            class="font-['Inter'] font-mono text-[11px] uppercase tracking-wider text-zinc-900 dark:text-zinc-50 border-b-2 border-lime-400 pb-1"
+            href="#"
+            >Dashboard</a
+          >
+          <a
+            class="font-['Inter'] font-mono text-[11px] uppercase tracking-wider text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 transition-all duration-75"
+            href="#"
+            >Operations</a
+          >
+          <a
+            class="font-['Inter'] font-mono text-[11px] uppercase tracking-wider text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 transition-all duration-75"
+            href="#"
+            >Analytics</a
+          >
+          <a
+            class="font-['Inter'] font-mono text-[11px] uppercase tracking-wider text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 transition-all duration-75"
+            href="#"
+            >Inventory</a
+          >
+          <a
+            class="font-['Inter'] font-mono text-[11px] uppercase tracking-wider text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 transition-all duration-75"
+            href="#"
+            >Maintenance</a
+          >
+          <a
+            class="font-['Inter'] font-mono text-[11px] uppercase tracking-wider text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 transition-all duration-75"
+            href="#"
+            >Settings</a
+          >
+        </nav>
+      </div>
+      <div class="flex items-center gap-4">
+        <div
+          class="hidden lg:flex items-center bg-zinc-200 dark:bg-zinc-800 px-3 py-1 rounded-sm gap-2"
+        >
+          <span class="material-symbols-outlined text-sm text-zinc-500">search</span>
+          <span class="font-mono text-[10px] text-zinc-400">SEARCH_SYSTEM_01</span>
+        </div>
+        <div class="flex gap-2">
+          <button class="p-2 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 transition-all">
+            <span class="material-symbols-outlined text-[20px]" data-icon="notifications"
+              >notifications</span
+            >
+          </button>
+          <button class="p-2 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 transition-all">
+            <span class="material-symbols-outlined text-[20px]" data-icon="developer_board"
+              >developer_board</span
+            >
+          </button>
+        </div>
+        <button
+          class="bg-primary-container text-on-primary-container px-4 py-1.5 font-mono text-[11px] uppercase tracking-wider font-bold border border-primary active:opacity-80 transition-opacity"
+        >
+          Execute Optimization
+        </button>
+      </div>
+    </header>
+    <main>
+      <!-- Hero Section -->
+      <section
+        class="relative h-[819px] w-full overflow-hidden flex items-center bg-white border-b border-outline-variant"
+      >
+        <div class="absolute inset-0 grid grid-cols-12 pointer-events-none opacity-20">
+          <div class="border-r border-outline-variant h-full"></div>
+          <div class="border-r border-outline-variant h-full"></div>
+          <div class="border-r border-outline-variant h-full"></div>
+          <div class="border-r border-outline-variant h-full"></div>
+          <div class="border-r border-outline-variant h-full"></div>
+          <div class="border-r border-outline-variant h-full"></div>
+          <div class="border-r border-outline-variant h-full"></div>
+          <div class="border-r border-outline-variant h-full"></div>
+          <div class="border-r border-outline-variant h-full"></div>
+          <div class="border-r border-outline-variant h-full"></div>
+          <div class="border-r border-outline-variant h-full"></div>
+        </div>
+        <div
+          class="max-w-screen-2xl mx-auto px-margin w-full grid grid-cols-1 md:grid-cols-2 gap-stack-lg relative z-10"
+        >
+          <div class="flex flex-col justify-center">
+            <div class="mb-stack-md flex items-center gap-2">
+              <span class="w-8 h-[1px] bg-primary"></span>
+              <span class="font-label-mono text-label-mono text-primary uppercase"
+                >System Status: Active</span
+              >
+            </div>
+            <h1 class="font-headline-lg text-headline-lg mb-stack-md text-on-surface leading-tight">
+              Precision Engineering for Critical Flow Infrastructure
+            </h1>
+            <p class="font-body-lg text-body-lg text-secondary max-w-lg mb-stack-lg">
+              Advanced hydraulic intelligence and industrial containment systems designed for
+              extreme technical environments and zero-failure mission criticalities.
+            </p>
+            <div class="flex gap-stack-md">
+              <button
+                class="bg-primary-container text-on-primary-container px-stack-lg py-stack-md font-label-mono text-label-mono uppercase font-bold border border-primary hover:bg-primary hover:text-white transition-all"
+              >
+                Request Technical Datasheet
+              </button>
+              <button
+                class="bg-white text-on-surface px-stack-lg py-stack-md font-label-mono text-label-mono uppercase font-bold border border-outline hover:bg-surface-container transition-all"
+              >
+                System Overview
+              </button>
+            </div>
+          </div>
+          <div class="hidden md:block relative">
+            <div class="absolute inset-0 bg-primary/5 rounded-sm"></div>
+            <img
+              class="w-full h-full object-cover grayscale brightness-110 contrast-105 border border-outline-variant rounded-sm"
+              data-alt="Technical close-up of a high-precision stainless steel industrial pump assembly in a bright, clean, sterile clinical laboratory environment with soft neutral lighting"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXm3JfWiHy8yLma3Rx4gVwCcVPuvZzt0B-yXrdRT9NB31LIlyCBT-asAHKVAi4XoYjZXsXWHODlalAgnlRo-TPughlFFK_oYhJD1yLQ6c-TXRMDzvfbvOEKEi-OH-9f2g-kykKu60Vto_xVDkJ5NG8k9nESZsrq2CLGuSDaQOc4hfI5drI76xC3sAiJVh1OMKn8S3i-v8fHWpYnMxJNuJdHZJmfyFZc7p8Tmdrel_9e14dxXHMuOkdmQWESlQcVY1IXbysSYHO8BI"
+            />
+            <div
+              class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm p-4 border border-outline-variant"
+            >
+              <span class="font-label-mono text-[10px] text-primary block"
+                >REF_MODULE: TRK-992-X</span
+              >
+              <span class="font-label-mono text-[12px] font-bold">HYDRAULIC_CORE_GEN4</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- The Terminal Approach - 3 Value Pillars -->
+      <section class="py-stack-lg bg-surface-container-low border-b border-outline-variant">
+        <div class="max-w-screen-2xl mx-auto px-margin">
+          <div class="mb-stack-lg">
+            <span class="font-label-mono text-label-mono text-secondary uppercase tracking-widest"
+              >Protocol.01 / Methodology</span
+            >
+            <h2 class="font-headline-md text-headline-md mt-2">The Terminal Approach</h2>
+          </div>
+          <div
+            class="grid grid-cols-1 md:grid-cols-3 gap-[1px] bg-outline-variant border border-outline-variant"
+          >
+            <div class="bg-white p-stack-lg hover:bg-surface-bright transition-colors">
+              <span
+                class="material-symbols-outlined text-primary text-3xl mb-4"
+                data-icon="precision_manufacturing"
+                >precision_manufacturing</span
+              >
+              <h3 class="font-headline-sm text-headline-sm mb-2">Technical Excellence</h3>
+              <p class="font-body-md text-secondary">
+                Mathematical precision applied to every mechanical interface. Validated through
+                rigorous simulation protocols and real-world stress testing.
+              </p>
+              <div class="mt-6 flex items-center gap-2">
+                <span
+                  class="font-label-mono text-[10px] uppercase text-primary font-bold tracking-tighter"
+                  >Learn More</span
+                >
+                <span
+                  class="material-symbols-outlined text-[14px] text-primary"
+                  data-icon="arrow_forward"
+                  >arrow_forward</span
+                >
+              </div>
+            </div>
+            <div class="bg-white p-stack-lg hover:bg-surface-bright transition-colors">
+              <span
+                class="material-symbols-outlined text-primary text-3xl mb-4"
+                data-icon="language"
+                >language</span
+              >
+              <h3 class="font-headline-sm text-headline-sm mb-2">Global Sourcing</h3>
+              <p class="font-body-md text-secondary">
+                Verified supply chain integrity across six continents. Every component is tracked
+                via our proprietary Terkis Ledger system.
+              </p>
+              <div class="mt-6 flex items-center gap-2">
+                <span
+                  class="font-label-mono text-[10px] uppercase text-primary font-bold tracking-tighter"
+                  >Learn More</span
+                >
+                <span
+                  class="material-symbols-outlined text-[14px] text-primary"
+                  data-icon="arrow_forward"
+                  >arrow_forward</span
+                >
+              </div>
+            </div>
+            <div class="bg-white p-stack-lg hover:bg-surface-bright transition-colors">
+              <span
+                class="material-symbols-outlined text-primary text-3xl mb-4"
+                data-icon="verified_user"
+                >verified_user</span
+              >
+              <h3 class="font-headline-sm text-headline-sm mb-2">Compliance First</h3>
+              <p class="font-body-md text-secondary">
+                Meeting and exceeding international ISO, ASME, and DIN standards. Safety thresholds
+                engineered with 300% redundancy.
+              </p>
+              <div class="mt-6 flex items-center gap-2">
+                <span
+                  class="font-label-mono text-[10px] uppercase text-primary font-bold tracking-tighter"
+                  >Learn More</span
+                >
+                <span
+                  class="material-symbols-outlined text-[14px] text-primary"
+                  data-icon="arrow_forward"
+                  >arrow_forward</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Mission-Critical Categories -->
+      <section class="py-stack-lg bg-white">
+        <div class="max-w-screen-2xl mx-auto px-margin">
+          <div class="flex flex-col md:flex-row justify-between items-end mb-stack-lg gap-4">
+            <div>
+              <span class="font-label-mono text-label-mono text-secondary uppercase tracking-widest"
+                >Protocol.02 / Inventory</span
+              >
+              <h2 class="font-headline-md text-headline-md mt-2 uppercase font-black">
+                Mission-Critical Categories
+              </h2>
+            </div>
+            <div class="flex gap-2">
+              <button class="p-2 border border-outline-variant hover:border-primary transition-all">
+                <span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+              </button>
+              <button class="p-2 border border-outline-variant hover:border-primary transition-all">
+                <span class="material-symbols-outlined" data-icon="chevron_right"
+                  >chevron_right</span
+                >
+              </button>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-stack-md">
+            <!-- Pumping Systems -->
+            <div
+              class="group relative bg-surface-container-low border border-outline-variant overflow-hidden"
+            >
+              <div class="h-64 overflow-hidden border-b border-outline-variant bg-white">
+                <img
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale"
+                  data-alt="High-contrast studio photograph of a industrial centrifugal pump with shiny metallic surfaces against a neutral gray background"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCz3RQdTOIh8IEuTBxXhWHo3NnTzqZTP4xgtSZrw1Wyctd6Wd3GeTkMbG6Pm9mbKuI_ZTe57FGYS8SfEbf4bYoy-gc0E35ta5eo_1YZSUlcEaiHB1hDNPraGFhJyvcecpOzQ2AYzLhhW4Fs99B1PqygH-DZFxft4ehbumkUz4VQKYHSKkiXEvVB9mFtm7eDvq4L4IqsFHJJy5TLbU437AtftS_bij3Kt4u4awRxxu7eCofE5Ib4B-blY-8BxnYLursTwiFnXxzM1g"
+                />
+              </div>
+              <div class="p-stack-md">
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="font-headline-sm text-headline-sm">Pumping Systems</h3>
+                  <span class="font-label-mono text-[10px] text-zinc-400">CAT_ID: PMP_44</span>
+                </div>
+                <p class="font-body-md text-secondary mb-4">
+                  High-efficiency volumetric and dynamic transfer units for hazardous chemistry.
+                </p>
+                <a
+                  class="inline-flex items-center gap-2 text-primary font-label-mono font-bold text-label-mono group-hover:gap-4 transition-all"
+                  href="#"
+                >
+                  VIEW SPECIFICATIONS
+                  <span class="material-symbols-outlined text-[18px]" data-icon="arrow_right_alt"
+                    >arrow_right_alt</span
+                  >
+                </a>
+              </div>
+            </div>
+            <!-- Pressure Management -->
+            <div
+              class="group relative bg-surface-container-low border border-outline-variant overflow-hidden"
+            >
+              <div class="h-64 overflow-hidden border-b border-outline-variant bg-white">
+                <img
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale"
+                  data-alt="Macro photography of technical pressure gauges and valves on a clean industrial assembly line with shallow depth of field"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOoCLPiT7laWwypG6vqrw8JiuLqjnf0gr-R-h3X7ey654OE_YPVbiGpc6nvkQGD9bjAizwI0hE1bZlOXU_RaN7x9KYeyi1Pcj4Oh9Ms7OUNqo0X99qPUIVY2FKbWrnmZyiiV4-HcWEJpw6DRLwmHxBvl9AFdqcQBabKoNkZseVC0rc6i8lcMRTGv-Bum50Y3z2_jXnTwgnkVPPl1Ci6SmtOWlqb4FLYD77rBIo51x_UMOghsrh__NaXSYbfjkqtmdg2iHLxrDNKgA"
+                />
+              </div>
+              <div class="p-stack-md">
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="font-headline-sm text-headline-sm">Pressure Management</h3>
+                  <span class="font-label-mono text-[10px] text-zinc-400">CAT_ID: PRS_12</span>
+                </div>
+                <p class="font-body-md text-secondary mb-4">
+                  Ultra-precise regulation and relief systems for high-pressure gaseous flow.
+                </p>
+                <a
+                  class="inline-flex items-center gap-2 text-primary font-label-mono font-bold text-label-mono group-hover:gap-4 transition-all"
+                  href="#"
+                >
+                  VIEW SPECIFICATIONS
+                  <span class="material-symbols-outlined text-[18px]" data-icon="arrow_right_alt"
+                    >arrow_right_alt</span
+                  >
+                </a>
+              </div>
+            </div>
+            <!-- Sealing Solutions -->
+            <div
+              class="group relative bg-surface-container-low border border-outline-variant overflow-hidden"
+            >
+              <div class="h-64 overflow-hidden border-b border-outline-variant bg-white">
+                <img
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale"
+                  data-alt="Industrial mechanical seals and gaskets displayed as technical components in a clinical white setting with sharp edges"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgaFY8qOZTlJxfLJPzXhalIbLAO0-mNgxSWJz3WwxsAGZbwL6RuwCoDYxhOLcdEtwV-BPs25CyqHC9o6Op-ekU7NqqkiiWsu6Fgtfo0usM4xSkcnVcsnD0TJsWZqdTC0I0eN3mywDRlriFGZOARr6blgtLsNEEsKJLlH35sJKzTtw8tGmA_hRHOIeOc9lFWg2VXhN2P71O49yfjIm--j-EmMS0Zu1THTlPsWmwlMkXGIOIquhZvihcQrs0ey5RpjhaOwjme0CXOWM"
+                />
+              </div>
+              <div class="p-stack-md">
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="font-headline-sm text-headline-sm">Sealing Solutions</h3>
+                  <span class="font-label-mono text-[10px] text-zinc-400">CAT_ID: SL_091</span>
+                </div>
+                <p class="font-body-md text-secondary mb-4">
+                  Zero-leak containment interfaces utilizing advanced fluoro-elastomer technology.
+                </p>
+                <a
+                  class="inline-flex items-center gap-2 text-primary font-label-mono font-bold text-label-mono group-hover:gap-4 transition-all"
+                  href="#"
+                >
+                  VIEW SPECIFICATIONS
+                  <span class="material-symbols-outlined text-[18px]" data-icon="arrow_right_alt"
+                    >arrow_right_alt</span
+                  >
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Engineering Heritage -->
+      <section class="py-stack-md bg-zinc-50 border-y border-outline-variant overflow-hidden">
+        <div class="max-w-screen-2xl mx-auto px-margin">
+          <div
+            class="flex flex-wrap items-center justify-between gap-stack-lg opacity-40 grayscale"
+          >
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined" data-icon="award_star">award_star</span>
+              <span class="font-label-mono text-label-mono font-black">ISO_9001:2015</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined" data-icon="architecture">architecture</span>
+              <span class="font-label-mono text-label-mono font-black">ASME_CERTIFIED</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined" data-icon="security">security</span>
+              <span class="font-label-mono text-label-mono font-black">CE_COMPLIANT</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined" data-icon="factory">factory</span>
+              <span class="font-label-mono text-label-mono font-black">DIN_STANDARD</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined" data-icon="biotech">biotech</span>
+              <span class="font-label-mono text-label-mono font-black">API_610_VAL</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Technical Partnership Inquiry Form -->
+      <section class="py-stack-lg bg-surface-container">
+        <div class="max-w-screen-2xl mx-auto px-margin">
+          <div
+            class="grid grid-cols-1 lg:grid-cols-2 gap-stack-lg bg-white border border-outline-variant shadow-sm overflow-hidden"
+          >
+            <div class="p-stack-lg bg-zinc-950 text-white flex flex-col justify-center">
+              <span
+                class="font-label-mono text-label-mono text-primary uppercase mb-4 tracking-widest"
+                >Protocol.03 / Contact</span
+              >
+              <h2 class="font-headline-lg text-headline-lg mb-stack-md">
+                Initiate Technical Partnership
+              </h2>
+              <p class="font-body-lg text-zinc-400 mb-stack-lg">
+                Our engineering team is available for deep-dive technical consultations and system
+                integration planning.
+              </p>
+              <div class="space-y-4">
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 border border-zinc-700 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-primary" data-icon="call"
+                      >call</span
+                    >
+                  </div>
+                  <div>
+                    <span class="font-label-mono text-[10px] text-zinc-500 block"
+                      >DIRECT_COMMS</span
+                    >
+                    <span class="font-data-display text-data-display">+1 (800) 555-TERKIS</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 border border-zinc-700 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-primary" data-icon="mail"
+                      >mail</span
+                    >
+                  </div>
+                  <div>
+                    <span class="font-label-mono text-[10px] text-zinc-500 block"
+                      >ENQUIRY_MAIL</span
+                    >
+                    <span class="font-data-display text-data-display"
+                      >systems@terkis-industrial.com</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-stack-lg">
+              <form class="space-y-stack-md">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+                  <div class="space-y-1">
+                    <label class="font-label-mono text-[10px] text-secondary uppercase"
+                      >Operator_Name</label
+                    >
+                    <input
+                      class="w-full bg-surface-container-low border border-outline-variant p-3 focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary font-body-md"
+                      placeholder="Enter Full Name"
+                      type="text"
+                    />
+                  </div>
+                  <div class="space-y-1">
+                    <label class="font-label-mono text-[10px] text-secondary uppercase"
+                      >Enterprise_Email</label
+                    >
+                    <input
+                      class="w-full bg-surface-container-low border border-outline-variant p-3 focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary font-body-md"
+                      placeholder="name@company.com"
+                      type="email"
+                    />
+                  </div>
+                </div>
+                <div class="space-y-1">
+                  <label class="font-label-mono text-[10px] text-secondary uppercase"
+                    >Technical_Domain</label
+                  >
+                  <select
+                    class="w-full bg-surface-container-low border border-outline-variant p-3 focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary font-body-md"
+                  >
+                    <option>Select Industry Sector</option>
+                    <option>Petrochemical</option>
+                    <option>Aerospace Propulsion</option>
+                    <option>Deep-Sea Extraction</option>
+                    <option>Renewable Fluid Flow</option>
+                  </select>
+                </div>
+                <div class="space-y-1">
+                  <label class="font-label-mono text-[10px] text-secondary uppercase"
+                    >Inquiry_Payload</label
+                  >
+                  <textarea
+                    class="w-full bg-surface-container-low border border-outline-variant p-3 focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary font-body-md"
+                    placeholder="Describe technical requirements..."
+                    rows="4"
+                  ></textarea>
+                </div>
+                <button
+                  class="w-full bg-primary-container text-on-primary-container py-4 font-label-mono text-label-mono uppercase font-bold border border-primary hover:bg-primary hover:text-white transition-all"
+                  type="submit"
+                >
+                  Submit Technical Request
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="bg-zinc-50 dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800 mt-auto"
+    >
+      <div class="max-w-screen-2xl mx-auto px-8 py-10 flex flex-col gap-8">
+        <div class="flex flex-col md:flex-row justify-between items-start gap-8">
+          <div class="space-y-4">
+            <span
+              class="text-zinc-900 dark:text-zinc-50 font-bold text-xl uppercase tracking-tighter"
+              >TERKIS</span
+            >
+            <p class="font-mono text-[10px] text-zinc-500 max-w-xs">
+              TERKIS INDUSTRIAL INTELLIGENCE: PROVIDING PRECISION INFRASTRUCTURE SOLUTIONS FOR THE
+              WORLD'S MOST DEMANDING FLUID ENVIRONMENTS.
+            </p>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-12">
+            <div class="space-y-3">
+              <span
+                class="font-mono text-[11px] text-zinc-900 dark:text-zinc-50 font-bold uppercase"
+                >Technical</span
+              >
+              <ul class="space-y-2">
+                <li>
+                  <a
+                    class="font-mono text-[9px] uppercase tracking-widest text-zinc-400 hover:text-lime-500 transition-colors"
+                    href="#"
+                    >Documentation</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="font-mono text-[9px] uppercase tracking-widest text-zinc-400 hover:text-lime-500 transition-colors"
+                    href="#"
+                    >API Specification</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="font-mono text-[9px] uppercase tracking-widest text-zinc-400 hover:text-lime-500 transition-colors"
+                    href="#"
+                    >CAD Models</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="space-y-3">
+              <span
+                class="font-mono text-[11px] text-zinc-900 dark:text-zinc-50 font-bold uppercase"
+                >Integrity</span
+              >
+              <ul class="space-y-2">
+                <li>
+                  <a
+                    class="font-mono text-[9px] uppercase tracking-widest text-zinc-400 hover:text-lime-500 transition-colors"
+                    href="#"
+                    >System Status</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="font-mono text-[9px] uppercase tracking-widest text-zinc-400 hover:text-lime-500 transition-colors"
+                    href="#"
+                    >Security Protocol</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="font-mono text-[9px] uppercase tracking-widest text-zinc-400 hover:text-lime-500 transition-colors"
+                    href="#"
+                    >Compliance</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="space-y-3">
+              <span
+                class="font-mono text-[11px] text-zinc-900 dark:text-zinc-50 font-bold uppercase"
+                >Company</span
+              >
+              <ul class="space-y-2">
+                <li>
+                  <a
+                    class="font-mono text-[9px] uppercase tracking-widest text-zinc-400 hover:text-lime-500 transition-colors"
+                    href="#"
+                    >Legal</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="font-mono text-[9px] uppercase tracking-widest text-zinc-400 hover:text-lime-500 transition-colors"
+                    href="#"
+                    >Privacy</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="font-mono text-[9px] uppercase tracking-widest text-zinc-400 hover:text-lime-500 transition-colors"
+                    href="#"
+                    >Contact</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div
+          class="pt-8 border-t border-zinc-200 dark:border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-4"
+        >
+          <span class="font-mono text-[9px] uppercase tracking-widest text-zinc-400"
+            >© 2024 TERKIS INDUSTRIAL INTELLIGENCE. ALL SYSTEMS OPERATIONAL.</span
+          >
+          <div class="flex gap-4">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-lime-400"></span>
+              <span class="font-mono text-[9px] text-zinc-500">SERVER_STABLE</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-lime-400"></span>
+              <span class="font-mono text-[9px] text-zinc-500">ENCRYPTION_ACTIVE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+  </p>
+                <a
+                  class="inline-flex items-center gap-2 text-primary font-label-mono font-bold text-label-mono group-hover:gap-4 transition-all"
+                  href="#"
+                >
+                  VIEW SPECIFICATIONS
+                  <span class="material-symbols-outlined text-[18px]" data-icon="arrow_right_alt"
+                    >arrow_right_alt</span
+                  >
+                </a>
+              </div>
+            </div>
+            <!-- Sealing Solutions -->
+            <div
+              class="group relative bg-surface-container-low border border-outline-variant overflow-hidden"
+            >
+              <div class="h-64 overflow-hidden border-b border-outline-variant bg-white">
+                <img
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale"
+                  data-alt="Industrial mechanical seals and gaskets displayed as technical components in a clinical white setting with sharp edges"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgaFY8qOZTlJxfLJPzXhalIbLAO0-mNgxSWJz3WwxsAGZbwL6RuwCoDYxhOLcdEtwV-BPs25CyqHC9o6Op-ekU7NqqkiiWsu6Fgtfo0usM4xSkcnVcsnD0TJsWZqdTC0I0eN3mywDRlriFGZOARr6blgtLsNEEsKJLlH35sJKzTtw8tGmA_hRHOIeOc9lFWg2VXhN2P71O49yfjIm--j-EmMS0Zu1THTlPsWmwlMkXGIOIquhZvihcQrs0ey5RpjhaOwjme0CXOWM"
+                />
+              </div>
+              <div class="p-stack-md">
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="font-headline-sm text-headline-sm">Sealing Solutions</h3>
+                  <span class="font-label-mono text-[10px] text-zinc-400">CAT_ID: SL_091</span>
+                </div>
+                <p class="font-body-md text-secondary mb-4">
+                  Zero-leak containment interfaces utilizing advanced fluoro-elastomer technology.
+                </p>
+                <a
+                  class="inline-flex items-center gap-2 text-primary font-label-mono font-bold text-label-mono group-hover:gap-4 transition-all"
+                  href="#"
+                >
+                  VIEW SPECIFICATIONS
+                  <span class="material-symbols-outlined text-[18px]" data-icon="arrow_right_alt"
+                    >arrow_right_alt</span
+                  >
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Engineering Heritage -->
+      <section class="py-stack-md bg-zinc-50 border-y border-outline-variant overflow-hidden">
+        <div class="max-w-screen-2xl mx-auto px-margin">
+          <div
+            class="flex flex-wrap items-center justify-between gap-stack-lg opacity-40 grayscale"
+          >
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined" data-icon="award_star">award_star</span>
+              <span class="font-label-mono text-label-mono font-black">ISO_9001:2015</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined" data-icon="architecture">architecture</span>
+              <span class="font-label-mono text-label-mono font-black">ASME_CERTIFIED</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined" data-icon="security">security</span>
+              <span class="font-label-mono text-label-mono font-black">CE_COMPLIANT</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined" data-icon="factory">factory</span>
+              <span class="font-label-mono text-label-mono font-black">DIN_STANDARD</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined" data-icon="biotech">biotech</span>
+              <span class="font-label-mono text-label-mono font-black">API_610_VAL</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Technical Partnership Inquiry Form -->
+      <section class="py-stack-lg bg-surface-container">
+        <div class="max-w-screen-2xl mx-auto px-margin">
+          <div
+            class="grid grid-cols-1 lg:grid-cols-2 gap-stack-lg bg-white border border-outline-variant shadow-sm overflow-hidden"
+          >
+            <div class="p-stack-lg bg-zinc-950 text-white flex flex-col justify-center">
+              <span
+                class="font-label-mono text-label-mono text-primary uppercase mb-4 tracking-widest"
+                >Protocol.03 / Contact</span
+              >
+              <h2 class="font-headline-lg text-headline-lg mb-stack-md">
+                Initiate Technical Partnership
+              </h2>
+              <p class="font-body-lg text-zinc-400 mb-stack-lg">
+                Our engineering team is available for deep-dive technical consultations and system
+                integration planning.
+              </p>
+              <div class="space-y-4">
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 border border-zinc-700 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-primary" data-icon="call"
+                      >call</span
+                    >
+                  </div>
+                  <div>
+                    <span class="font-label-mono text-[10px] text-zinc-500 block"
+                      >DIRECT_COMMS</span
+                    >
+                    <span class="font-data-display text-data-display">+1 (800) 555-TERKIS</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 border border-zinc-700 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-primary" data-icon="mail"
+                      >mail</span
+                    >
+                  </div>
+                  <div>
+                    <span class="font-label-mono text-[10px] text-zinc-500 block"
+                      >ENQUIRY_MAIL</span
+                    >
+                    <span class="font-data-display text-data-display"
+                      >systems@terkis-industrial.com</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-stack-lg">
+              <form class="space-y-stack-md">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+                  <div class="space-y-1">
+                    <label class="font-label-mono text-[10px] text-secondary uppercase"
+                      >Operator_Name</label
+                    >
+                    <input
+                      class="w-full bg-surface-container-low border border-outline-variant p-3 focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary font-body-md"
+                      placeholder="Enter Full Name"
+                      type="text"
+                    />
+                  </div>
+                  <div class="space-y-1">
+                    <label class="font-label-mono text-[10px] text-secondary uppercase"
+                      >Enterprise_Email</label
+                    >
+                    <input
+                      class="w-full bg-surface-container-low border border-outline-variant p-3 focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary font-body-md"
+                      placeholder="name@company.com"
+                      type="email"
+                    />
+                  </div>
+                </div>
+                <div class="space-y-1">
+                  <label class="font-label-mono text-[10px] text-secondary uppercase"
+                    >Technical_Domain</label
+                  >
+                  <select
+                    class="w-full bg-surface-container-low border border-outline-variant p-3 focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary font-body-md"
+                  >
+                    <option>Select Industry Sector</option>
+                    <option>Petrochemical</option>
+                    <option>Aerospace Propulsion</option>
+                    <option>Deep-Sea Extraction</option>
+                    <option>Renewable Fluid Flow</option>
+                  </select>
+                </div>
+                <div class="space-y-1">
+                  <label class="font-label-mono text-[10px] text-secondary uppercase"
+                    >Inquiry_Payload</label
+                  >
+                  <textarea
+                    class="w-full bg-surface-container-low border border-outline-variant p-3 focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary font-body-md"
+                    placeholder="Describe technical requirements..."
+                    rows="4"
+                  ></textarea>
+                </div>
+                <button
+                  class="w-full bg-primary-container text-on-primary-container py-4 font-label-mono text-label-mono uppercase font-bold border border-primary hover:bg-primary hover:text-white transition-all"
+                  type="submit"
+                >
+                  Submit Technical Request
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="bg-zinc-50 dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800 mt-auto"
+    >
+      <div class="max-w-screen-2xl mx-auto px-8 py-10 flex flex-col gap-8">
+        <div class="flex flex-col md:flex-row justify-between items-start gap-8">
+          <div class="space-y-4">
+            <span
+              class="text-zinc-900 dark:text-zinc-50 font-bold text-xl uppercase tracking-tighter"
+              >TERKIS</span
+            >
+            <p class="font-mono text-[10px] text-zinc-500 max-w-xs">
+              TERKIS INDUSTRIAL INTELLIGENCE: PROVIDING PRECISION INFRASTRUCTURE SOLUTIONS FOR THE
+              WORLD'S MOST DEMANDING FLUID ENVIRONMENTS.
+            </p>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-12">
+            <div class="space-y-3">
+              <span
+                class="font-mono text-[11px] text-zinc-900 dark:text-zinc-50 font-bold uppercase"
+                >Technical</span
+              >
+              <ul class="space-y-2">
+                <li>
+                  <a
+                    class="font-mono text-[9px] uppercase tracking-widest text-zinc-400 hover:text-lime-500 transition-colors"
+                    href="#"
+                    >Documentation</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="font-mono text-[9px] uppercase tracking-widest text-zinc-400 hover:text-lime-500 transition-colors"
+                    href="#"
+                    >API Specification</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="font-mono text-[9px] uppercase tracking-widest text-zinc-400 hover:text-lime-500 transition-colors"
+                    href="#"
+                    >CAD Models</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="space-y-3">
+              <span
+                class="font-mono text-[11px] text-zinc-900 dark:text-zinc-50 font-bold uppercase"
+                >Integrity</span
+              >
+              <ul class="space-y-2">
+                <li>
+                  <a
+                    class="font-mono text-[9px] uppercase tracking-widest text-zinc-400 hover:text-lime-500 transition-colors"
+                    href="#"
+                    >System Status</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="font-mono text-[9px] uppercase tracking-widest text-zinc-400 hover:text-lime-500 transition-colors"
+                    href="#"
+                    >Security Protocol</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="font-mono text-[9px] uppercase tracking-widest text-zinc-400 hover:text-lime-500 transition-colors"
+                    href="#"
+                    >Compliance</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="space-y-3">
+              <span
+                class="font-mono text-[11px] text-zinc-900 dark:text-zinc-50 font-bold uppercase"
+                >Company</span
+              >
+              <ul class="space-y-2">
+                <li>
+                  <a
+                    class="font-mono text-[9px] uppercase tracking-widest text-zinc-400 hover:text-lime-500 transition-colors"
+                    href="#"
+                    >Legal</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="font-mono text-[9px] uppercase tracking-widest text-zinc-400 hover:text-lime-500 transition-colors"
+                    href="#"
+                    >Privacy</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="font-mono text-[9px] uppercase tracking-widest text-zinc-400 hover:text-lime-500 transition-colors"
+                    href="#"
+                    >Contact</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div
+          class="pt-8 border-t border-zinc-200 dark:border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-4"
+        >
+          <span class="font-mono text-[9px] uppercase tracking-widest text-zinc-400"
+            >© 2024 TERKIS INDUSTRIAL INTELLIGENCE. ALL SYSTEMS OPERATIONAL.</span
+          >
+          <div class="flex gap-4">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-lime-400"></span>
+              <span class="font-mono text-[9px] text-zinc-500">SERVER_STABLE</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-lime-400"></span>
+              <span class="font-mono text-[9px] text-zinc-500">ENCRYPTION_ACTIVE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
