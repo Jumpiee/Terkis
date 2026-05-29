@@ -12,7 +12,7 @@ import { imageHero1Data } from './image-hero-1'
 import { Address, Transaction, VariantOption } from '@/payload-types'
 
 const collections: CollectionSlug[] = [
-  'categories',
+  'product-categories',
   'media',
   'pages',
   'products',
@@ -181,7 +181,7 @@ export const seed = async ({
     }),
     ...categories.map((category) =>
       payload.create({
-        collection: 'categories',
+        collection: 'product-categories',
         data: {
           title: category,
           slug: category,
