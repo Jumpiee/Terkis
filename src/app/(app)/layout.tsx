@@ -1,12 +1,14 @@
+import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 
 import { AdminBar } from '@/components/AdminBar'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
-import { ensureStartsWith } from '@/utilities/ensureStartsWith'
 import { Providers } from '@/providers'
 import { InitTheme } from '@/providers/Theme/InitTheme'
+import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
+import { getServerSideURL } from '@/utilities/getURL'
 import { GeistMono } from 'geist/font/mono'
 import localFont from 'next/font/local'
 import React from 'react'
@@ -37,32 +39,22 @@ const ibmPlexSansThai = localFont({
   variable: '--font-ibm-plex-sans-thai',
   display: 'swap',
 })
-/* const { SITE_NAME, TWITTER_CREATOR, TWITTER_SITE } = process.env
-const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
-  ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-  : 'http://localhost:3000'
-const twitterCreator = TWITTER_CREATOR ? ensureStartsWith(TWITTER_CREATOR, '@') : undefined
-const twitterSite = TWITTER_SITE ? ensureStartsWith(TWITTER_SITE, 'https://') : undefined
- */
-/* export const metadata = {
-  metadataBase: new URL(baseUrl),
+
+export const metadata: Metadata = {
+  metadataBase: new URL(getServerSideURL()),
+  openGraph: mergeOpenGraph(),
   robots: {
     follow: true,
     index: true,
   },
   title: {
-    default: SITE_NAME,
-    template: `%s | ${SITE_NAME}`,
+    default: process.env.SITE_NAME || 'Terkis',
+    template: `%s | ${process.env.SITE_NAME || 'Terkis'}`,
   },
-  ...(twitterCreator &&
-    twitterSite && {
-      twitter: {
-        card: 'summary_large_image',
-        creator: twitterCreator,
-        site: twitterSite,
-      },
-    }),
-} */
+  twitter: {
+    card: 'summary_large_image',
+  },
+}
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
   return (
