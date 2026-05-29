@@ -1,6 +1,6 @@
 import configPromise from '@payload-config'
-import { getPayload } from 'payload'
 import clsx from 'clsx'
+import { getPayload } from 'payload'
 import React, { Suspense } from 'react'
 
 import { Item } from './Item'
@@ -8,7 +8,7 @@ import { Item } from './Item'
 async function List() {
   const payload = await getPayload({ config: configPromise })
   const categoriesData = await payload.find({
-    collection: 'categories',
+    collection: 'product-categories',
     sort: 'title',
     select: {
       title: true,
