@@ -15,8 +15,8 @@ async function main() {
   const brand = await findOrCreate('brands', 'tb-global-technologies', { title: 'TB Global Technologies', slug: 'tb-global-technologies' }, token)
   const category = await findOrCreate('product-categories', 'mechanical', { title: 'Mechanical', slug: 'mechanical' }, token)
 
-  const folderDir = path.join(__dirname, 'data', 'tb_niigata_chiksan_single_drainage_system')
-  const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.png'), 'TB-NIIGATA Chiksan Single Drainage System Main Image', token)
+  const mainImagePath = path.resolve(__dirname, '../../../../public/media/TB.png')
+  const mainImageId = await uploadMedia(mainImagePath, 'TB-NIIGATA Chiksan Single Drainage System Main Image', token)
 
   const gallery = [{ image: mainImageId }]
 

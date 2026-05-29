@@ -15,14 +15,15 @@ async function main() {
   const brand = await findOrCreate('brands', 'victor-pumpen', { title: 'Victor Pumpen', slug: 'victor-pumpen' }, token)
   const category = await findOrCreate('product-categories', 'mechanical', { title: 'Mechanical', slug: 'mechanical' }, token)
 
+  const mainImagePath = path.resolve(__dirname, '../../../../public/media/VP-001.png')
+  const mainImageId = await uploadMedia(mainImagePath, 'Victor Pumpen Main Image', token)
+
+  const gallery = [{ image: mainImageId }]
+
   // 1. R-Series Internal Gear Pump
   {
     console.log('Evaluating: Victor Pumpen R-Series Internal Gear Pump...')
-    const folderDir = path.join(__dirname, 'data', 'victor_pumpen_r_series_internal_gear_pump')
-    const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.jpg'), 'Victor Pumpen R-Series Internal Gear Pump Main Image', token)
-
-    const gallery = [{ image: mainImageId }]
-
+    
     const layout = [
       {
         blockType: 'statsBlock',
@@ -107,23 +108,6 @@ async function main() {
   // 2. S-Series Self-Priming Centrifugal Pump
   {
     console.log('Evaluating: Victor Pumpen S-Series Self-Priming Pump...')
-    const folderDir = path.join(__dirname, 'data', 'victor_pumpen_s_series_self_priming_pump')
-    const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.jpg'), 'Victor Pumpen S-Series Self-Priming Pump Main Image', token)
-
-    // Collect gallery images
-    const gallery = [{ image: mainImageId }]
-    for (let i = 1; i <= 15; i++) {
-      const imgFilename = `images/gallery/gallery_${i}.jpeg`
-      const imgPath = path.join(folderDir, imgFilename)
-      if (fs.existsSync(imgPath)) {
-        try {
-          const galleryImageId = await uploadMedia(imgPath, `Victor Pumpen S-Series Gallery Image ${i}`, token)
-          gallery.push({ image: galleryImageId })
-        } catch (e: any) {
-          console.warn(`  ⚠ Failed to upload gallery image ${i}: ${e.message}`)
-        }
-      }
-    }
 
     const layout = [
       {
@@ -206,6 +190,7 @@ async function main() {
       }
     }, token)
   }
+
 
   console.log('✓ Victor Pumpen Seeding Complete')
 }

@@ -25,11 +25,10 @@ async function main() {
   // =========================================================================
   {
     console.log('\nEvaluating: Klaus Union NOV Mechanical Seal Process Pump...')
-    const folderDir = path.join(__dirname, 'data', 'klaus_union_nov_mechanical_seal_pump')
-    const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.png'), 'Klaus Union NOV Main Image', token)
-    const galleryImage1Id = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_1.png'), 'Klaus Union NOV Gallery Image 1', token)
+    const mainImagePath = path.resolve(__dirname, '../../../../public/media/KU-001.png')
+    const mainImageId = await uploadMedia(mainImagePath, 'Klaus Union NOV Main Image', token)
 
-    const gallery = [{ image: mainImageId }, { image: galleryImage1Id }]
+    const gallery = [{ image: mainImageId }]
 
     const layout = [
       {
@@ -94,9 +93,9 @@ async function main() {
       }
     ]
 
-    await findOrCreate('products', 'klaus-union-nov-mechanical-seal-process-pump', {
+    await findOrCreate('products', 'klaus-union-nov-seal-process-pump', {
       title: 'Klaus Union NOV Mechanical Seal Process Pump',
-      slug: 'klaus-union-nov-mechanical-seal-process-pump',
+      slug: 'klaus-union-nov-seal-process-pump',
       _status: 'published',
       brand: brand.id,
       categories: [category.id],
@@ -118,11 +117,10 @@ async function main() {
   // =========================================================================
   {
     console.log('\nEvaluating: Klaus Union SLM AP API 685 Magnetic Drive Pump...')
-    const folderDir = path.join(__dirname, 'data', 'klaus_union_slm_ap_centrifugal_pump')
-    const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.png'), 'Klaus Union SLM AP Main Image', token)
-    const galleryImage1Id = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_1.png'), 'Klaus Union SLM AP Gallery Image 1', token)
+    const mainImagePath = path.resolve(__dirname, '../../../../public/media/KU-002.png')
+    const mainImageId = await uploadMedia(mainImagePath, 'Klaus Union SLM AP Main Image', token)
 
-    const gallery = [{ image: mainImageId }, { image: galleryImage1Id }]
+    const gallery = [{ image: mainImageId }]
 
     const layout = [
       {
@@ -187,9 +185,9 @@ async function main() {
       }
     ]
 
-    await findOrCreate('products', 'klaus-union-slm-ap-api-685-magnetic-drive-pump', {
+    await findOrCreate('products', 'klaus-union-slm-ap-refinery-pump', {
       title: 'Klaus Union SLM AP API 685 Magnetic Drive Pump',
-      slug: 'klaus-union-slm-ap-api-685-magnetic-drive-pump',
+      slug: 'klaus-union-slm-ap-refinery-pump',
       _status: 'published',
       brand: brand.id,
       categories: [category.id],
@@ -211,11 +209,10 @@ async function main() {
   // =========================================================================
   {
     console.log('\nEvaluating: Klaus Union SLM DSP-2C Twin Screw Pump...')
-    const folderDir = path.join(__dirname, 'data', 'klaus_union_slm_dsp_2c_twin_screw_pump')
-    const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.png'), 'Klaus Union SLM DSP Main Image', token)
-    const galleryImage1Id = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_1.png'), 'Klaus Union SLM DSP Gallery Image 1', token)
+    const mainImagePath = path.resolve(__dirname, '../../../../public/media/KU-003.png')
+    const mainImageId = await uploadMedia(mainImagePath, 'Klaus Union SLM DSP Main Image', token)
 
-    const gallery = [{ image: mainImageId }, { image: galleryImage1Id }]
+    const gallery = [{ image: mainImageId }]
 
     const layout = [
       {
@@ -282,9 +279,9 @@ async function main() {
       }
     ]
 
-    await findOrCreate('products', 'klaus-union-slm-dsp-2c-twin-screw-pump', {
+    await findOrCreate('products', 'klaus-union-slm-dsp-screw-pump', {
       title: 'Klaus Union SLM DSP-2C Twin Screw Pump',
-      slug: 'klaus-union-slm-dsp-2c-twin-screw-pump',
+      slug: 'klaus-union-slm-dsp-screw-pump',
       _status: 'published',
       brand: brand.id,
       categories: [category.id],
@@ -306,11 +303,10 @@ async function main() {
   // =========================================================================
   {
     console.log('\nEvaluating: Klaus Union SLM GV Multi-Stage Pump...')
-    const folderDir = path.join(__dirname, 'data', 'klaus_union_slm_gv_multistage_pump')
-    const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.png'), 'Klaus Union SLM GV Main Image', token)
-    const galleryImage1Id = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_1.png'), 'Klaus Union SLM GV Gallery Image 1', token)
+    const mainImagePath = path.resolve(__dirname, '../../../../public/media/KU-004.png')
+    const mainImageId = await uploadMedia(mainImagePath, 'Klaus Union SLM GV Main Image', token)
 
-    const gallery = [{ image: mainImageId }, { image: galleryImage1Id }]
+    const gallery = [{ image: mainImageId }]
 
     const layout = [
       {
@@ -375,9 +371,9 @@ async function main() {
       }
     ]
 
-    await findOrCreate('products', 'klaus-union-slm-gv-multi-stage-magnetic-drive-centrifugal-pump', {
+    await findOrCreate('products', 'klaus-union-slm-gv-multistage-pump', {
       title: 'Klaus Union SLM GV Multi-Stage Magnetic Drive Centrifugal Pump',
-      slug: 'klaus-union-slm-gv-multi-stage-magnetic-drive-centrifugal-pump',
+      slug: 'klaus-union-slm-gv-multistage-pump',
       _status: 'published',
       brand: brand.id,
       categories: [category.id],
@@ -399,11 +395,10 @@ async function main() {
   // =========================================================================
   {
     console.log('\nEvaluating: Klaus Union SLM NV ISO Sealless Pump...')
-    const folderDir = path.join(__dirname, 'data', 'klaus_union_slm_nv_sealless_pump')
-    const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.png'), 'Klaus Union SLM NV Main Image', token)
-    const galleryImage1Id = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_1.png'), 'Klaus Union SLM NV Gallery Image 1', token)
+    const mainImagePath = path.resolve(__dirname, '../../../../public/media/KU-005.png')
+    const mainImageId = await uploadMedia(mainImagePath, 'Klaus Union SLM NV Main Image', token)
 
-    const gallery = [{ image: mainImageId }, { image: galleryImage1Id }]
+    const gallery = [{ image: mainImageId }]
 
     const layout = [
       {
@@ -468,9 +463,9 @@ async function main() {
       }
     ]
 
-    await findOrCreate('products', 'klaus-union-slm-nv-iso-sealless-magnetic-drive-pump', {
+    await findOrCreate('products', 'klaus-union-slm-nv-sealless-pump', {
       title: 'Klaus Union SLM NV ISO Sealless Magnetic Drive Pump',
-      slug: 'klaus-union-slm-nv-iso-sealless-magnetic-drive-pump',
+      slug: 'klaus-union-slm-nv-sealless-pump',
       _status: 'published',
       brand: brand.id,
       categories: [category.id],
@@ -492,11 +487,10 @@ async function main() {
   // =========================================================================
   {
     console.log('\nEvaluating: Klaus Union SLM NVT Submerged Sump Pump...')
-    const folderDir = path.join(__dirname, 'data', 'klaus_union_slm_nvt_submerged_pump')
-    const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.png'), 'Klaus Union SLM NVT Main Image', token)
-    const galleryImage1Id = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_1.png'), 'Klaus Union SLM NVT Gallery Image 1', token)
+    const mainImagePath = path.resolve(__dirname, '../../../../public/media/KU-006.png')
+    const mainImageId = await uploadMedia(mainImagePath, 'Klaus Union SLM NVT Main Image', token)
 
-    const gallery = [{ image: mainImageId }, { image: galleryImage1Id }]
+    const gallery = [{ image: mainImageId }]
 
     const layout = [
       {
@@ -562,9 +556,9 @@ async function main() {
       }
     ]
 
-    await findOrCreate('products', 'klaus-union-slm-nvt-submerged-sump-pump', {
+    await findOrCreate('products', 'klaus-union-slm-nvt-sump-pump', {
       title: 'Klaus Union SLM NVT Submerged Sump Pump',
-      slug: 'klaus-union-slm-nvt-submerged-sump-pump',
+      slug: 'klaus-union-slm-nvt-sump-pump',
       _status: 'published',
       brand: brand.id,
       categories: [category.id],
@@ -586,11 +580,10 @@ async function main() {
   // =========================================================================
   {
     console.log('\nEvaluating: Klaus Union SLM SV Side Channel Pump...')
-    const folderDir = path.join(__dirname, 'data', 'klaus_union_slm_sv_side_channel_pump')
-    const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.png'), 'Klaus Union SLM SV Main Image', token)
-    const galleryImage1Id = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_1.png'), 'Klaus Union SLM SV Gallery Image 1', token)
+    const mainImagePath = path.resolve(__dirname, '../../../../public/media/KU-007.PNG')
+    const mainImageId = await uploadMedia(mainImagePath, 'Klaus Union SLM SV Main Image', token)
 
-    const gallery = [{ image: mainImageId }, { image: galleryImage1Id }]
+    const gallery = [{ image: mainImageId }]
 
     const layout = [
       {
@@ -655,9 +648,9 @@ async function main() {
       }
     ]
 
-    await findOrCreate('products', 'klaus-union-slm-sv-side-channel-magnetic-drive-pump', {
+    await findOrCreate('products', 'klaus-union-slm-sv-side-channel-pump', {
       title: 'Klaus Union SLM SV Side Channel Magnetic Drive Pump',
-      slug: 'klaus-union-slm-sv-side-channel-magnetic-drive-pump',
+      slug: 'klaus-union-slm-sv-side-channel-pump',
       _status: 'published',
       brand: brand.id,
       categories: [category.id],
@@ -673,6 +666,8 @@ async function main() {
       }
     }, token)
   }
+
+
 
   console.log('✓ Klaus Union Seeding Complete')
 }

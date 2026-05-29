@@ -12,18 +12,20 @@ const partners = [
   { name: "3PRINZ",        logo: "/api/media/file/3PRINZ.png" },
   { name: "CONTROLSEAL",     logo: "/api/media/file/CONTROLSEAL.png" },
   { name: "HOMA",     logo: "/api/media/file/HOMA.png" },  
+  { name: "AIRCON",     logo: "/api/media/file/AIRCON.png" }, 
+  { name: "FAURE",     logo: "/api/media/file/FAURE.png" }, 
 ];
 
 export default function PartnersGrid() {
   return (
     <div className="grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-5">
-      {partners.map((partner, index) => (
+      {partners.map((partner) => (
         <div
           key={partner.name}
           className={`group relative flex h-24 items-center justify-center rounded-xl bg-white px-6 py-4
                      shadow-sm transition-all duration-300 ease-in-out
                      hover:scale-110 hover:shadow-2xl hover:z-10
-                     ${index === 10 ? 'lg:col-start-3 md:col-start-2' : ''}`}
+                     `}
         >
           <Image
             src={partner.logo}

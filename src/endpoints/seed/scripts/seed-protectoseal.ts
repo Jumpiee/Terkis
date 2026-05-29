@@ -18,12 +18,10 @@ async function main() {
   // 1. Protectoseal Tank Conservation Vent
   {
     console.log('Evaluating: Protectoseal Conservation Vent...')
-    const folderDir = path.join(__dirname, 'data', 'protectoseal_conservation_vent')
-    const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.png'), 'Protectoseal Conservation Vent Main Image', token)
-    const galleryImage1Id = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_1.jpg'), 'Protectoseal Conservation Vent Gallery Image 1', token)
-    const galleryImage2Id = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_2.png'), 'Protectoseal Conservation Vent Gallery Image 2', token)
+    const mainImagePath = path.resolve(__dirname, '../../../../public/media/PS-001.png')
+    const mainImageId = await uploadMedia(mainImagePath, 'Protectoseal Conservation Vent Main Image', token)
 
-    const gallery = [{ image: mainImageId }, { image: galleryImage1Id }, { image: galleryImage2Id }]
+    const gallery = [{ image: mainImageId }]
 
     const layout = [
       {
@@ -109,12 +107,10 @@ async function main() {
   // 2. Protectoseal Emergency Pressure Relief Vent
   {
     console.log('Evaluating: Protectoseal Emergency Vent...')
-    const folderDir = path.join(__dirname, 'data', 'protectoseal_emergency_pressure_relief_vent')
-    const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.jpg'), 'Protectoseal Emergency Vent Main Image', token)
-    const galleryImage1Id = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_1.png'), 'Protectoseal Emergency Vent Gallery 1', token)
-    const galleryImage2Id = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_2.png'), 'Protectoseal Emergency Vent Gallery 2', token)
+    const mainImagePath = path.resolve(__dirname, '../../../../public/media/PS-002.png')
+    const mainImageId = await uploadMedia(mainImagePath, 'Protectoseal Emergency Vent Main Image', token)
 
-    const gallery = [{ image: mainImageId }, { image: galleryImage1Id }, { image: galleryImage2Id }]
+    const gallery = [{ image: mainImageId }]
 
     const layout = [
       {
@@ -200,11 +196,10 @@ async function main() {
   // 3. Protectoseal In-Line Detonation Flame Arrester
   {
     console.log('Evaluating: Protectoseal In-Line Arrester...')
-    const folderDir = path.join(__dirname, 'data', 'protectoseal_inline_detonation_flame_arrester')
-    const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.png'), 'Protectoseal Detonation Arrester Main Image', token)
-    const galleryImageId = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_1.png'), 'Protectoseal Detonation Arrester Gallery Image', token)
+    const mainImagePath = path.resolve(__dirname, '../../../../public/media/PS-003.png')
+    const mainImageId = await uploadMedia(mainImagePath, 'Protectoseal Detonation Arrester Main Image', token)
 
-    const gallery = [{ image: mainImageId }, { image: galleryImageId }]
+    const gallery = [{ image: mainImageId }]
 
     const layout = [
       {
@@ -287,6 +282,7 @@ async function main() {
       }
     }, token)
   }
+
 
   console.log('✓ Protectoseal Seeding Complete')
 }

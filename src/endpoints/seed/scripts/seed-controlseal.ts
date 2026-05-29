@@ -15,15 +15,15 @@ async function main() {
   const brand = await findOrCreate('brands', 'control-seal', { title: 'Control Seal', slug: 'control-seal' }, token)
   const category = await findOrCreate('product-categories', 'mechanical', { title: 'Mechanical', slug: 'mechanical' }, token)
 
+  const mainImagePath = path.resolve(__dirname, '../../../../public/media/CONTROLSEAL.png')
+  const mainImageId = await uploadMedia(mainImagePath, 'Control Seal Valve Main Image', token)
+
+  const gallery = [{ image: mainImageId }]
+
   // 1. Double Block and Bleed Valve (DBBV)
   {
     console.log('Evaluating: Control Seal DBBV Valve...')
-    const folderDir = path.join(__dirname, 'data', 'controlseal_dbbv_valve')
-    const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.png'), 'Control Seal DBBV Valve Main Image', token)
-    const galleryImageId = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_1.png'), 'Control Seal DBBV Valve Gallery Image', token)
-
-    const gallery = [{ image: mainImageId }, { image: galleryImageId }]
-
+    
     const layout = [
       {
         blockType: 'statsBlock',
@@ -109,11 +109,6 @@ async function main() {
   // 2. Rising Stem Ball Valve (RSBV)
   {
     console.log('Evaluating: Control Seal RSBV Valve...')
-    const folderDir = path.join(__dirname, 'data', 'controlseal_rsbv_valve')
-    const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.png'), 'Control Seal RSBV Valve Main Image', token)
-    const galleryImageId = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_1.png'), 'Control Seal RSBV Valve Gallery Image', token)
-
-    const gallery = [{ image: mainImageId }, { image: galleryImageId }]
 
     const layout = [
       {
@@ -196,6 +191,7 @@ async function main() {
       }
     }, token)
   }
+
 
   console.log('✓ CONTROLSEAL Seeding Complete')
 }

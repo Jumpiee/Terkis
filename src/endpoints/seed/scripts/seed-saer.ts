@@ -15,15 +15,14 @@ async function main() {
   const brand = await findOrCreate('brands', 'saer', { title: 'SAER', slug: 'saer' }, token)
   const category = await findOrCreate('product-categories', 'mechanical', { title: 'Mechanical', slug: 'mechanical' }, token)
 
+  const mainImagePath = path.resolve(__dirname, '../../../../public/media/SAER.png')
+  const mainImageId = await uploadMedia(mainImagePath, 'SAER Pump Main Image', token)
+
+  const gallery = [{ image: mainImageId }]
+
   // 1. SAER IR close-coupled centrifugal pump
   {
     console.log('Evaluating: SAER IR Close-Coupled...')
-    const folderDir = path.join(__dirname, 'data', 'saer_ir_series_close_coupled_centrifugal_pump')
-    const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.png'), 'SAER IR Pump Main Image', token)
-    const galleryImage1Id = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_1.png'), 'SAER IR Pump Gallery Image 1', token)
-    const galleryImage2Id = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_2.png'), 'SAER IR Pump Gallery Image 2', token)
-
-    const gallery = [{ image: mainImageId }, { image: galleryImage1Id }, { image: galleryImage2Id }]
 
     const layout = [
       {
@@ -110,11 +109,6 @@ async function main() {
   // 2. SAER L-Series Inline pump
   {
     console.log('Evaluating: SAER L-Series Inline...')
-    const folderDir = path.join(__dirname, 'data', 'saer_l_series_inline_electric_pump')
-    const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.png'), 'SAER L-Series Inline Pump Main Image', token)
-    const galleryImageId = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_1.png'), 'SAER L-Series Inline Pump Gallery Image', token)
-
-    const gallery = [{ image: mainImageId }, { image: galleryImageId }]
 
     const layout = [
       {
@@ -200,12 +194,6 @@ async function main() {
   // 3. SAER MKM multistage vertical pump
   {
     console.log('Evaluating: SAER MKM multistage...')
-    const folderDir = path.join(__dirname, 'data', 'saer_mkm_series_vertical_multistage_pump')
-    const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.png'), 'SAER MKM Pump Main Image', token)
-    const galleryImage1Id = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_1.png'), 'SAER MKM Pump Gallery Image 1', token)
-    const galleryImage2Id = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_2.png'), 'SAER MKM Pump Gallery Image 2', token)
-
-    const gallery = [{ image: mainImageId }, { image: galleryImage1Id }, { image: galleryImage2Id }]
 
     const layout = [
       {
@@ -287,6 +275,7 @@ async function main() {
       }
     }, token)
   }
+
 
   console.log('✓ SAER Seeding Complete')
 }

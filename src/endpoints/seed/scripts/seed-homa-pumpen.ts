@@ -15,14 +15,14 @@ async function main() {
   const brand = await findOrCreate('brands', 'homa-pumpen', { title: 'HOMA PUMPEN', slug: 'homa-pumpen' }, token)
   const category = await findOrCreate('product-categories', 'mechanical', { title: 'Mechanical', slug: 'mechanical' }, token)
 
+  const mainImagePath = path.resolve(__dirname, '../../../../public/media/HOMA.png')
+  const mainImageId = await uploadMedia(mainImagePath, 'HOMA Pump Main Image', token)
+
+  const gallery = [{ image: mainImageId }]
+
   // 1. HOMA CMX(S) Stainless Steel Sewage Pump
   {
     console.log('Evaluating: HOMA CMX(S)...')
-    const folderDir = path.join(__dirname, 'data', 'homa_cmxs_stainless_sewage_pump')
-    const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.png'), 'HOMA CMXS Pump Main Image', token)
-    const galleryImageId = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_1.png'), 'HOMA CMXS Pump Gallery Image', token)
-
-    const gallery = [{ image: mainImageId }, { image: galleryImageId }]
 
     const layout = [
       {
@@ -79,7 +79,7 @@ async function main() {
         blockType: 'ctaBanner',
         blockName: 'CTA',
         heading: 'Need a HOMA CMX(S) Stainless Pump?',
-        description: 'Our technical team will help you size the pump head and verify chemical compatibility for your process.',
+        description: 'Our technical team will help you verify head and flow for your lift station.',
         primaryLabel: 'Request a Quote',
         primaryHref: '/contact',
         secondaryLabel: 'View All Products',
@@ -109,11 +109,6 @@ async function main() {
   // 2. HOMA Single Channel Sewage Pump
   {
     console.log('Evaluating: HOMA Single Channel...')
-    const folderDir = path.join(__dirname, 'data', 'homa_single_channel_sewage_pump')
-    const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.png'), 'HOMA Single Channel Pump Main Image', token)
-    const galleryImageId = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_1.png'), 'HOMA Single Channel Pump Gallery Image', token)
-
-    const gallery = [{ image: mainImageId }, { image: galleryImageId }]
 
     const layout = [
       {
@@ -200,11 +195,6 @@ async function main() {
   // 3. HOMA V(X) Vortex Submersible Sewage Pump
   {
     console.log('Evaluating: HOMA Vortex...')
-    const folderDir = path.join(__dirname, 'data', 'homa_vx_vortex_sewage_pump')
-    const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.png'), 'HOMA Vortex Sewage Pump Main Image', token)
-    const galleryImageId = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_1.png'), 'HOMA Vortex Sewage Pump Gallery Image', token)
-
-    const gallery = [{ image: mainImageId }, { image: galleryImageId }]
 
     const layout = [
       {
@@ -287,6 +277,7 @@ async function main() {
       }
     }, token)
   }
+
 
   console.log('✓ HOMA PUMPEN Seeding Complete')
 }

@@ -25,6 +25,7 @@ export default async function ProductsPage({ searchParams }: Props) {
     collection: 'products',
     draft: false,
     overrideAccess: false,
+    limit: 100,
     depth: 1,
     select: {
       title: true,
@@ -105,7 +106,6 @@ export default async function ProductsPage({ searchParams }: Props) {
                 <div className="flex flex-1 flex-col border-t border-neutral-200 p-4">
                   <div className="mb-2 flex items-center justify-between">
                     <span className="font-mono text-[9px] font-bold uppercase tracking-widest text-neutral-400">
-                      {product.slug?.toUpperCase()}
                     </span>
                     {categoryLabel && (
                       <span className="bg-neutral-100 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-neutral-500">

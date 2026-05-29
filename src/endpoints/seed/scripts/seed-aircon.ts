@@ -15,12 +15,10 @@ async function main() {
   const brand = await findOrCreate('brands', 'aircon', { title: 'AIRCON', slug: 'aircon' }, token)
   const category = await findOrCreate('product-categories', 'electrical', { title: 'Electrical', slug: 'electrical' }, token)
 
-  const folderDir = path.join(__dirname, 'data', 'aircon_c_series_pneumatic_actuator')
-  const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.png'), 'AIRCON C Series Pneumatic Actuator Main Image', token)
-  const galleryImage1Id = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_1.png'), 'AIRCON C Series Pneumatic Actuator Gallery Image 1', token)
-  const galleryImage2Id = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_2.png'), 'AIRCON C Series Pneumatic Actuator Gallery Image 2', token)
+  const mainImagePath = path.resolve(__dirname, '../../../../public/media/AIRCON.png')
+  const mainImageId = await uploadMedia(mainImagePath, 'AIRCON C Series Pneumatic Actuator Main Image', token)
 
-  const gallery = [{ image: mainImageId }, { image: galleryImage1Id }, { image: galleryImage2Id }]
+  const gallery = [{ image: mainImageId }]
 
   const workingPrincipleText = 'The actuator operates on a dual-piston rack and pinion mechanism. Compressed air enters the cylinder chambers, driving the pistons inward or outward. The linear motion of the pistons is converted into 90° rotational torque through the integrated pinion gear, operating the attached valve.'
   const maintenanceText = 'Pre-lubricated internals ensure long maintenance-free service. Accessories mount easily via standard NAMUR VDI/VDE 3845 dimensions. Enclosure is certified NEMA 4/4X and IP67 powder-coated. Standard 12-month manufacturer warranty.'
