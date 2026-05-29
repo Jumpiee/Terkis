@@ -15,11 +15,10 @@ async function main() {
   const brand = await findOrCreate('brands', '3p-prinz', { title: '3P PRINZ', slug: '3p-prinz' }, token)
   const category = await findOrCreate('product-categories', 'mechanical', { title: 'Mechanical', slug: 'mechanical' }, token)
 
-  const folderDir = path.join(__dirname, 'data', '3pprinz_cn_series_vane_pump')
-  const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.png'), '3P PRINZ CN Series Vane Pump Main Image', token)
-  const galleryImageId = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_1.png'), '3P PRINZ CN Series Vane Pump Gallery Image', token)
+  const mainImagePath = path.resolve(__dirname, '../../../../public/media/3P-001.png')
+  const mainImageId = await uploadMedia(mainImagePath, '3P PRINZ CN Series Vane Pump Main Image', token)
 
-  const gallery = [{ image: mainImageId }, { image: galleryImageId }]
+  const gallery = [{ image: mainImageId }]
 
   const layout = [
     {

@@ -15,14 +15,14 @@ async function main() {
   const brand = await findOrCreate('brands', 'faure-herman', { title: 'FAURE HERMAN', slug: 'faure-herman' }, token)
   const category = await findOrCreate('product-categories', 'instrument', { title: 'Instrument', slug: 'instrument' }, token)
 
+  const mainImagePath = path.resolve(__dirname, '../../../../public/media/FAURE.png')
+  const mainImageId = await uploadMedia(mainImagePath, 'Faure Herman Flowmeter Main Image', token)
+
+  const gallery = [{ image: mainImageId }]
+
   // 1. Heliflu TLM
   {
     console.log('Evaluating: Faure Herman Heliflu TLM...')
-    const folderDir = path.join(__dirname, 'data', 'faure_herman_heliflu_tlm_flowmeter')
-    const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.png'), 'Faure Herman Heliflu TLM Main Image', token)
-    const galleryImageId = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_1.png'), 'Faure Herman Heliflu TLM Gallery Image', token)
-
-    const gallery = [{ image: mainImageId }, { image: galleryImageId }]
 
     const layout = [
       {
@@ -109,11 +109,6 @@ async function main() {
   // 2. Heliflu TZN
   {
     console.log('Evaluating: Faure Herman Heliflu TZN...')
-    const folderDir = path.join(__dirname, 'data', 'faure_herman_heliflu_tzn_turbine_flowmeter')
-    const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.jpg'), 'Faure Herman Heliflu TZN Main Image', token)
-    const galleryImageId = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_1.png'), 'Faure Herman Heliflu TZN Gallery Image', token)
-
-    const gallery = [{ image: mainImageId }, { image: galleryImageId }]
 
     const layout = [
       {
@@ -200,11 +195,6 @@ async function main() {
   // 3. UF 800 Ultrasonic Flowmeter
   {
     console.log('Evaluating: Faure Herman UF 800...')
-    const folderDir = path.join(__dirname, 'data', 'faure_herman_uf_800_ultrasonic_flowmeter')
-    const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.png'), 'Faure Herman UF 800 Main Image', token)
-    const galleryImageId = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_1.png'), 'Faure Herman UF 800 Gallery Image', token)
-
-    const gallery = [{ image: mainImageId }, { image: galleryImageId }]
 
     const layout = [
       {
@@ -287,6 +277,7 @@ async function main() {
       }
     }, token)
   }
+
 
   console.log('✓ FAURE HERMAN Seeding Complete')
 }

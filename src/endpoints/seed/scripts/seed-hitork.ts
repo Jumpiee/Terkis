@@ -15,11 +15,10 @@ async function main() {
   const brand = await findOrCreate('brands', 'hitork', { title: 'HITORK', slug: 'hitork' }, token)
   const category = await findOrCreate('product-categories', 'electrical', { title: 'Electrical', slug: 'electrical' }, token)
 
-  const folderDir = path.join(__dirname, 'data', 'hitork_cage_single_seated_control_valve')
-  const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.png'), 'HITORK Control Valve Main Image', token)
-  const galleryImageId = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_1.png'), 'HITORK Control Valve Gallery Image', token)
+  const mainImagePath = path.resolve(__dirname, '../../../../public/media/PUMP1.png')
+  const mainImageId = await uploadMedia(mainImagePath, 'HITORK Control Valve Main Image', token)
 
-  const gallery = [{ image: mainImageId }, { image: galleryImageId }]
+  const gallery = [{ image: mainImageId }]
 
   const layout = [
     {

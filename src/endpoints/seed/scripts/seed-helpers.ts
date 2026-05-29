@@ -123,6 +123,38 @@ export function richText(text: string) {
   }
 }
 
+export function richTextWithSections(...paragraphs: string[]) {
+  return {
+    root: {
+      type: 'root',
+      version: 1,
+      direction: 'ltr' as const,
+      format: '' as const,
+      indent: 0,
+      children: paragraphs.map((text) => ({
+        type: 'paragraph',
+        version: 1,
+        direction: 'ltr' as const,
+        format: '' as const,
+        indent: 0,
+        textFormat: 0,
+        textStyle: '',
+        children: [
+          {
+            type: 'text',
+            version: 1,
+            detail: 0,
+            format: 0,
+            mode: 'normal' as const,
+            style: '',
+            text,
+          },
+        ],
+      })),
+    },
+  }
+}
+
 export function slugify(text: string): string {
   return text
     .toLowerCase()

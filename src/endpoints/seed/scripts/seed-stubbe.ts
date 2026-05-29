@@ -21,16 +21,16 @@ async function main() {
   const instrument = await findOrCreate('product-categories', 'instrument', { title: 'Instrument', slug: 'instrument' }, token)
   console.log(`✓ Categories: Mechanical (id: ${mechanical.id}), Instrument (id: ${instrument.id})`)
 
+  const mainImagePath = path.resolve(__dirname, '../../../../public/media/STUBBE.png')
+  const mainImageId = await uploadMedia(mainImagePath, 'STÜBBE Product Main Image', token)
+
+  const gallery = [{ image: mainImageId }]
+
   // =========================================================================
   // 1. STÜBBE DFM 165-350 Flowmeter
   // =========================================================================
   {
     console.log('\nEvaluating: STÜBBE DFM 165-350 Flowmeter...')
-    const folderDir = path.join(__dirname, 'data', 'stubbe_dfm_flowmeter')
-    const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.png'), 'STÜBBE DFM 165-350 Flowmeter Main Image', token)
-    const galleryImage1Id = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_1.png'), 'STÜBBE DFM 165-350 Flowmeter Gallery Image', token)
-
-    const gallery = [{ image: mainImageId }, { image: galleryImage1Id }]
 
     const layout = [
       {
@@ -119,12 +119,7 @@ async function main() {
   // =========================================================================
   {
     console.log('\nEvaluating: STÜBBE DHV 712-R Pressure Relief Valve...')
-    const folderDir = path.join(__dirname, 'data', 'stubbe_dhv_pressure_relief_valve')
-    const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.png'), 'STÜBBE DHV 712-R Pressure Relief Valve Main Image', token)
-    const galleryImage1Id = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_1.png'), 'STÜBBE DHV 712-R Pressure Relief Valve Gallery Image', token)
-
-    const gallery = [{ image: mainImageId }, { image: galleryImage1Id }]
-
+    
     const layout = [
       {
         blockType: 'statsBlock',
@@ -211,12 +206,7 @@ async function main() {
   // =========================================================================
   {
     console.log('\nEvaluating: STÜBBE MDM 920 Diaphragm Pressure Gauge Guard...')
-    const folderDir = path.join(__dirname, 'data', 'stubbe_mdm_pressure_gauge_guard')
-    const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.png'), 'STÜBBE MDM 920 Diaphragm Pressure Gauge Guard Main Image', token)
-    const galleryImage1Id = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_1.png'), 'STÜBBE MDM 920 Diaphragm Pressure Gauge Guard Gallery Image', token)
-
-    const gallery = [{ image: mainImageId }, { image: galleryImage1Id }]
-
+    
     const layout = [
       {
         blockType: 'statsBlock',
@@ -258,7 +248,7 @@ async function main() {
       },
       {
         blockType: 'applicationsBlock',
-        blockName: 'Industrial Applications',
+        blockName: 'Applications',
         eyebrow: 'Service Conditions',
         heading: 'Industrial Applications',
         applications: [
@@ -303,12 +293,7 @@ async function main() {
   // =========================================================================
   {
     console.log('\nEvaluating: STÜBBE PTM Pressure and Temperature Sensor...')
-    const folderDir = path.join(__dirname, 'data', 'stubbe_ptm_pressure_temperature_sensor')
-    const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.png'), 'STÜBBE PTM Pressure and Temperature Sensor Main Image', token)
-    const galleryImage1Id = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_1.png'), 'STÜBBE PTM Pressure and Temperature Sensor Gallery Image', token)
-
-    const gallery = [{ image: mainImageId }, { image: galleryImage1Id }]
-
+    
     const layout = [
       {
         blockType: 'statsBlock',
@@ -395,13 +380,7 @@ async function main() {
   // =========================================================================
   {
     console.log('\nEvaluating: STÜBBE X-CLASS Standardized Chemical Pump...')
-    const folderDir = path.join(__dirname, 'data', 'stubbe_x_class_standardized_chemical_pump')
-    const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.png'), 'STÜBBE X-CLASS Standardized Chemical Pump Main Image', token)
-    const galleryImage1Id = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_1.png'), 'STÜBBE X-CLASS Standardized Chemical Pump Gallery 1', token)
-    const galleryImage2Id = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_2.png'), 'STÜBBE X-CLASS Standardized Chemical Pump Gallery 2', token)
-
-    const gallery = [{ image: mainImageId }, { image: galleryImage1Id }, { image: galleryImage2Id }]
-
+    
     const layout = [
       {
         blockType: 'statsBlock',
@@ -489,13 +468,7 @@ async function main() {
   // =========================================================================
   {
     console.log('\nEvaluating: STÜBBE X-CLASS Vertical Sump Chemical Pump...')
-    const folderDir = path.join(__dirname, 'data', 'stubbe_x_class_vertical_chemical_pump')
-    const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.png'), 'STÜBBE X-CLASS Vertical Sump Chemical Pump Main Image', token)
-    const galleryImage1Id = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_1.png'), 'STÜBBE X-CLASS Vertical Sump Chemical Pump Gallery 1', token)
-    const galleryImage2Id = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_2.png'), 'STÜBBE X-CLASS Vertical Sump Chemical Pump Gallery 2', token)
-
-    const gallery = [{ image: mainImageId }, { image: galleryImage1Id }, { image: galleryImage2Id }]
-
+    
     const layout = [
       {
         blockType: 'statsBlock',
@@ -527,9 +500,9 @@ async function main() {
         eyebrow: 'Technical Data',
         heading: 'Operational Matrix',
         specs: [
-          { label: 'Nominal Size DN', value: '32 - 100' },
-          { label: 'Max Flow Rate Q', value: 'Up to 250 m³/h' },
-          { label: 'Max Head H', value: 'Up to 90 m' },
+          { label: 'Nominal Size (DN)', value: '32 - 100' },
+          { label: 'Max Flow Rate (Q)', value: 'Up to 250 m³/h' },
+          { label: 'Max Head (H)', value: 'Up to 90 m' },
           { label: 'Motor Power', value: 'Up to 75 kW' },
           { label: 'Immersion Depth', value: 'Up to 1,500 mm' },
           { label: 'Suction Tube Extension', value: 'Up to 2,500 mm' },
@@ -578,6 +551,7 @@ async function main() {
       }
     }, token)
   }
+
 
   console.log('\n✓ STÜBBE Seeding Complete')
 }

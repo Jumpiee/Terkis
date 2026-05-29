@@ -16,11 +16,11 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React, { useEffect, useMemo, useState } from 'react'
 
+import { Button } from '@/components/ui/button'
+import { Product, Variant } from '@/payload-types'
 import { DeleteItemButton } from './DeleteItemButton'
 import { EditItemQuantityButton } from './EditItemQuantityButton'
 import { OpenCartButton } from './OpenCart'
-import { Button } from '@/components/ui/button'
-import { Product } from '@/payload-types'
 
 export function CartModal() {
   const { cart } = useCart()
@@ -61,8 +61,8 @@ export function CartModal() {
             <div className="flex flex-col justify-between w-full">
               <ul className="grow overflow-auto py-4">
                 {cart?.items?.map((item, i) => {
-                  const product = item.product
-                  const variant = item.variant
+                  const product = item.product as Product
+                  const variant = item.variant as Variant
 
                   if (typeof product !== 'object' || !item || !product || !product.slug)
                     return <React.Fragment key={i} />
@@ -108,7 +108,7 @@ export function CartModal() {
                   return (
                     <li className="flex w-full flex-col" key={i}>
                       <div className="relative flex w-full flex-row justify-between px-1 py-4">
-                        <div className="absolute z-40 -mt-2 ml-[55px]">
+                        <div className="absolute z-40 -mt-2 ml-13.75">
                           <DeleteItemButton item={item} />
                         </div>
                         <Link

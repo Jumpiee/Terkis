@@ -18,12 +18,10 @@ async function main() {
   // 1. Dixon Standard Loading Arm (Top/Bottom)
   {
     console.log('Evaluating: Dixon Standard Loading Arm...')
-    const folderDir = path.join(__dirname, 'data', 'dixon_loading_arm')
-    const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.png'), 'Dixon Standard Loading Arm Main Image', token)
-    const galleryImage1Id = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_1.png'), 'Dixon Standard Loading Arm Gallery 1', token)
-    const galleryImage2Id = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_2.png'), 'Dixon Standard Loading Arm Gallery 2', token)
+    const mainImagePath = path.resolve(__dirname, '../../../../public/media/DX-001.png')
+    const mainImageId = await uploadMedia(mainImagePath, 'Dixon Standard Loading Arm Main Image', token)
 
-    const gallery = [{ image: mainImageId }, { image: galleryImage1Id }, { image: galleryImage2Id }]
+    const gallery = [{ image: mainImageId }]
 
     const layout = [
       {
@@ -43,7 +41,7 @@ async function main() {
         heading: 'Engineering Advantages',
         description: 'Top or bottom articulating pipe loading system utilizing high-strength swivels and torsion spring counterbalance for safe chemical transfer.',
         items: [
-          { title: 'Articulating Pipes', body: 'Rigid pipe loading eliminates fluid handling hose kinks, bursts, and safety hazards.' },
+          { title: 'Articulating Pipes', body: 'Rigid pipe loading eliminates fluid handling house kinks, bursts, and safety hazards.' },
           { title: 'Split Flange Swivel', body: 'Base swivel joints allow 360-degree rotation and simplify seal maintenance.' },
           { title: 'Torsion Spring', body: 'Torsion spring counterbalance allows easy manual lifting and docking of the loading arm.' },
           { title: 'Wide Seal Selection', body: 'Sealing options include Nitrile, FKM, PTFE, and EPDM to cover broad process media.' }
@@ -108,12 +106,10 @@ async function main() {
   // 2. Dixon Scissor Style Loading Arm
   {
     console.log('Evaluating: Dixon Scissor Style Loading Arm...')
-    const folderDir = path.join(__dirname, 'data', 'dixon_scissor_loading_arm')
-    const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.png'), 'Dixon Scissor Style Loading Arm Main Image', token)
-    const galleryImage1Id = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_1.png'), 'Dixon Scissor Style Loading Arm Gallery 1', token)
-    const galleryImage2Id = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_2.png'), 'Dixon Scissor Style Loading Arm Gallery 2', token)
+    const mainImagePath = path.resolve(__dirname, '../../../../public/media/DX-002.png')
+    const mainImageId = await uploadMedia(mainImagePath, 'Dixon Scissor Style Loading Arm Main Image', token)
 
-    const gallery = [{ image: mainImageId }, { image: galleryImage1Id }, { image: galleryImage2Id }]
+    const gallery = [{ image: mainImageId }]
 
     const layout = [
       {
@@ -194,6 +190,7 @@ async function main() {
       }
     }, token)
   }
+
 
   console.log('✓ DIXON Loading Arms Seeding Complete')
 }

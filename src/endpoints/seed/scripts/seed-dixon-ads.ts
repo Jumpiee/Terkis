@@ -15,11 +15,10 @@ async function main() {
   const brand = await findOrCreate('brands', 'dixon', { title: 'DIXON', slug: 'dixon' }, token)
   const category = await findOrCreate('product-categories', 'instrument', { title: 'Instrument', slug: 'instrument' }, token)
 
-  const folderDir = path.join(__dirname, 'data', 'dixon_overfill_rack_monitor')
-  const mainImageId = await uploadMedia(path.join(folderDir, 'images/main.png'), 'Dixon ADS Overfill Rack Monitor Main Image', token)
-  const galleryImageId = await uploadMedia(path.join(folderDir, 'images/gallery/gallery_1.png'), 'Dixon ADS Overfill Rack Monitor Gallery Image', token)
+  const mainImagePath = path.resolve(__dirname, '../../../../public/media/DIXON.jpg')
+  const mainImageId = await uploadMedia(mainImagePath, 'Dixon ADS Overfill Rack Monitor Main Image', token)
 
-  const gallery = [{ image: mainImageId }, { image: galleryImageId }]
+  const gallery = [{ image: mainImageId }]
 
   const layout = [
     {
