@@ -434,7 +434,7 @@ export default function KlausUnionFullPresentation() {
                 Request a Custom Sizing Report
               </h3>
               <p className="mt-6 text-sm text-neutral-400 leading-relaxed">
-                Our application engineers provide comprehensive pump sizing, NPSH calculations, and material selection reports based on your specific process conditions.
+                Our application engineer provide comprehensive pump sizing, NPSH calculations, and material selection reports based on your specific process conditions.
               </p>
               <div className="mt-10 flex flex-col gap-4">
                 <div>
