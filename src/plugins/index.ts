@@ -4,6 +4,7 @@ import { Plugin } from 'payload'
 import { GenerateTitle, GenerateURL } from '@payloadcms/plugin-seo/types'
 import { FixedToolbarFeature, HeadingFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
 import { ecommercePlugin } from '@payloadcms/plugin-ecommerce'
+import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 
 import { stripeAdapter } from '@payloadcms/plugin-ecommerce/payments/stripe'
 
@@ -127,5 +128,12 @@ export const plugins: Plugin[] = [
     products: {
       productsCollectionOverride: ProductsCollection,
     },
+  }),
+  vercelBlobStorage({
+    enabled: Boolean(process.env.BLOB_READ_WRITE_TOKEN),
+    collections: {
+      media: true,
+    },
+    token: process.env.BLOB_READ_WRITE_TOKEN || '',
   }),
 ]
