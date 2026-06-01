@@ -6,7 +6,7 @@ export function LogoIcon(props: React.ComponentProps<'svg'>) {
   return (
     <Link href="/" className="flex items-center gap-2">
       <Image
-        src="/api/media/file/LOGO.png"
+        src="/media/LOGO.png"
         alt="TERKIS Logo"
         width={340}
         height={100}

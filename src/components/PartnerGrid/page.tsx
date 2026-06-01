@@ -1,19 +1,19 @@
 import Image from "next/image";
 
 const partners = [
-  { name: "PROTECTOSEAL",    logo: "/api/media/file/PROTECTOSEAL.png" },
-  { name: "KLAUSUNION",       logo: "/api/media/file/KLAUS.png" },
-  { name: "VICTOR",       logo: "/api/media/file/VICTOR.png" },
-  { name: "DIXON", logo: "/api/media/file/DIXON.jpg" },
-  { name: "SAER",      logo: "/api/media/file/SAER.png" },
-  { name: "STUBBE",    logo: "/api/media/file/STUBBE.png" },
-  { name: "FLOTITE",    logo: "/api/media/file/FLOTITE.png" },
-  { name: "TB",      logo: "/api/media/file/TBB.png" },
-  { name: "3PRINZ",        logo: "/api/media/file/3PRINZ.png" },
-  { name: "CONTROLSEAL",     logo: "/api/media/file/CONTROLSEAL.png" },
-  { name: "HOMA",     logo: "/api/media/file/HOMA.png" },  
-  { name: "AIRCON",     logo: "/api/media/file/AIRCON.png" }, 
-  { name: "FAURE",     logo: "/api/media/file/FAURE.png" }, 
+  { name: "PROTECTOSEAL",    logo: "/media/PROTECTOSEAL.png" },
+  { name: "KLAUSUNION",       logo: "/media/KLAUS.png" },
+  { name: "VICTOR",       logo: "/media/VICTOR.png" },
+  { name: "DIXON", logo: "/media/DIXON.jpg" },
+  { name: "SAER",      logo: "/media/SAER.png" },
+  { name: "STUBBE",    logo: "/media/STUBBE.png" },
+  { name: "FLOTITE",    logo: "/media/FLOTITE.png" },
+  { name: "TB",      logo: "/media/TBB.png" },
+  { name: "3PRINZ",        logo: "/media/3PRINZ.png" },
+  { name: "CONTROLSEAL",     logo: "/media/CONTROLSEAL.png" },
+  { name: "HOMA",     logo: "/media/HOMA.png" },  
+  { name: "AIRCON",     logo: "/media/AIRCON.png" }, 
+  { name: "FAURE",     logo: "/media/FAURE.png" }, 
 ];
 
 export default function PartnersGrid() {
