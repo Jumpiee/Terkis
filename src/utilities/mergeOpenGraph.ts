@@ -7,11 +7,11 @@ const defaultOpenGraph: Metadata['openGraph'] = {
   description: 'Quality in Your Flow.',
   images: [
     {
-      url: `${getServerSideURL()}/images/og-image.jpg`,
+      url: `${getServerSideURL()}/image/industrial-plant.webp`,
     },
   ],
-  siteName: process.env.SITE_NAME || 'Payload Website Template',
-  title: process.env.SITE_NAME || 'Payload Website Template',
+  siteName: process.env.SITE_NAME || 'Terkis',
+  title: process.env.SITE_NAME || 'Terkis',
 }
 
 export const mergeOpenGraph = (og?: Partial<Metadata['openGraph']>): Metadata['openGraph'] => {
