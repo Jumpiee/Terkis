@@ -9,24 +9,19 @@ Status of SEO/OpenGraph config in the Terkis CMS site. Infrastructure is in plac
 - **Per-page metadata** — `src/utilities/generateMeta.ts`, consumed via `generateMetadata` in: `products/[slug]`, `news/[slug]`, `[slug]`, `default`, and an order page.
 - **Per-page OG image path is correct** — uploaded media resolves to `/media/<file>` (static dir `public/media`), so `NEXT_PUBLIC_SERVER_URL + image.url` works. (`/api/media/file/` is Payload's dynamic handler; `/media/...` is the served static path — these are intentionally different.)
 
-## ⚠️ To fix
+## ✅ Fixed
 
 ### 1. Default OG image is a 404 — `src/utilities/mergeOpenGraph.ts:10`
-References `/images/og-image.jpg` (plural `images`), but that file/dir does not exist. The only large on-brand asset present is `public/image/industrial-plant.webp` (singular `image`, 353 KB).
-- **Fix option A:** repoint fallback to `/image/industrial-plant.webp`.
-- **Fix option B:** create `public/images/og-image.jpg`.
+- **Fix:** Repointed fallback to `/image/industrial-plant.webp`.
 
 ### 2. Leftover Payload boilerplate strings (should say "Terkis")
-- `src/plugins/index.ts:21` → `${doc.title} | Payload Ecommerce Template`
-- `src/utilities/mergeOpenGraph.ts:13-14` → `'Payload Website Template'` fallback
-- `src/utilities/generateMeta.ts:31,34` → `'Payload Ecommerce Template'` fallback
+- **Fix:** Updated `src/plugins/index.ts`, `src/utilities/mergeOpenGraph.ts`, and `src/utilities/generateMeta.ts` to use "Terkis".
 
 ### 3. Dead favicon `<link>` tags — `src/app/(app)/layout.tsx:69-70`
-Manual links to `/favicon.ico` and `/favicon.svg` at root will 404 — no files at `public/`. The real favicon is at `src/app/(app)/favicon.ico` (App Router auto-serves it).
-- **Fix:** remove the manual `<link>` tags, OR add real files at `public/favicon.ico` + `public/favicon.svg`.
+- **Fix:** Removed manual `<link>` tags. App Router handles favicons automatically from `src/app/(app)/favicon.ico`.
 
 ### 4. Missing `robots.txt` / `sitemap.xml`
-No `src/app/robots.ts` or `src/app/sitemap.ts`. Standard SEO files, not yet present.
+- **Fix:** Created `src/app/(app)/robots.ts` and `src/app/(app)/sitemap.ts` (dynamic fetching enabled).
 
 ## Reference: available image assets
 
