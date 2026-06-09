@@ -43,7 +43,7 @@ export default async function ProductsPage({ searchParams }: Props) {
           ? [{
               or: [
                 { title: { like: searchValue } },
-                { description: { like: searchValue } },
+                { descriptionText: { like: searchValue } },
               ],
             }]
           : []),

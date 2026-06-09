@@ -287,6 +287,7 @@ export interface Product {
     };
     [k: string]: unknown;
   } | null;
+  descriptionText?: string | null;
   gallery?:
     | {
         image: number | Media;
@@ -1889,6 +1890,7 @@ export interface VariantOptionsSelect<T extends boolean = true> {
 export interface ProductsSelect<T extends boolean = true> {
   title?: T;
   description?: T;
+  descriptionText?: T;
   gallery?:
     | T
     | {

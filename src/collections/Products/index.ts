@@ -25,10 +25,32 @@ import {
   InlineToolbarFeature,
   lexicalEditor,
 } from '@payloadcms/richtext-lexical'
-import { DefaultDocumentIDType, Where } from 'payload'
+import { CollectionBeforeChangeHook, DefaultDocumentIDType, Where } from 'payload'
+
+function lexicalToPlainText(node: any): string {
+  if (!node) return ''
+  if (node.type === 'text') return node.text ?? ''
+  if (node.root) return lexicalToPlainText(node.root)
+  if (Array.isArray(node.children)) return node.children.map(lexicalToPlainText).join(' ')
+  return ''
+}
+
+const syncDescriptionText: CollectionBeforeChangeHook = ({ data }) => {
+  if (data.description) {
+    data.descriptionText = lexicalToPlainText(data.description).replace(/\s+/g, ' ').trim()
+  }
+  return data
+}
 
 export const ProductsCollection: CollectionOverride = ({ defaultCollection }) => ({
   ...defaultCollection,
+  hooks: {
+    ...defaultCollection?.hooks,
+    beforeChange: [
+      ...(defaultCollection?.hooks?.beforeChange ?? []),
+      syncDescriptionText,
+    ],
+  },
   admin: {
     ...defaultCollection?.admin,
     defaultColumns: ['title', 'enableVariants', '_status', 'variants.variants'],
@@ -82,6 +104,12 @@ export const ProductsCollection: CollectionOverride = ({ defaultCollection }) =>
                 },
               }),
               label: false,
+              required: false,
+            },
+            {
+              name: 'descriptionText',
+              type: 'text',
+              admin: { hidden: true },
               required: false,
             },
             {
